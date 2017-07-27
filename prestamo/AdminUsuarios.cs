@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace prestamo
 {
-    public partial class Form1 : Form
+    public partial class AdminUsuarios : Form
     {
-        public Form1()
+        public AdminUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void btSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
