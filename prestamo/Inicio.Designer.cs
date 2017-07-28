@@ -93,7 +93,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(103, 9);
+            this.label1.Location = new System.Drawing.Point(100, 9);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(163, 32);
@@ -146,7 +146,7 @@
             // 
             this.lbVer.AutoSize = true;
             this.lbVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVer.Location = new System.Drawing.Point(120, 52);
+            this.lbVer.Location = new System.Drawing.Point(119, 52);
             this.lbVer.Name = "lbVer";
             this.lbVer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lbVer.Size = new System.Drawing.Size(132, 16);
@@ -158,12 +158,13 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1, 85);
+            this.label4.Location = new System.Drawing.Point(4, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(355, 80);
+            this.label4.Size = new System.Drawing.Size(355, 96);
             this.label4.TabIndex = 12;
-            this.label4.Text = "SISTEMA EN DESARROLLO\r\nPUEDE PRESENTAR FALLAS DURANTE SU USO\r\nNO USAR EN PRODUCCI" +
-    "ÓN\r\nALGUNAS CARACTERISTICAS O FUNCIONES\r\nPUEDEN O NO ESTAR EN LA VERSIÓN FINAL";
+            this.label4.Text = "SISTEMA EN DESARROLLO\r\nNO USAR EN PRODUCCIÖN\r\nPUEDE PRESENTAR FALLAS DURANTE SU U" +
+    "SO\r\n\r\nALGUNAS CARACTERISTICAS O FUNCIONES\r\nPUEDEN O NO ESTAR EN LA VERSIÓN FINAL" +
+    "";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Inicio

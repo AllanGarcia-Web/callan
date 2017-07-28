@@ -146,41 +146,6 @@ namespace prestamo
                 com.Connection = this.con;
                 com.ExecuteNonQuery();      //conexión arreglada fin
                 Lector = com.ExecuteReader();
-                //if (!Lector.HasRows)
-                //{
-                //    AccederBD.Error = "Usuario y contraseña incorrectos. ";
-                //    res = false;
-                //}
-                //else
-                //{
-                //    while (Lector.Read())
-                //    {
-                //        if (Lector.GetString(7) == "No") //verifica si usuario esta activo
-                //        {
-                //            Error = "Usuario Inactivo. ";
-                //            res = false;
-                //        }
-                //        else
-                //        {
-                //            nombre = Lector.GetString(3);
-                //            ApellidoP = Lector.GetString(4);
-                //            ApellidoM = Lector.GetString(5);
-                //            if (Lector.GetString(0) == "Administrador") //verifica si es admin
-                //            {
-                //                valor = 0;
-                //                new menu().ShowDialog();
-                //                res = true;
-                //            }
-                //            if (Lector.GetString(0) == "Cobrador") //verifica si es cobrador
-                //            {
-                //                valor = 1;
-                //                new menu().ShowDialog();
-                //                res = true;
-                //            }
-                //        }
-
-                //    }
-                //}
                 res = true;
             }
             catch (MySqlException mse)
@@ -226,6 +191,8 @@ namespace prestamo
             }
             return res;
         }
+        // fin de crear usuario
+        // inicio de eliminar usuario
         public bool EliminarUsuario(string usuario) //Elimina usuario
         {
             bool res = false;
@@ -253,6 +220,8 @@ namespace prestamo
             }
             return res;
         }
+        // fin de eliminar usuario
+        // incio de editar usuario
         public bool EditarUsuario(string nivel, string usuario, string pass, string nombre, string ap1, string ap2, string email, string estado) //Edita Usuario
         {
             bool res = false;
@@ -280,14 +249,44 @@ namespace prestamo
             }
             return res;
         }
-        // fin querys de modulo usarios
-        // inicio querys de modulo inventario
-        public bool AgregarInventario(string nombre, string carrera, string cantidad, string nota) //Agrega un material a una carrera
+        // fin de editar usuario
+        // cargar lista de deudores
+        public bool LeerDeudores() //Leer usuarios
         {
             bool res = false;
             try
             {
-                string query = "INSERT INTO `inventory_producto` (`nombre`, `carrera`, `cantidad`, `nota`) VALUES ('" + nombre + "', '" + carrera + "', '" + cantidad + "', '" + nota + "')";
+                string query = "SELECT * FROM deudores";
+                com = new MySqlCommand();   //conexión arreglada inicio
+                com.CommandText = query;
+                ConectaDB();
+                com.Connection = this.con;
+                com.ExecuteNonQuery();      //conexión arreglada fin
+                Lector = com.ExecuteReader();
+                res = true;
+            }
+            catch (MySqlException mse)
+            {
+                AccederBD.Error = "Error SQL: " + mse.Message;
+            }
+            catch (Exception general)
+            {
+                AccederBD.Error = "El usuario no existe: " + general.Message;
+            }
+            finally
+            {
+                //DesconectarDB();
+            }
+            return res;
+        }
+        // fin de cargar lista de deudores
+        // inicio de crear deudor
+        public bool CrearDeudor(string nombre, string ap1, string ap2, string ine, string calle, string nodom, string colonia, string ciudad, string codpostal, string estado, string tel, string AvalNombre, string AvalTelefono, string email) //Agrega un material a una carrera
+        {
+            bool res = false;
+            try
+            {
+                string query = "INSERT INTO `deudores` (`nombre`, `ap1`, `ap2`, `ine`, `calle`, `nodom`, `colonia`, `ciudad`, `codpostal`, `estado`, `tel`, `AvalNombre`, `AvalTelefono`, `email`) VALUES ('" + nombre + "', '" + ap1 + "', '" + ap2 + "', '" + ine + "', '" + calle + "', '" + nodom + "', '" + colonia + "', '" + ciudad + "', '" + codpostal + "', '" + estado + "', '" + tel + "', '" + AvalNombre + "', '" + AvalTelefono + "', '" + email + "')";
                 com = new MySqlCommand();   //conexión arreglada inicio
                 com.CommandText = query;
                 ConectaDB();
@@ -309,6 +308,67 @@ namespace prestamo
             }
             return res;
         }
+        // fin de crear deudor
+        // inicio de eliminar deudor
+        public bool EliminarDeudor(string id) //Elimina usuario
+        {
+            bool res = false;
+            try
+            {
+                string query = "DELETE FROM deudores WHERE id = '" + id + "'";
+                com = new MySqlCommand();   //conexión arreglada inicio
+                com.CommandText = query;
+                ConectaDB();
+                com.Connection = this.con;
+                com.ExecuteNonQuery();      //conexión arreglada fin
+                res = true; //no lo cambia
+            }
+            catch (MySqlException msedel)
+            {
+                AccederBD.Error = "Error SQL: " + msedel.Message;
+            }
+            catch (Exception generaldel)
+            {
+                AccederBD.Error = "El usuario no existe o fue eliminado anteriormente: " + generaldel.Message;
+            }
+            finally
+            {
+                DesconectarDB();
+            }
+            return res;
+        }
+        // fin de eliminar deudor
+        // incio de editar deudor
+        public bool EditarDeudor(string id, string nombre, string ap1, string ap2, string ine, string calle, string nodom, string colonia, string ciudad, string codpostal, string estado, string tel, string AvalNombre, string AvalTelefono, string email) //Edita Usuario
+        {
+            bool res = false;
+            try
+            {
+                string query = "UPDATE deudores SET nombre = '" + nombre + "', ap1 = '" + ap1 + "', ap2 = '" + ap2 + "', ine = '" + ine + "', calle = '" + calle + "', nodom = '" + nodom + "', colonia = '" + colonia + "', ciudad = '" + ciudad + "', codpostal = '" + codpostal + "', estado = '" + estado + "', tel = '" + tel + "', AvalNombre = '" + AvalNombre + "', AvalTelefono = '" + AvalTelefono + "', email = '" + email + "' WHERE id = '" + id + "'";
+                com = new MySqlCommand();   //conexión arreglada inicio
+                com.CommandText = query;
+                ConectaDB();
+                com.Connection = this.con;
+                com.ExecuteNonQuery();      //conexión arreglada fin
+                res = true; //no lo cambia
+            }
+            catch (MySqlException msedel)
+            {
+                AccederBD.Error = "Error SQL: " + msedel.Message;
+            }
+            catch (Exception generaldel)
+            {
+                AccederBD.Error = "El usuario no existe o fue eliminado anteriormente: " + generaldel.Message;
+            }
+            finally
+            {
+                DesconectarDB();
+            }
+            return res;
+        }
+        // fin de editar deudor
+
+
         public bool EliminarInventario(string nombre, string carrera) //borrar item de inventario
         {
             bool res = false;
@@ -336,6 +396,8 @@ namespace prestamo
             }
             return res;
         }
+        // fin de crear deudor
+        // Inicio querys de modulo inventario
         public bool EditarInventario(string nombre, string carrera, string cantidad, string nota) //edita en un material en una carrera
         {
             bool res = false;
