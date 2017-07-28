@@ -18,9 +18,9 @@ namespace prestamo
         MySqlConnection con; //conexión
         MySqlCommand com; //comandos a realizar
         //MySqlDataReader dr; //leer los datos
-        public static string Error;
-        public static string nombre, ApellidoP, ApellidoM;
-        public int valor;
+        public static string Error; //guarda el mensaje de erro
+        public static string nombre, ApellidoP, ApellidoM; //datos del usuario activo
+        public int valor; //nivel de acceso
         public DataTable dt;
         public static MySqlDataReader Lector;
 
@@ -133,6 +133,71 @@ namespace prestamo
             return res;
         }
         // fin querys de modulo login
+        // cargar lista de usuarios
+        public bool LeerUsuarios() //Leer usuarios
+        {
+            bool res = false;
+            try
+            {
+                string query = "SELECT * FROM usuarios";
+                com = new MySqlCommand();   //conexión arreglada inicio
+                com.CommandText = query;
+                ConectaDB();
+                com.Connection = this.con;
+                com.ExecuteNonQuery();      //conexión arreglada fin
+                Lector = com.ExecuteReader();
+                //if (!Lector.HasRows)
+                //{
+                //    AccederBD.Error = "Usuario y contraseña incorrectos. ";
+                //    res = false;
+                //}
+                //else
+                //{
+                //    while (Lector.Read())
+                //    {
+                //        if (Lector.GetString(7) == "No") //verifica si usuario esta activo
+                //        {
+                //            Error = "Usuario Inactivo. ";
+                //            res = false;
+                //        }
+                //        else
+                //        {
+                //            nombre = Lector.GetString(3);
+                //            ApellidoP = Lector.GetString(4);
+                //            ApellidoM = Lector.GetString(5);
+                //            if (Lector.GetString(0) == "Administrador") //verifica si es admin
+                //            {
+                //                valor = 0;
+                //                new menu().ShowDialog();
+                //                res = true;
+                //            }
+                //            if (Lector.GetString(0) == "Cobrador") //verifica si es cobrador
+                //            {
+                //                valor = 1;
+                //                new menu().ShowDialog();
+                //                res = true;
+                //            }
+                //        }
+
+                //    }
+                //}
+                res = true;
+            }
+            catch (MySqlException mse)
+            {
+                AccederBD.Error = "Error SQL: " + mse.Message;
+            }
+            catch (Exception general)
+            {
+                AccederBD.Error = "El usuario no existe: " + general.Message;
+            }
+            finally
+            {
+                //DesconectarDB();
+            }
+            return res;
+        }
+        // fin de cargar lista de usuarios
         // inicio querys modulo usuarios
         public bool CrearUsuario(string nivel, string usuario, string pass, string nombre, string ap1, string ap2, string email, string estado) //Crea usuario
         {
@@ -166,7 +231,7 @@ namespace prestamo
             bool res = false;
             try
             {
-                string query = "DELETE FROM inventory_usuario WHERE USER_name = '" + usuario + "'";
+                string query = "DELETE FROM usuarios WHERE user = '" + usuario + "'";
                 com = new MySqlCommand();   //conexión arreglada inicio
                 com.CommandText = query;
                 ConectaDB();
@@ -188,12 +253,12 @@ namespace prestamo
             }
             return res;
         }
-        public bool EditarUsuario(string usuario, string pass) //Edita Usuario
+        public bool EditarUsuario(string nivel, string usuario, string pass, string nombre, string ap1, string ap2, string email, string estado) //Edita Usuario
         {
             bool res = false;
             try
             {
-                string query = "UPDATE inventory_usuario SET PASSWORD = '" + pass + "' WHERE USER_NAME = '" + usuario + "'";
+                string query = "UPDATE usuarios SET nivel = '" + nivel + "', pass = '" + pass + "', nombre = '" + nombre + "', ap1 = '" + ap1 + "', ap2 = '" + ap2 + "', email = '" + email + "', estado = '" + estado + "' WHERE user = '" + usuario + "'";
                 com = new MySqlCommand();   //conexión arreglada inicio
                 com.CommandText = query;
                 ConectaDB();
