@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Sql;
-using System.Data;
 
-namespace ControlInventarioUniversidad
+namespace prestamo
 {
     class AccederBD
     {
@@ -15,12 +19,12 @@ namespace ControlInventarioUniversidad
         MySqlCommand com; //comandos a realizar
         //MySqlDataReader dr; //leer los datos
         public static string Error;
-        public static string Error2;
+        public static string nombre, ApellidoP, ApellidoM;
         public int valor;
         public DataTable dt;
-        public MySqlDataReader Lector;
+        public static MySqlDataReader Lector;
 
-        //manejo basico de base de datos
+        //Conexión a MySQL
         public bool ConectaDB() //inicia conexión a la BD
         {
             bool res = false;
@@ -28,17 +32,17 @@ namespace ControlInventarioUniversidad
             {
                 //                         Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;
                 //con = new MySqlConnection("Server = MYSQL5013.SmarterASP.NET;Database=db_a14f18_proguth;Uid=a14f18_proguth;Pwd=pr0gCon0");  //online
-                con = new MySqlConnection("Server = 127.0.0.1;Database=integradora;Uid=root;Pwd=alvarez");  //offline
+                con = new MySqlConnection("Server = 127.0.0.1;Database=prestamos;Uid=root;Pwd=alvarez");  //offline
                 con.Open();
                 res = true;
             }
             catch (MySqlException mse)
             {
-                AccederBD.Error2 = "Error SQL al conectar. " + mse.Message;
+                Error = "Error SQL al conectar. " + mse.Message;
             }
             catch (Exception general)
             {
-                AccederBD.Error2 = "Error general al conectar. " + general.Message;
+                Error = "Error general al conectar. " + general.Message;
             }
             return res;
         } //final conectar DB
@@ -71,37 +75,56 @@ namespace ControlInventarioUniversidad
             bool res = false;
             try
             {
-                string query = "SELECT tipo_usuario FROM usuarios WHERE id_usuario = '" + usuario + "'AND pass_usuario = '" + pass + "'";
+                string query = "SELECT * FROM usuarios WHERE user = '" + usuario + "' AND pass = '" + pass + "'";
                 com = new MySqlCommand();   //conexión arreglada inicio
                 com.CommandText = query;
                 ConectaDB();
                 com.Connection = this.con;
                 com.ExecuteNonQuery();      //conexión arreglada fin
-                valor = int.Parse(com.ExecuteScalar().ToString()); //obtine el resultado de la query
-                res = true;
-                if (valor == 0)
+                Lector = com.ExecuteReader();
+                if (!Lector.HasRows)
                 {
-                    menu0 form = new menu0(); //Menu de admin
-                    form.ShowDialog();
+                    AccederBD.Error = "Usuario y contraseña incorrectos. ";
+                    res = false;
                 }
-                else if (valor == 1)
+                else
                 {
-                    menu1 form = new menu1(); //Menu de almacen
-                    form.ShowDialog();
-                }
-                else if (valor == 2)
-                {
-                    menu2 form = new menu2(); //Menu de oficina
-                    form.ShowDialog();
+                    while (Lector.Read())
+                    {
+                        if (Lector.GetString(7) == "No") //verifica si usuario esta activo
+                        {
+                            Error = "Usuario Inactivo. ";
+                            res = false;
+                        }
+                        else
+                        {
+                            nombre = Lector.GetString(3);
+                            ApellidoP = Lector.GetString(4);
+                            ApellidoM = Lector.GetString(5);
+                            if (Lector.GetString(0) == "Administrador") //verifica si es admin
+                            {
+                                valor = 0;
+                                new menu().ShowDialog();
+                                res = true;
+                            }
+                            if (Lector.GetString(0) == "Cobrador") //verifica si es cobrador
+                            {
+                                valor = 1;
+                                new menu().ShowDialog();
+                                res = true;
+                            }
+                        }
+                        
+                    }
                 }
             }
             catch (MySqlException mse)
             {
-                AccederBD.Error = "Error SQL al Seleccionar. " + mse.Message;
+                Error = "Error SQL al Seleccionar. " + mse.Message;
             }
-            catch (Exception)
+            catch (Exception gen)
             {
-                AccederBD.Error = "Verifica tus datos, no te encuentro en la BD";
+                Error = "Error de conexión a la BD. " + gen.Message;
             }
             finally
             {
@@ -111,12 +134,12 @@ namespace ControlInventarioUniversidad
         }
         // fin querys de modulo login
         // inicio querys modulo usuarios
-        public bool CrearUsuario(int tipo, string usuario, string pass, string nombre) //Crea usuario
+        public bool CrearUsuario(string nivel, string usuario, string pass, string nombre, string ap1, string ap2, string email, string estado) //Crea usuario
         {
             bool res = false;
             try
             {
-                string query = "INSERT INTO `inventory_usuario` (`USER_TYPE`, `USER_NAME`, `PASSWORD`, `NAME`) VALUES ('" + tipo + "', '" + usuario + "', '" + pass + "', '" + nombre + "')";
+                string query = "INSERT INTO `usuarios` (`nivel`, `user`, `pass`, `nombre`, `ap1`, `ap2`, `email`, `estado`) VALUES ('" + nivel + "', '" + usuario + "', '" + pass + "', '" + nombre + "', '" + ap1 + "', '" + ap2 + "', '" + email + "', '" + estado + "')";
                 com = new MySqlCommand();   //conexión arreglada inicio
                 com.CommandText = query;
                 ConectaDB();

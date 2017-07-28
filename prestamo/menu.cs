@@ -12,9 +12,11 @@ namespace prestamo
 {
     public partial class menu : Form
     {
+        
         public menu()
         {
             InitializeComponent();
+            AccederBD basedatos = new AccederBD();
         }
 
         private void bt_salir_Click(object sender, EventArgs e)
@@ -30,6 +32,11 @@ namespace prestamo
         private void deudoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AdminDeudores().ShowDialog();
+        }
+
+        private void menu_Load(object sender, EventArgs e)
+        {
+            lbnombre.Text = AccederBD.nombre+" "+AccederBD.ApellidoP+" "+AccederBD.ApellidoM;
         }
     }
 }

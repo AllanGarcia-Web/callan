@@ -38,6 +38,8 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDelSisremaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbbienvenido = new System.Windows.Forms.Label();
+            this.lbnombre = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,17 +122,39 @@
             this.acercaDelSisremaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.acercaDelSisremaToolStripMenuItem.Text = "Acerca del sisrema";
             // 
+            // lbbienvenido
+            // 
+            this.lbbienvenido.AutoSize = true;
+            this.lbbienvenido.Location = new System.Drawing.Point(13, 41);
+            this.lbbienvenido.Name = "lbbienvenido";
+            this.lbbienvenido.Size = new System.Drawing.Size(63, 13);
+            this.lbbienvenido.TabIndex = 3;
+            this.lbbienvenido.Text = "Bienvenido:";
+            // 
+            // lbnombre
+            // 
+            this.lbnombre.AutoSize = true;
+            this.lbnombre.Location = new System.Drawing.Point(82, 41);
+            this.lbnombre.Name = "lbnombre";
+            this.lbnombre.Size = new System.Drawing.Size(122, 13);
+            this.lbnombre.TabIndex = 4;
+            this.lbnombre.Text = "Error al cargar el nombre";
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 309);
+            this.Controls.Add(this.lbnombre);
+            this.Controls.Add(this.lbbienvenido);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.bt_salir);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
+            this.Load += new System.EventHandler(this.menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -150,5 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaDelSistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDelSisremaToolStripMenuItem;
+        private System.Windows.Forms.Label lbbienvenido;
+        private System.Windows.Forms.Label lbnombre;
     }
 }
