@@ -64,7 +64,6 @@
             this.tbColonia = new System.Windows.Forms.TextBox();
             this.tbCiudad = new System.Windows.Forms.TextBox();
             this.tbCodigoPostal = new System.Windows.Forms.TextBox();
-            this.tbEstado = new System.Windows.Forms.TextBox();
             this.tbTelefono = new System.Windows.Forms.TextBox();
             this.tbAval = new System.Windows.Forms.TextBox();
             this.tbTelefonoAval = new System.Windows.Forms.TextBox();
@@ -83,6 +82,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tBdeudor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cBestados = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGvDeudores)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -394,14 +394,6 @@
             this.tbCodigoPostal.TabIndex = 83;
             this.tbCodigoPostal.Leave += new System.EventHandler(this.tbCodigoPostal_Leave);
             // 
-            // tbEstado
-            // 
-            this.tbEstado.Location = new System.Drawing.Point(639, 13);
-            this.tbEstado.Name = "tbEstado";
-            this.tbEstado.Size = new System.Drawing.Size(179, 20);
-            this.tbEstado.TabIndex = 84;
-            this.tbEstado.Leave += new System.EventHandler(this.tbEstado_Leave);
-            // 
             // tbTelefono
             // 
             this.tbTelefono.Location = new System.Drawing.Point(639, 49);
@@ -547,6 +539,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cBestados);
             this.groupBox1.Controls.Add(this.tbIne);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.tBdeudor);
@@ -567,7 +560,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tbTelefono);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tbEstado);
             this.groupBox1.Controls.Add(this.tbCalle);
             this.groupBox1.Controls.Add(this.tbCodigoPostal);
             this.groupBox1.Controls.Add(this.tbNumero);
@@ -619,6 +611,48 @@
             this.label6.TabIndex = 92;
             this.label6.Text = "No. Deudor";
             // 
+            // cBestados
+            // 
+            this.cBestados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBestados.FormattingEnabled = true;
+            this.cBestados.Items.AddRange(new object[] {
+            "Aguascalientes",
+            "Baja California",
+            "Baja California Sur",
+            "Campeche",
+            "Chiapas",
+            "Chihuahua",
+            "Ciudad de México",
+            "Coahuila",
+            "Colima",
+            "Durango",
+            "Estado de México",
+            "Guanajuato",
+            "Guerrero",
+            "Hidalgo",
+            "Jalisco",
+            "Michoacán",
+            "Morelos",
+            "Nayarit",
+            "Nuevo León",
+            "Oaxaca",
+            "Puebla",
+            "Querétaro",
+            "Quintana Roo",
+            "San Luis Potosí",
+            "Sinaloa",
+            "Sonora",
+            "Tabasco",
+            "Tamaulipas",
+            "Tlaxcala",
+            "Veracruz",
+            "Yucatán",
+            "Zacatecas"});
+            this.cBestados.Location = new System.Drawing.Point(639, 12);
+            this.cBestados.Name = "cBestados";
+            this.cBestados.Size = new System.Drawing.Size(179, 21);
+            this.cBestados.TabIndex = 96;
+            // 
             // AdminDeudores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,7 +696,6 @@
         private System.Windows.Forms.TextBox tbColonia;
         private System.Windows.Forms.TextBox tbCiudad;
         private System.Windows.Forms.TextBox tbCodigoPostal;
-        private System.Windows.Forms.TextBox tbEstado;
         private System.Windows.Forms.TextBox tbTelefono;
         private System.Windows.Forms.TextBox tbAval;
         private System.Windows.Forms.TextBox tbTelefonoAval;
@@ -696,5 +729,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.ComboBox cBestados;
     }
 }

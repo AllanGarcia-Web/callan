@@ -46,6 +46,7 @@ namespace prestamo
 
         private void AdminDeudores_Load(object sender, EventArgs e)
         {
+            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes
             dGvDeudores.Rows.Clear();
             BD basedatos = new libAccesoBD.BD();
             if (basedatos.LeerDeudores() == true)
@@ -58,7 +59,7 @@ namespace prestamo
             }
             else
             {
-                MessageBox.Show("Error al leer datos. " + AccederBD.Error);
+                MessageBox.Show("Error al leer datos. " + BD.Error);
             }
         }
 
@@ -74,14 +75,14 @@ namespace prestamo
                 try
                 {
                     BD basedatos = new libAccesoBD.BD();
-                    if (basedatos.CrearDeudor(tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, tbEstado.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
+                    if (basedatos.CrearDeudor(tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
                     {
                         MessageBox.Show("Agregado Correctamente");
                         tBnombre.Focus();
                     }
                     else
                     {
-                        MessageBox.Show("Se esta agregando a un usuario repetido" + AccederBD.Error);
+                        MessageBox.Show("Se esta agregando a un usuario repetido" + BD.Error);
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
@@ -98,7 +99,7 @@ namespace prestamo
         private void btActualizar_Click(object sender, EventArgs e)
         {
             BD basedatos = new libAccesoBD.BD();
-            if (basedatos.EditarDeudor(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, tbEstado.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
+            if (basedatos.EditarDeudor(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
             {
                 MessageBox.Show("Actualizado Correctamente");
                 tBnombre.Focus();
@@ -148,7 +149,7 @@ namespace prestamo
             tbColonia.Clear();
             tbCiudad.Clear();
             tbCodigoPostal.Clear();
-            tbEstado.Clear();
+            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes
             tbTelefono.Clear();
             tbAval.Clear();
             tbTelefonoAval.Clear();
@@ -170,7 +171,7 @@ namespace prestamo
                 tbColonia.Text = dGvDeudores[7, e.RowIndex].Value.ToString();
                 tbCiudad.Text = dGvDeudores[8, e.RowIndex].Value.ToString();
                 tbCodigoPostal.Text = dGvDeudores[9, e.RowIndex].Value.ToString();
-                tbEstado.Text = dGvDeudores[10, e.RowIndex].Value.ToString();
+                cBestados.Text = dGvDeudores[10, e.RowIndex].Value.ToString();
                 tbTelefono.Text = dGvDeudores[11, e.RowIndex].Value.ToString();
                 tbAval.Text = dGvDeudores[12, e.RowIndex].Value.ToString();
                 tbTelefonoAval.Text = dGvDeudores[13, e.RowIndex].Value.ToString();
@@ -293,19 +294,6 @@ namespace prestamo
             {
                 tbCodigoPostal.Focus();
                 tbCodigoPostal.SelectAll();
-            }
-        }
-
-        private void tbEstado_Leave(object sender, EventArgs e)
-        {
-            if (libValidaciones.libValidaciones.Direccion(tbEstado.Text))
-            {
-                estado = true;
-            }
-            else
-            {
-                tbEstado.Focus();
-                tbEstado.SelectAll();
             }
         }
 
