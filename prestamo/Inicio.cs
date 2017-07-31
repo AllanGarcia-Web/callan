@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using libAccesoBD;
 
 namespace prestamo
 { 
@@ -33,14 +34,14 @@ namespace prestamo
             }
             else
             {
-                AccederBD basedatos = new AccederBD();
+                bd basedatos = new libAccesoBD.bd();
                 if (basedatos.login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 {
-                    //Sin Acciones ya que accedio correctamente
+                    new menu().ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Error: " + AccederBD.Error); //especifica el error
+                    MessageBox.Show("Error: " + bd.Error); //especifica el error
                 }
                 basedatos.DesconectarDB();
             }

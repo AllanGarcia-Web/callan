@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using libAccesoBD;
 
 namespace prestamo
 {
@@ -51,18 +52,19 @@ namespace prestamo
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             dGvUsuarios.Rows.Clear();
-            AccederBD basedatos = new AccederBD();
+            //AccederBD basedatos = new AccederBD();
+            bd basedatos = new libAccesoBD.bd();
             if (basedatos.LeerUsuarios() == true)
             {
-                while (AccederBD.Lector.Read()) //datos de la bd
+                while (bd.Lector.Read()) //datos de la bd
                 {
-                    dGvUsuarios.Rows.Add(AccederBD.Lector.GetString(0), AccederBD.Lector.GetString(1), AccederBD.Lector.GetString(2), AccederBD.Lector.GetString(3), AccederBD.Lector.GetString(4), AccederBD.Lector.GetString(5), AccederBD.Lector.GetString(6), AccederBD.Lector.GetString(7)); // cargar datos
+                    dGvUsuarios.Rows.Add(bd.Lector.GetString(0), bd.Lector.GetString(1), bd.Lector.GetString(2), bd.Lector.GetString(3), bd.Lector.GetString(4), bd.Lector.GetString(5), bd.Lector.GetString(6), bd.Lector.GetString(7)); // cargar datos
                 }
                 basedatos.DesconectarDB();
             }
             else
             {
-                MessageBox.Show("Error al leer datos. "+AccederBD.Error);
+                MessageBox.Show("Error al leer datos. "+bd.Error);
             }
         }
 
@@ -85,7 +87,7 @@ namespace prestamo
             {
                 try
                 {
-                    AccederBD basedatos = new AccederBD();
+                    bd basedatos = new libAccesoBD.bd();
                     if (basedatos.CrearUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
                         MessageBox.Show("Agregado Correctamente");
@@ -126,7 +128,7 @@ namespace prestamo
             {
                 try
                 {
-                    AccederBD basedatos = new AccederBD();
+                    bd basedatos = new libAccesoBD.bd();
                     if (basedatos.EditarUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
                         MessageBox.Show("Usuario seleccionado actualizado");
@@ -153,14 +155,14 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado?", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                AccederBD basedatos = new AccederBD();
+                bd basedatos = new libAccesoBD.bd();
                 if (basedatos.EliminarUsuario(tBusuario.Text) == true)
                 {
                     MessageBox.Show("Eliminado Correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("" + AccederBD.Error);
+                    MessageBox.Show("" + bd.Error);
                 }
                 AdminUsuarios_Load(sender, e);
             }

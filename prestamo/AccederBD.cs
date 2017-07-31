@@ -20,7 +20,7 @@ namespace prestamo
         //MySqlDataReader dr; //leer los datos
         public static string Error; //guarda el mensaje de erro
         public static string nombre, ApellidoP, ApellidoM; //datos del usuario activo
-        public int valor; //nivel de acceso
+        public static int valor; //nivel de acceso
         public DataTable dt;
         public static MySqlDataReader Lector;
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using libAccesoBD;
 
 namespace prestamo
 {
@@ -25,12 +26,12 @@ namespace prestamo
         private void AdminDeudores_Load(object sender, EventArgs e)
         {
             dGvDeudores.Rows.Clear();
-            AccederBD basedatos = new AccederBD();
+            bd basedatos = new libAccesoBD.bd();
             if (basedatos.LeerDeudores() == true)
             {
-                while (AccederBD.Lector.Read()) //datos de la bd
+                while (bd.Lector.Read()) //datos de la bd
                 {
-                    dGvDeudores.Rows.Add(AccederBD.Lector.GetInt32(0).ToString(), AccederBD.Lector.GetString(1), AccederBD.Lector.GetString(2), AccederBD.Lector.GetString(3), AccederBD.Lector.GetString(4), AccederBD.Lector.GetString(5), AccederBD.Lector.GetString(6), AccederBD.Lector.GetString(7), AccederBD.Lector.GetString(8), AccederBD.Lector.GetString(9), AccederBD.Lector.GetString(10), AccederBD.Lector.GetString(11), AccederBD.Lector.GetString(12), AccederBD.Lector.GetString(13), AccederBD.Lector.GetString(14), AccederBD.Lector.GetString(15)); // cargar datos
+                    dGvDeudores.Rows.Add(bd.Lector.GetInt32(0).ToString(), bd.Lector.GetString(1), bd.Lector.GetString(2), bd.Lector.GetString(3), bd.Lector.GetString(4), bd.Lector.GetString(5), bd.Lector.GetString(6), bd.Lector.GetString(7), bd.Lector.GetString(8), bd.Lector.GetString(9), bd.Lector.GetString(10), bd.Lector.GetString(11), bd.Lector.GetString(12), bd.Lector.GetString(13), bd.Lector.GetString(14), bd.Lector.GetString(15)); // cargar datos
                 }
                 basedatos.DesconectarDB();
             }
@@ -51,7 +52,7 @@ namespace prestamo
             {
                 try
                 {
-                    AccederBD basedatos = new AccederBD();
+                    bd basedatos = new libAccesoBD.bd();
                     if (basedatos.CrearDeudor(tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, tbEstado.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
                     {
                         MessageBox.Show("Agregado Correctamente");
@@ -75,7 +76,7 @@ namespace prestamo
 
         private void btActualizar_Click(object sender, EventArgs e)
         {
-            AccederBD basedatos = new AccederBD();
+            bd basedatos = new libAccesoBD.bd();
             if (basedatos.EditarDeudor(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, tbEstado.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
             {
                 MessageBox.Show("Actualizado Correctamente");
@@ -83,7 +84,7 @@ namespace prestamo
             }
             else
             {
-                MessageBox.Show("Error al actualizar" + AccederBD.Error);
+                MessageBox.Show("Error al actualizar" + bd.Error);
                 tBnombre.Focus();
                 tBnombre.SelectAll();
             }
@@ -96,14 +97,14 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar al deudor seleccionado? ESTO ES IRREBERSIBLE", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                AccederBD basedatos = new AccederBD();
+                bd basedatos = new libAccesoBD.bd();
                 if (basedatos.EliminarDeudor(tBdeudor.Text) == true)
                 {
                     MessageBox.Show("Eliminado Correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("" + AccederBD.Error);
+                    MessageBox.Show("" + bd.Error);
                 }
             }
             else if (dialog == DialogResult.No)

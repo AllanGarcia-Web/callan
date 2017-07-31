@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
             this.bt_salir = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -45,9 +46,13 @@
             // 
             // bt_salir
             // 
-            this.bt_salir.Location = new System.Drawing.Point(561, 261);
+            this.bt_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_salir.Image = ((System.Drawing.Image)(resources.GetObject("bt_salir.Image")));
+            this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_salir.Location = new System.Drawing.Point(578, 281);
+            this.bt_salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_salir.Name = "bt_salir";
-            this.bt_salir.Size = new System.Drawing.Size(75, 23);
+            this.bt_salir.Size = new System.Drawing.Size(100, 26);
             this.bt_salir.TabIndex = 0;
             this.bt_salir.Text = "&Salir";
             this.bt_salir.UseVisualStyleBackColor = true;
@@ -55,9 +60,10 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 287);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 313);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(648, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(689, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -71,34 +77,40 @@
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(648, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // usuariosToolStripMenuItem
             // 
+            this.usuariosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // deudoresToolStripMenuItem
             // 
+            this.deudoresToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deudoresToolStripMenuItem.Name = "deudoresToolStripMenuItem";
-            this.deudoresToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.deudoresToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.deudoresToolStripMenuItem.Text = "Deudores";
             this.deudoresToolStripMenuItem.Click += new System.EventHandler(this.deudoresToolStripMenuItem_Click);
             // 
             // prestamosToolStripMenuItem
             // 
+            this.prestamosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
-            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.prestamosToolStripMenuItem.Text = "Prestamos";
             // 
             // prendasToolStripMenuItem
             // 
+            this.prendasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prendasToolStripMenuItem.Name = "prendasToolStripMenuItem";
-            this.prendasToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.prendasToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.prendasToolStripMenuItem.Text = "Prendas";
             // 
             // ayudaToolStripMenuItem
@@ -106,51 +118,60 @@
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ayudaDelSistemaToolStripMenuItem,
             this.acercaDelSisremaToolStripMenuItem});
+            this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // ayudaDelSistemaToolStripMenuItem
             // 
             this.ayudaDelSistemaToolStripMenuItem.Name = "ayudaDelSistemaToolStripMenuItem";
-            this.ayudaDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.ayudaDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.ayudaDelSistemaToolStripMenuItem.Text = "Ayuda del sistema";
             // 
             // acercaDelSisremaToolStripMenuItem
             // 
             this.acercaDelSisremaToolStripMenuItem.Name = "acercaDelSisremaToolStripMenuItem";
-            this.acercaDelSisremaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.acercaDelSisremaToolStripMenuItem.Text = "Acerca del sisrema";
+            this.acercaDelSisremaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.acercaDelSisremaToolStripMenuItem.Text = "Acerca del sistema";
+            this.acercaDelSisremaToolStripMenuItem.Click += new System.EventHandler(this.acercaDelSisremaToolStripMenuItem_Click);
             // 
             // lbbienvenido
             // 
             this.lbbienvenido.AutoSize = true;
-            this.lbbienvenido.Location = new System.Drawing.Point(13, 41);
+            this.lbbienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbbienvenido.Location = new System.Drawing.Point(18, 47);
+            this.lbbienvenido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbbienvenido.Name = "lbbienvenido";
-            this.lbbienvenido.Size = new System.Drawing.Size(63, 13);
+            this.lbbienvenido.Size = new System.Drawing.Size(82, 15);
             this.lbbienvenido.TabIndex = 3;
             this.lbbienvenido.Text = "Bienvenido:";
             // 
             // lbnombre
             // 
             this.lbnombre.AutoSize = true;
-            this.lbnombre.Location = new System.Drawing.Point(82, 41);
+            this.lbnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbnombre.Location = new System.Drawing.Point(105, 47);
+            this.lbnombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbnombre.Name = "lbnombre";
-            this.lbnombre.Size = new System.Drawing.Size(122, 13);
+            this.lbnombre.Size = new System.Drawing.Size(169, 15);
             this.lbnombre.TabIndex = 4;
             this.lbnombre.Text = "Error al cargar el nombre";
             // 
             // menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 309);
+            this.ClientSize = new System.Drawing.Size(689, 335);
             this.Controls.Add(this.lbnombre);
             this.Controls.Add(this.lbbienvenido);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.bt_salir);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";

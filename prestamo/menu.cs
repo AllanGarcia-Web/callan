@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using libAccesoBD;
 
 namespace prestamo
 {
@@ -16,7 +17,11 @@ namespace prestamo
         public menu()
         {
             InitializeComponent();
-            AccederBD basedatos = new AccederBD();
+            bd basedatos = new libAccesoBD.bd(); //conexión a libreria
+            if (bd.valor == 1) //verificar que es cobrador
+            {
+                usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
+            }
         }
 
         private void bt_salir_Click(object sender, EventArgs e)
@@ -36,7 +41,12 @@ namespace prestamo
 
         private void menu_Load(object sender, EventArgs e)
         {
-            lbnombre.Text = AccederBD.nombre+" "+AccederBD.ApellidoP+" "+AccederBD.ApellidoM;
+            lbnombre.Text = bd.nombre+" "+bd.ApellidoP+" "+bd.ApellidoM; //leer el nombre del usuario actual
+        }
+
+        private void acercaDelSisremaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutBox1().ShowDialog();
         }
     }
 }
