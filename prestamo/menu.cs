@@ -22,13 +22,19 @@ namespace prestamo
             //lbEquipo.Text= "Nombre del equipo: "+ Dns.GetHostName().ToString() +"       IP Local: "+GetComputer_LanIP().ToString() +"       IP Publica: "+GetComputer_InternetIP(); //nombre del equipo, ip local e ip externa (tarda en cargar ip externa)
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
             BD basedatos = new libAccesoBD.BD(); //conexión a libreria
-            if (BD.valor == 1) //verificar que es cobrador
+            if (BD.valor == 1) //verificar que es cobrador, para desactivar modulos
             {
                 usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
             }
         }
 
-        private string GetComputer_LanIP() //obtine la ip local
+        private void menu_Load(object sender, EventArgs e)
+        {
+            lbbienvenido.Text = "Bienvenido " + BD.nivel + ":";
+            lbnombre.Text = BD.nombre + " " + BD.ApellidoP + " " + BD.ApellidoM; //leer el nombre del usuario actual
+        }
+
+        private string GetComputer_LanIP() //obtiene la ip local, para soporte remoto
         {
             string strHostName = Dns.GetHostName();
 
@@ -63,29 +69,34 @@ namespace prestamo
                 Replace("</body></html>", string.Empty);
         }
 
-        private void bt_salir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de usuarios
         {
             new AdminUsuarios().ShowDialog();
         }
 
-        private void deudoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deudoresToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de deudores
         {
             new AdminDeudores().ShowDialog();
         }
 
-        private void menu_Load(object sender, EventArgs e)
-        {
-            lbnombre.Text = BD.nombre+" "+BD.ApellidoP+" "+BD.ApellidoM; //leer el nombre del usuario actual
-        }
-
-        private void acercaDelSisremaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void acercaDelSisremaToolStripMenuItem_Click(object sender, EventArgs e) //acerca de
         {
             new AboutBox1().ShowDialog();
+        }
+
+        private void prendasToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de prendas
+        {
+            new AdminPrenda().ShowDialog();
+        }
+
+        private void prestamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AdminPrestamo().ShowDialog();
+        }
+
+        private void bt_salir_Click(object sender, EventArgs e) //boton salir
+        {
+            this.Close();
         }
     }
 }

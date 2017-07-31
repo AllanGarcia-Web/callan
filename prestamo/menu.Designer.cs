@@ -107,6 +107,7 @@
             this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
             this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.prestamosToolStripMenuItem.Text = "Prestamos";
+            this.prestamosToolStripMenuItem.Click += new System.EventHandler(this.prestamosToolStripMenuItem_Click);
             // 
             // prendasToolStripMenuItem
             // 
@@ -114,6 +115,7 @@
             this.prendasToolStripMenuItem.Name = "prendasToolStripMenuItem";
             this.prendasToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.prendasToolStripMenuItem.Text = "Prendas";
+            this.prendasToolStripMenuItem.Click += new System.EventHandler(this.prendasToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -153,7 +155,7 @@
             // 
             this.lbnombre.AutoSize = true;
             this.lbnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbnombre.Location = new System.Drawing.Point(105, 47);
+            this.lbnombre.Location = new System.Drawing.Point(190, 47);
             this.lbnombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbnombre.Name = "lbnombre";
             this.lbnombre.Size = new System.Drawing.Size(169, 15);

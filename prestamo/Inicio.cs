@@ -18,7 +18,7 @@ namespace prestamo
         {
             InitializeComponent();
         }
-        private void btAcceso_Click(object sender, EventArgs e)
+        private void BtnAcceso_Click(object sender, EventArgs e)
         {
             if (tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verifica que no este vacio
             {
@@ -47,7 +47,7 @@ namespace prestamo
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e) //boton salir
+        private void BtnSalir_Click(object sender, EventArgs e) //boton salir
         {
             DialogResult dialog = MessageBox.Show("Quieres salir del sistema?", "Salir del Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -60,12 +60,7 @@ namespace prestamo
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            //new AboutBox1().ShowDialog();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabelAyuda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://sontechs.com/trabajos/analisis");
         }

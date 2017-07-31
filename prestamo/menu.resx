@@ -148,11 +148,11 @@
   </data>
   <data name="prestamosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC8SURBVDhP3dG/DgFBEMfxTejQIzyIRyCeAVFRSiRaFR5D
-        KK9BlP48Fiq+P2dkLnKaq5jks9nL7ExuZ8N/xD2jeCHymDpNWLTgczko3g1UPHnt5YIqSiiihissP4Zq
-        tH8u6mpJ2UINIixRxg7+jNUkPjo4YY4G1hhCscABXaQ26OGMGRQDrKBmanBEH6kNzAYV6Pd1DV1hD38m
-        0UBT1WAsaUPUAAuo4wbLj6Aa7eOF+PaMbfjcxzNm8dsRwgP8Kmgj2F9LSwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAALxJREFUOE/d0b8OAUEQx/FN6NAjPIhHIJ4BUVFKJFoVHkMor0GU/jwWKr4/Z2Qu
+        cpqrmOSz2cvsTG5nw3/EPaN4IfKYOk1YtOBzOSjeDVQ8ee3lgipKKKKGKyw/hmq0fy7qaknZQg0iLFHG
+        Dv6M1SQ+OjhhjgbWGEKxwAFdpDbo4YwZFAOsoGZqcEQfqQ3MBhXo93UNXWEPfybRQFPVYCxpQ9QAC6jj
+        BsuPoBrt44X49oxt+NzHM2bx2xHCA/wqaCPYX0tLAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

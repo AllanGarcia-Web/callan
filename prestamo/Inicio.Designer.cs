@@ -29,48 +29,50 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
-            this.btAcceso = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
+            this.BtnAcceso = new System.Windows.Forms.Button();
+            this.BtnSalir = new System.Windows.Forms.Button();
             this.tBusuario = new System.Windows.Forms.TextBox();
             this.tBpass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.LinkLabelAyuda = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbVer = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // btAcceso
+            // BtnAcceso
             // 
-            this.btAcceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAcceso.Image = ((System.Drawing.Image)(resources.GetObject("btAcceso.Image")));
-            this.btAcceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAcceso.Location = new System.Drawing.Point(149, 297);
-            this.btAcceso.Name = "btAcceso";
-            this.btAcceso.Size = new System.Drawing.Size(94, 23);
-            this.btAcceso.TabIndex = 2;
-            this.btAcceso.Text = "Acceder";
-            this.btAcceso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btAcceso.UseVisualStyleBackColor = true;
-            this.btAcceso.Click += new System.EventHandler(this.btAcceso_Click);
+            this.BtnAcceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAcceso.Image = ((System.Drawing.Image)(resources.GetObject("BtnAcceso.Image")));
+            this.BtnAcceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAcceso.Location = new System.Drawing.Point(149, 297);
+            this.BtnAcceso.Name = "BtnAcceso";
+            this.BtnAcceso.Size = new System.Drawing.Size(94, 23);
+            this.BtnAcceso.TabIndex = 2;
+            this.BtnAcceso.Text = "Acceder";
+            this.BtnAcceso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAcceso.UseVisualStyleBackColor = true;
+            this.BtnAcceso.Click += new System.EventHandler(this.BtnAcceso_Click);
             // 
-            // btnSalir
+            // BtnSalir
             // 
-            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(278, 297);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(77, 23);
-            this.btnSalir.TabIndex = 3;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.BtnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
+            this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSalir.Location = new System.Drawing.Point(278, 297);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(77, 23);
+            this.BtnSalir.TabIndex = 3;
+            this.BtnSalir.Text = "Salir";
+            this.BtnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // tBusuario
             // 
@@ -121,16 +123,16 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Contraseña";
             // 
-            // linkLabel1
+            // LinkLabelAyuda
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(150, 249);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(191, 26);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "No puedes acceder, consulta la Ayuda\r\nDando click Aqui";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.LinkLabelAyuda.AutoSize = true;
+            this.LinkLabelAyuda.Location = new System.Drawing.Point(150, 249);
+            this.LinkLabelAyuda.Name = "LinkLabelAyuda";
+            this.LinkLabelAyuda.Size = new System.Drawing.Size(191, 26);
+            this.LinkLabelAyuda.TabIndex = 7;
+            this.LinkLabelAyuda.TabStop = true;
+            this.LinkLabelAyuda.Text = "No puedes acceder, consulta la Ayuda\r\nDando click Aqui";
+            this.LinkLabelAyuda.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAyuda_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -167,30 +169,42 @@
     "";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(362, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 325);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
             // Inicio
             // 
-            this.AcceptButton = this.btAcceso;
+            this.AcceptButton = this.BtnAcceso;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(362, 326);
+            this.CancelButton = this.BtnSalir;
+            this.ClientSize = new System.Drawing.Size(562, 328);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbVer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.LinkLabelAyuda);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tBpass);
             this.Controls.Add(this.tBusuario);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btAcceso);
+            this.Controls.Add(this.BtnSalir);
+            this.Controls.Add(this.BtnAcceso);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acceso al Sistema";
             this.Load += new System.EventHandler(this.Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,16 +212,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btAcceso;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button BtnAcceso;
+        private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.TextBox tBusuario;
         private System.Windows.Forms.TextBox tBpass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel LinkLabelAyuda;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbVer;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

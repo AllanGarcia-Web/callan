@@ -89,6 +89,18 @@
     <Compile Include="AdminDeudores.Designer.cs">
       <DependentUpon>AdminDeudores.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminPrenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPrenda.designer.cs">
+      <DependentUpon>AdminPrenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPrestamo.designer.cs">
+      <DependentUpon>AdminPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDeudores.resx">
       <DependentUpon>AdminDeudores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPrenda.resx">
+      <DependentUpon>AdminPrenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPrestamo.resx">
+      <DependentUpon>AdminPrestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUsuarios.resx">
       <DependentUpon>AdminUsuarios.cs</DependentUpon>
