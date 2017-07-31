@@ -28,7 +28,7 @@ namespace prestamo
             cBactivo.Checked = true; //casilla activada por default
         }
 
-        private void btSalir_Click(object sender, EventArgs e)
+        private void btSalir_Click(object sender, EventArgs e) //boton salir
         {
             this.Close();
         }
@@ -123,7 +123,7 @@ namespace prestamo
             AdminUsuarios_Load(sender,e);
         }
 
-        private void btActualizar_Click(object sender, EventArgs e)
+        private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
         {
             if (cBactivo.Checked == false)
             {
@@ -164,7 +164,7 @@ namespace prestamo
             AdminUsuarios_Load(sender, e);
         }
 
-        private void btEliminar_Click(object sender, EventArgs e)
+        private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
         {
             DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado? \n Es irreversible", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -187,7 +187,7 @@ namespace prestamo
             AdminUsuarios_Load(sender, e);
         }
 
-        private void btLimpiar_Click(object sender, EventArgs e)
+        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
         {
             cbNivel.Text = cbNivel.Items[0].ToString(); //tipo de usuario, posible error de ejecución
             tBusuario.Clear();
@@ -200,7 +200,7 @@ namespace prestamo
             AdminUsuarios_Load(sender, e);
         }
 
-        private void tBnombre_Leave(object sender, EventArgs e)
+        private void tBnombre_Leave(object sender, EventArgs e) // valida nombre usuario
         {
             if (libValidaciones.libValidaciones.NombrePersonal(tBnombre.Text))
             {
@@ -213,7 +213,7 @@ namespace prestamo
             }
         }
 
-        private void tBappaterno_Leave(object sender, EventArgs e)
+        private void tBappaterno_Leave(object sender, EventArgs e) // valida apellido paterno usuario
         {
             if (libValidaciones.libValidaciones.NombrePersonal(tBappaterno.Text))
             {
@@ -226,7 +226,7 @@ namespace prestamo
             }
         }
 
-        private void tBemail_Leave(object sender, EventArgs e)
+        private void tBemail_Leave(object sender, EventArgs e) // valida email usario
         {
             if (libValidaciones.libValidaciones.Email(tBemail.Text))
             {

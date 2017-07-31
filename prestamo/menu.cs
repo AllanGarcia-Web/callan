@@ -30,9 +30,9 @@ namespace prestamo
 
         private string GetComputer_LanIP() //obtine la ip local
         {
-            string strHostName = System.Net.Dns.GetHostName();
+            string strHostName = Dns.GetHostName();
 
-            IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(strHostName);
+            IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
 
             foreach (IPAddress ipAddress in ipEntry.AddressList)
             {

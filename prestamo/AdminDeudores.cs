@@ -95,7 +95,7 @@ namespace prestamo
             AdminDeudores_Load(sender, e); // recargar datagrid
         }
 
-        private void btActualizar_Click(object sender, EventArgs e)
+        private void btActualizar_Click(object sender, EventArgs e) //actualiza deudor
         {
             BD basedatos = new libAccesoBD.BD();
             if (basedatos.EditarDeudor(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
@@ -113,9 +113,9 @@ namespace prestamo
             btLimpiar_Click(sender, e); //llamar a boton limpiar
         }
 
-        private void btEliminar_Click(object sender, EventArgs e)
+        private void btEliminar_Click(object sender, EventArgs e) //elimina deudor
         {
-            DialogResult dialog = MessageBox.Show("Quieres eliminar al deudor seleccionado? ESTO ES IRREBERSIBLE", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("Quieres eliminar al deudor seleccionado?\nESTO ES IRREVERSIBLE", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
                 BD basedatos = new libAccesoBD.BD();
@@ -130,7 +130,7 @@ namespace prestamo
             }
             else if (dialog == DialogResult.No)
             {
-                //regresa a la ventana anterior
+                //cancelar borrado
             }
             AdminDeudores_Load(sender, e); // recargar datagrid
             btLimpiar_Click(sender, e); //llamar a boton limpiar
@@ -204,7 +204,7 @@ namespace prestamo
             }
         }
 
-        private void tBapmaterno_Leave(object sender, EventArgs e)
+        private void tBapmaterno_Leave(object sender, EventArgs e) //valida apellido materno
         {
             //if (libValidaciones.libValidaciones.NombrePersonal(tBapmaterno.Text))
             //{
@@ -218,7 +218,7 @@ namespace prestamo
             //}
         }
 
-        private void tbIne_Leave(object sender, EventArgs e)
+        private void tbIne_Leave(object sender, EventArgs e) //valida ine
         {
             if (libValidaciones.libValidaciones.INE(tbIne.Text))
             {
@@ -231,7 +231,7 @@ namespace prestamo
             }
         }
 
-        private void tbCalle_Leave(object sender, EventArgs e)
+        private void tbCalle_Leave(object sender, EventArgs e) //valida calle
         {
             if (libValidaciones.libValidaciones.Direccion(tbCalle.Text))
             {
@@ -244,7 +244,7 @@ namespace prestamo
             }
         }
 
-        private void tbNumero_Leave(object sender, EventArgs e)
+        private void tbNumero_Leave(object sender, EventArgs e) //valida numero domicilio
         {
             if (libValidaciones.libValidaciones.Numeros(tbNumero.Text))
             {
@@ -257,7 +257,7 @@ namespace prestamo
             }
         }
 
-        private void tbColonia_Leave(object sender, EventArgs e)
+        private void tbColonia_Leave(object sender, EventArgs e) // valida colonia
         {
             if (libValidaciones.libValidaciones.Direccion(tbColonia.Text))
             {
@@ -270,7 +270,7 @@ namespace prestamo
             }
         }
 
-        private void tbCiudad_Leave(object sender, EventArgs e)
+        private void tbCiudad_Leave(object sender, EventArgs e) // valida ciudad
         {
             if (libValidaciones.libValidaciones.Direccion(tbCiudad.Text))
             {
@@ -283,7 +283,7 @@ namespace prestamo
             }
         }
 
-        private void tbCodigoPostal_Leave(object sender, EventArgs e)
+        private void tbCodigoPostal_Leave(object sender, EventArgs e) // codigo postal
         {
             if (libValidaciones.libValidaciones.Numeros(tbCodigoPostal.Text))
             {
@@ -296,7 +296,7 @@ namespace prestamo
             }
         }
 
-        private void tbAval_Leave(object sender, EventArgs e)
+        private void tbAval_Leave(object sender, EventArgs e) // valida nombre aval
         {
             if (libValidaciones.libValidaciones.NombrePersonal(tbAval.Text))
             {
@@ -309,7 +309,7 @@ namespace prestamo
             }
         }
 
-        private void tbTelefonoAval_Leave(object sender, EventArgs e)
+        private void tbTelefonoAval_Leave(object sender, EventArgs e) // valida telefono aval
         {
             if (libValidaciones.libValidaciones.Telefono(tbTelefonoAval.Text))
             {
@@ -322,7 +322,7 @@ namespace prestamo
             }
         }
 
-        private void tbTelefono_Leave(object sender, EventArgs e)
+        private void tbTelefono_Leave(object sender, EventArgs e) // valida telefono deudor
         {
             if (libValidaciones.libValidaciones.Telefono(tbTelefono.Text))
             {
@@ -335,7 +335,7 @@ namespace prestamo
             }
         }
 
-        private void tBemail_Leave(object sender, EventArgs e)
+        private void tBemail_Leave(object sender, EventArgs e) //valida email deudor
         {
             if (libValidaciones.libValidaciones.Email(tBemail.Text))
             {
