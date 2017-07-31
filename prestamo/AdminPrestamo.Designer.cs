@@ -40,12 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dGvPrestamos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btEliminar = new System.Windows.Forms.Button();
             this.btActualizar = new System.Windows.Forms.Button();
             this.btCrear = new System.Windows.Forms.Button();
@@ -59,6 +53,12 @@
             this.TbNumPrestamo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGvPrestamos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,8 +70,8 @@
             this.TbPlazoSemanas.Margin = new System.Windows.Forms.Padding(2);
             this.TbPlazoSemanas.Name = "TbPlazoSemanas";
             this.TbPlazoSemanas.Size = new System.Drawing.Size(179, 20);
-            this.TbPlazoSemanas.TabIndex = 47;
-            this.TbPlazoSemanas.Leave += new System.EventHandler(this.tBappaterno_Leave);
+            this.TbPlazoSemanas.TabIndex = 4;
+            this.TbPlazoSemanas.Leave += new System.EventHandler(this.TbPlazoSemanas_Leave);
             // 
             // TbMontoPrestamo
             // 
@@ -79,8 +79,8 @@
             this.TbMontoPrestamo.Margin = new System.Windows.Forms.Padding(2);
             this.TbMontoPrestamo.Name = "TbMontoPrestamo";
             this.TbMontoPrestamo.Size = new System.Drawing.Size(179, 20);
-            this.TbMontoPrestamo.TabIndex = 46;
-            this.TbMontoPrestamo.Leave += new System.EventHandler(this.tBnombre_Leave);
+            this.TbMontoPrestamo.TabIndex = 3;
+            this.TbMontoPrestamo.Leave += new System.EventHandler(this.TbMontoPrestamo_Leave);
             // 
             // label7
             // 
@@ -120,7 +120,7 @@
             this.btLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btLimpiar.Name = "btLimpiar";
             this.btLimpiar.Size = new System.Drawing.Size(100, 33);
-            this.btLimpiar.TabIndex = 41;
+            this.btLimpiar.TabIndex = 8;
             this.btLimpiar.Text = "Limpiar";
             this.btLimpiar.UseVisualStyleBackColor = true;
             this.btLimpiar.Click += new System.EventHandler(this.btLimpiar_Click);
@@ -129,11 +129,11 @@
             // 
             this.btSalir.Image = ((System.Drawing.Image)(resources.GetObject("btSalir.Image")));
             this.btSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSalir.Location = new System.Drawing.Point(171, 99);
+            this.btSalir.Location = new System.Drawing.Point(150, 114);
             this.btSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btSalir.Name = "btSalir";
-            this.btSalir.Size = new System.Drawing.Size(79, 50);
-            this.btSalir.TabIndex = 40;
+            this.btSalir.Size = new System.Drawing.Size(100, 35);
+            this.btSalir.TabIndex = 20;
             this.btSalir.Text = "&Salir";
             this.btSalir.UseVisualStyleBackColor = true;
             this.btSalir.Click += new System.EventHandler(this.btSalir_Click);
@@ -191,42 +191,6 @@
             this.dGvPrestamos.TabIndex = 27;
             this.dGvPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGvUsuarios_CellClick);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "No. Prestamo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "No. Deudor";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Monto";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Plazo";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "No. Prenda";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Prenda";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // btEliminar
             // 
             this.btEliminar.Image = global::prestamo.Properties.Resources.Clearallrequests_8816;
@@ -235,7 +199,7 @@
             this.btEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(100, 34);
-            this.btEliminar.TabIndex = 39;
+            this.btEliminar.TabIndex = 7;
             this.btEliminar.Text = "&Eliminar";
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
@@ -248,7 +212,7 @@
             this.btActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btActualizar.Name = "btActualizar";
             this.btActualizar.Size = new System.Drawing.Size(100, 33);
-            this.btActualizar.TabIndex = 38;
+            this.btActualizar.TabIndex = 6;
             this.btActualizar.Text = "&Actualizar";
             this.btActualizar.UseVisualStyleBackColor = true;
             this.btActualizar.Click += new System.EventHandler(this.btActualizar_Click);
@@ -261,7 +225,7 @@
             this.btCrear.Margin = new System.Windows.Forms.Padding(2);
             this.btCrear.Name = "btCrear";
             this.btCrear.Size = new System.Drawing.Size(100, 33);
-            this.btCrear.TabIndex = 37;
+            this.btCrear.TabIndex = 5;
             this.btCrear.Text = "&Crear";
             this.btCrear.UseVisualStyleBackColor = true;
             this.btCrear.Click += new System.EventHandler(this.btCrear_Click);
@@ -314,7 +278,7 @@
             this.cBbumDeudor.Location = new System.Drawing.Point(86, 61);
             this.cBbumDeudor.Name = "cBbumDeudor";
             this.cBbumDeudor.Size = new System.Drawing.Size(179, 21);
-            this.cBbumDeudor.TabIndex = 98;
+            this.cBbumDeudor.TabIndex = 0;
             this.cBbumDeudor.SelectedIndexChanged += new System.EventHandler(this.cBbumDuedor_SelectedIndexChanged);
             // 
             // CbNumPrenda
@@ -324,7 +288,7 @@
             this.CbNumPrenda.Location = new System.Drawing.Point(86, 103);
             this.CbNumPrenda.Name = "CbNumPrenda";
             this.CbNumPrenda.Size = new System.Drawing.Size(179, 21);
-            this.CbNumPrenda.TabIndex = 97;
+            this.CbNumPrenda.TabIndex = 1;
             this.CbNumPrenda.SelectedIndexChanged += new System.EventHandler(this.CbNumPrenda_SelectedIndexChanged);
             // 
             // label4
@@ -378,6 +342,42 @@
             this.label10.Text = "Nota:\r\nEl nombre de usuario no se puede actualizar\r\n\r\n\r\nUsuario Activo:\r\nCasilla " +
     "marcada = Activo\r\nCasilla desmarcada =Inactivo";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "No. Prestamo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "No. Deudor";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Monto Prestado";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Plazo en Semanas";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "No. Prenda";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Prenda";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // AdminPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,12 +421,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox TbNumPrestamo;
         private System.Windows.Forms.TextBox TbNomPrenda;
         private System.Windows.Forms.Label label4;
@@ -434,5 +428,11 @@
         private System.Windows.Forms.ComboBox cBbumDeudor;
         private System.Windows.Forms.TextBox tBNombreDudor;
         private System.Windows.Forms.Label lNombreDudor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

@@ -16,9 +16,8 @@ namespace prestamo
     {
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         // resultados de validaciones
-        public bool nombre = false;
-        public bool apellidop = false;
-        public bool email = false;
+        public bool monto = false;
+        public bool plazo = false;
         // fin de resultados validaciones
 
         public AdminPrestamo()
@@ -42,13 +41,13 @@ namespace prestamo
                 CbNumPrenda.Text = dGvPrestamos[4, e.RowIndex].Value.ToString();
                 TbNomPrenda.Text = dGvPrestamos[5, e.RowIndex].Value.ToString();
             }
-            //cBbumDudor_SelectedIndexChanged(sender, e);
-            //CbNumPrenda_SelectedIndexChanged(sender, e);
         }
 
         private void AdminPrestamo_Load(object sender, EventArgs e)
         {
-            dGvPrestamos.Rows.Clear();
+            dGvPrestamos.Rows.Clear(); //limpia datgrid
+            cBbumDeudor.Items.Clear(); //limpia combo de deudor
+            CbNumPrenda.Items.Clear(); //limpia combo de prenda
             //AccederBD basedatos = new AccederBD();
             BD basedatos = new libAccesoBD.BD();
             // inicio leer deudores
@@ -85,16 +84,16 @@ namespace prestamo
 
         private void btCrear_Click(object sender, EventArgs e) //agrega usuarios
         {
-            if (cBbumDeudor.Text.Trim() == "") //verificar campos en blanco
+            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
             {
-                if (cBbumDeudor.Text.Trim() == "")
+                if (TbMontoPrestamo.Text.Trim() == "")
                 {
-                    DialogResult dialog = MessageBox.Show("Usuario Vacio", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Cantidar a prestar vacia", "Prestamo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cBbumDeudor.Focus();
                 }
                 else if (TbPlazoSemanas.Text.Trim() == "")
                 {
-                    DialogResult dialog = MessageBox.Show("Contraseña Vacia", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Semanas del Plazo Vacio", "Plazo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TbPlazoSemanas.Focus();
                 }
             }
@@ -102,19 +101,18 @@ namespace prestamo
             {
                 try
                 {
-                    //BD basedatos = new libAccesoBD.BD();
-                    //if (basedatos.CrearUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
-                    //{
-                    //    DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte!!. ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    tBusuario.Focus();
-                    //}
-                    //else
-                    //{
-                    //    DialogResult dialog = MessageBox.Show("Usuario repetido", "Se esta agregando a un usuario repetido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    tBusuario.Focus();
-                    //    tBusuario.SelectAll();
-                    //}
-                    //basedatos.DesconectarDB();
+                    BD basedatos = new libAccesoBD.BD();
+                    if (basedatos.CrearPrestamo(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
+                    {
+                        DialogResult dialog = MessageBox.Show("Prestamo Registrado \n Consulte No. de Prestamo ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TbMontoPrestamo.Focus();
+                    }
+                    else
+                    {
+                        DialogResult dialog = MessageBox.Show("Se le esta asignado otro presteamo al mismo deudor", "Deudor con Prestamo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cBbumDeudor.Focus();
+                    }
+                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
@@ -126,31 +124,39 @@ namespace prestamo
 
         private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
         {
-            if (TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
+            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
             {
-                DialogResult dialog = MessageBox.Show("Algun campo esta en blanco verificalo", "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (TbMontoPrestamo.Text.Trim() == "")
+                {
+                    DialogResult dialog = MessageBox.Show("Cantidad a prestar vacia", "Prestamo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cBbumDeudor.Focus();
+                }
+                else if (TbPlazoSemanas.Text.Trim() == "")
+                {
+                    DialogResult dialog = MessageBox.Show("Semanas del Plazo Vacio", "Plazo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TbPlazoSemanas.Focus();
+                }
             }
             else
             {
                 try
                 {
                     BD basedatos = new libAccesoBD.BD();
-                    //if (basedatos.EditarUsuario(cbNivel.Text, TbNomDeudor.Text, tBpass.Text, TbMontoPrenda.Text, TbPlazoSemanas.Text, TbNomPrenda.Text, tBemail.Text, estado) == true) //verifica creación
-                    //{
-                    //    DialogResult dialog = MessageBox.Show("Usuario seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    TbNomDeudor.Focus();
-                    //}
-                    //else
-                    //{
-                    //    DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente", "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    TbNomDeudor.Focus();
-                    //    TbNomDeudor.SelectAll();
-                    //}
-                    //basedatos.DesconectarDB();
+                    if (basedatos.EditarPrestamo(TbNumPrestamo.Text ,cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
+                    {
+                        DialogResult dialog = MessageBox.Show("Prestamo seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TbMontoPrestamo.Focus();
+                    }
+                    else
+                    {
+                        DialogResult dialog = MessageBox.Show("Se esta actualizando un prestamo inexistente \n Por favor verifique ", "Prestamo Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TbNumPrestamo.Focus();
+                    }
+                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error al actualizar el usuario", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error al actualizar el prestamo", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrestamo_Load(sender, e);
@@ -187,11 +193,11 @@ namespace prestamo
             AdminPrestamo_Load(sender, e);
         }
 
-        private void tBnombre_Leave(object sender, EventArgs e) // valida nombre usuario
+        private void TbMontoPrestamo_Leave(object sender, EventArgs e) // valida nombre usuario
         {
-            if (libValidaciones.libValidaciones.NombrePersonal(TbMontoPrestamo.Text))
+            if (libValidaciones.libValidaciones.Numeros(TbMontoPrestamo.Text))
             {
-                nombre = true;
+                monto = true;
             }
             else
             {
@@ -200,11 +206,11 @@ namespace prestamo
             }
         }
 
-        private void tBappaterno_Leave(object sender, EventArgs e) // valida apellido paterno usuario
+        private void TbPlazoSemanas_Leave(object sender, EventArgs e) // valida apellido paterno usuario
         {
-            if (libValidaciones.libValidaciones.NombrePersonal(TbPlazoSemanas.Text))
+            if (libValidaciones.libValidaciones.Numeros(TbPlazoSemanas.Text))
             {
-                apellidop = true;
+                plazo = true;
             }
             else
             {
