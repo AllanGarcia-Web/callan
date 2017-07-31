@@ -66,7 +66,7 @@
             // 
             // TbPlazoSemanas
             // 
-            this.TbPlazoSemanas.Location = new System.Drawing.Point(375, 34);
+            this.TbPlazoSemanas.Location = new System.Drawing.Point(375, 50);
             this.TbPlazoSemanas.Margin = new System.Windows.Forms.Padding(2);
             this.TbPlazoSemanas.Name = "TbPlazoSemanas";
             this.TbPlazoSemanas.Size = new System.Drawing.Size(179, 20);
@@ -75,7 +75,7 @@
             // 
             // TbMontoPrestamo
             // 
-            this.TbMontoPrestamo.Location = new System.Drawing.Point(375, 3);
+            this.TbMontoPrestamo.Location = new System.Drawing.Point(375, 22);
             this.TbMontoPrestamo.Margin = new System.Windows.Forms.Padding(2);
             this.TbMontoPrestamo.Name = "TbMontoPrestamo";
             this.TbMontoPrestamo.Size = new System.Drawing.Size(179, 20);
@@ -95,7 +95,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(271, 37);
+            this.label8.Location = new System.Drawing.Point(275, 53);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
@@ -105,7 +105,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(271, 4);
+            this.label9.Location = new System.Drawing.Point(275, 26);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 13);
@@ -257,7 +257,7 @@
             // 
             this.tBNombreDudor.Enabled = false;
             this.tBNombreDudor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBNombreDudor.Location = new System.Drawing.Point(375, 61);
+            this.tBNombreDudor.Location = new System.Drawing.Point(375, 75);
             this.tBNombreDudor.Name = "tBNombreDudor";
             this.tBNombreDudor.Size = new System.Drawing.Size(179, 22);
             this.tBNombreDudor.TabIndex = 100;
@@ -265,7 +265,7 @@
             // lNombreDudor
             // 
             this.lNombreDudor.AutoSize = true;
-            this.lNombreDudor.Location = new System.Drawing.Point(272, 64);
+            this.lNombreDudor.Location = new System.Drawing.Point(275, 80);
             this.lNombreDudor.Name = "lNombreDudor";
             this.lNombreDudor.Size = new System.Drawing.Size(82, 13);
             this.lNombreDudor.TabIndex = 99;
@@ -294,7 +294,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(273, 106);
+            this.label4.Location = new System.Drawing.Point(275, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 96;
@@ -304,7 +304,7 @@
             // 
             this.TbNomPrenda.Enabled = false;
             this.TbNomPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbNomPrenda.Location = new System.Drawing.Point(375, 101);
+            this.TbNomPrenda.Location = new System.Drawing.Point(375, 102);
             this.TbNomPrenda.Name = "TbNomPrenda";
             this.TbNomPrenda.Size = new System.Drawing.Size(179, 22);
             this.TbNomPrenda.TabIndex = 95;
@@ -337,10 +337,10 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(590, 402);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(216, 91);
+            this.label10.Size = new System.Drawing.Size(252, 52);
             this.label10.TabIndex = 55;
-            this.label10.Text = "Nota:\r\nEl nombre de usuario no se puede actualizar\r\n\r\n\r\nUsuario Activo:\r\nCasilla " +
-    "marcada = Activo\r\nCasilla desmarcada =Inactivo";
+            this.label10.Text = "Nota:\r\nEl numero de  prestamo se genera automaticamente\r\n\r\nEliminar un prestamo e" +
+    "s IRREVERSIBLE";
             // 
             // Column1
             // 
@@ -382,7 +382,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 574);
+            this.ClientSize = new System.Drawing.Size(1184, 566);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

@@ -24,77 +24,52 @@ namespace prestamo
         public AdminPrenda()
         {
             InitializeComponent();
-            cbNivel.Text = cbNivel.Items[0].ToString(); //deja cargado Cobrador por default
-            cBactivo.Checked = true; //casilla activada por default
+            cbTipoPrenda.Text = cbTipoPrenda.Items[0].ToString(); //deja cargado automovil por default
         }
-
-        private void btSalir_Click(object sender, EventArgs e) //boton salir
+        private void AdminPrenda_Load(object sender, EventArgs e)
         {
-            this.Close();
+            dGvPrendas.Rows.Clear();
+            BD basedatos = new libAccesoBD.BD();
+            if (basedatos.LeerPrendas() == true) //carga datos al datagredview
+            {
+                while (BD.Lector.Read()) //datos de la bd
+                {
+                    dGvPrendas.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5)); // cargar datos
+                }
+                basedatos.DesconectarDB();
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
         {
             if (e.RowIndex != -1)
             {
-                cbNivel.Text = dGvUsuarios[0, e.RowIndex].Value.ToString(); //tipo de usuario, posible error de ejecución
-                tBusuario.Text = dGvUsuarios[1, e.RowIndex].Value.ToString();
-                tBpass.Text = dGvUsuarios[2, e.RowIndex].Value.ToString();
-                tBnombre.Text = dGvUsuarios[3, e.RowIndex].Value.ToString();
-                tBappaterno.Text = dGvUsuarios[4, e.RowIndex].Value.ToString();
-                tBapmaterno.Text = dGvUsuarios[5, e.RowIndex].Value.ToString();
-                tBemail.Text = dGvUsuarios[6, e.RowIndex].Value.ToString();
-                if (dGvUsuarios[7, e.RowIndex].Value.ToString() == "No") //activar no desactivar la casilla de activo al leer
-                {
-                    cBactivo.Checked = false;
-                }
-                else if (dGvUsuarios[7, e.RowIndex].Value.ToString() == "Si")
-                {
-                    cBactivo.Checked = true;
-                }
+                tBnumPrenda.Text = dGvPrendas[0, e.RowIndex].Value.ToString(); 
+                cbTipoPrenda.Text = dGvPrendas[1, e.RowIndex].Value.ToString();
+                tBnombre.Text = dGvPrendas[2, e.RowIndex].Value.ToString();
+                rTdescripcion.Text = dGvPrendas[3, e.RowIndex].Value.ToString();
+                rTdetalles.Text = dGvPrendas[4, e.RowIndex].Value.ToString();
+                tBnumDeudor.Text = dGvPrendas[5, e.RowIndex].Value.ToString();
             }
         }
 
-        private void AdminPrenda_Load(object sender, EventArgs e)
+        private void btCrear_Click(object sender, EventArgs e) //agrega prenda
         {
-            dGvUsuarios.Rows.Clear();
-            //AccederBD basedatos = new AccederBD();
-            BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerUsuarios() == true) //carga datos al datagredview
+            if (tBnombre.Text.Trim() == "" || rTdescripcion.Text.Trim() == "") //verificar campos en blanco
             {
-                while (BD.Lector.Read()) //datos de la bd
+                if (tBnombre.Text.Trim() == "")
                 {
-                    dGvUsuarios.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5), BD.Lector.GetString(6), BD.Lector.GetString(7)); // cargar datos
+                    DialogResult dialog = MessageBox.Show("Ingrese un nombre para la prenda", "Nombre Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tBnombre.Focus();
                 }
-                basedatos.DesconectarDB();
-            }
-            else
-            {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. "+BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btCrear_Click(object sender, EventArgs e) //agrega usuarios
-        {
-            if (cBactivo.Checked == false)
-            {
-                estado = "No";
-            }
-            else
-            {
-                estado = "Si";
-            }
-            if (nombre == true && apellidop == true && email == true || tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verificar campos en blanco
-            {
-                if (tBusuario.Text.Trim() == "")
+                else if (tBNombreDudor.Text.Trim() == "")
                 {
-                    DialogResult dialog = MessageBox.Show("Usuario Vacio", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tBusuario.Focus();
-                }
-                else if (tBpass.Text.Trim() == "")
-                {
-                    DialogResult dialog = MessageBox.Show("Contraseña Vacia", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tBpass.Focus();
+                    DialogResult dialog = MessageBox.Show("Ingrese una descripción para la penda", "Descripción Vacia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rTdescripcion.Focus();
                 }
             }
             else
@@ -102,22 +77,22 @@ namespace prestamo
                 try
                 {
                     BD basedatos = new libAccesoBD.BD();
-                    if (basedatos.CrearUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
+                    if (basedatos.CrearPrenda(cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
                     {
-                        DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte!!. ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tBusuario.Focus();
+                        DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tBnombre.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Usuario repetido", "Se esta agregando a un usuario repetido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        tBusuario.Focus();
-                        tBusuario.SelectAll();
+                        DialogResult dialog = MessageBox.Show("Nombre de prenda repetido", "Prenda Repetida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tBnombre.Focus();
+                        tBnombre.SelectAll();
                     }
                     basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error en la alta de usuario", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error en la alta de la prenda", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrenda_Load(sender,e);
@@ -125,40 +100,32 @@ namespace prestamo
 
         private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
         {
-            if (cBactivo.Checked == false)
-            {
-                estado = "No";
-            }
-            else
-            {
-                estado = "Si";
-            }
-            if (tBnombre.Text.Trim() == "" || tBappaterno.Text.Trim() == "" || tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "" || tBemail.Text.Trim() == "") //verificar campos en blanco
+            if (tBnombre.Text.Trim() == "" || cbTipoPrenda.Text.Trim() == "" || rTdescripcion.Text.Trim() == "") //verificar campos en blanco
             {
                 DialogResult dialog = MessageBox.Show("Algun campo esta en blanco verificalo", "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tBusuario.Focus();
+                tBnombre.Focus();
             }
             else
             {
                 try
                 {
                     BD basedatos = new libAccesoBD.BD();
-                    if (basedatos.EditarUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
+                    if (basedatos.EditarPrenda(tBnumPrenda.Text,cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
                     {
-                        DialogResult dialog = MessageBox.Show("Usuario seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tBusuario.Focus();
+                        DialogResult dialog = MessageBox.Show("Prenda seleccionado actualizada", "Actualizada Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tBnombre.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente", "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        tBusuario.Focus();
-                        tBusuario.SelectAll();
+                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a una prenda inexistente"+BD.Error, "Prenda Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tBnombre.Focus();
+                        tBnombre.SelectAll();
                     }
                     basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error al actualizar el usuario", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error al actualizar la prenda seleccionada", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrenda_Load(sender, e);
@@ -166,13 +133,13 @@ namespace prestamo
 
         private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
         {
-            DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado? \n Es irreversible", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("Quieres eliminar la prenda seleccionado? \n ES IRREVERSIBLE", "Eliminar Prenda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
                 BD basedatos = new libAccesoBD.BD();
-                if (basedatos.EliminarUsuario(tBusuario.Text) == true)
+                if (basedatos.EliminarPrenda(tBnumPrenda.Text) == true)
                 {
-                    dialog = MessageBox.Show("Eliminado Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dialog = MessageBox.Show("Eliminada Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -189,14 +156,13 @@ namespace prestamo
 
         private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
         {
-            cbNivel.Text = cbNivel.Items[0].ToString(); //tipo de usuario, posible error de ejecución
-            tBusuario.Clear();
-            tBpass.Clear();
+            cbTipoPrenda.Text = cbTipoPrenda.Items[0].ToString(); //tipo de usuario, posible error de ejecución
+            tBnumPrenda.Clear();
+            tBnumDeudor.Clear();
+            tBNombreDudor.Clear();
             tBnombre.Clear();
-            tBappaterno.Clear();
-            tBapmaterno.Clear();
-            tBemail.Clear();
-            cBactivo.Checked = true;
+            rTdescripcion.Clear();
+            rTdetalles.Clear();
             AdminPrenda_Load(sender, e);
         }
 
@@ -213,29 +179,24 @@ namespace prestamo
             }
         }
 
-        private void tBappaterno_Leave(object sender, EventArgs e) // valida apellido paterno usuario
+        private void btSalir_Click(object sender, EventArgs e) //boton salir
         {
-            if (libValidaciones.libValidaciones.NombrePersonal(tBappaterno.Text))
-            {
-                apellidop = true;
-            }
-            else
-            {
-                tBappaterno.Focus();
-                tBappaterno.SelectAll();
-            }
+            this.Close();
         }
 
-        private void tBemail_Leave(object sender, EventArgs e) // valida email usario
+        private void tBnumDeudor_TextChanged(object sender, EventArgs e) // carga el nombre del deudor basado en el id de la tabla deudores
         {
-            if (libValidaciones.libValidaciones.Email(tBemail.Text))
+            BD basedatos = new libAccesoBD.BD();
+            if (basedatos.LeerDuedorID(tBnumDeudor.Text) == true)
             {
-                email = true;
+                while (BD.Lector.Read())
+                {
+                    tBNombreDudor.Text = BD.Lector.GetString(1) + " " + BD.Lector.GetString(2);
+                }
             }
             else
             {
-                tBemail.Focus();
-                tBemail.SelectAll();
+                MessageBox.Show("" + BD.Error);
             }
         }
     }

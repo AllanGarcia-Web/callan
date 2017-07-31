@@ -233,7 +233,7 @@ namespace prestamo
 
         private void tbCalle_Leave(object sender, EventArgs e) //valida calle
         {
-            if (libValidaciones.libValidaciones.Direccion(tbCalle.Text))
+            if (libValidaciones.libValidaciones.NombrePersonal(tbCalle.Text))
             {
                 calle = true;
             }
@@ -259,7 +259,7 @@ namespace prestamo
 
         private void tbColonia_Leave(object sender, EventArgs e) // valida colonia
         {
-            if (libValidaciones.libValidaciones.Direccion(tbColonia.Text))
+            if (libValidaciones.libValidaciones.NombrePersonal(tbColonia.Text))
             {
                 colonia = true;
             }
@@ -272,7 +272,7 @@ namespace prestamo
 
         private void tbCiudad_Leave(object sender, EventArgs e) // valida ciudad
         {
-            if (libValidaciones.libValidaciones.Direccion(tbCiudad.Text))
+            if (libValidaciones.libValidaciones.NombrePersonal(tbCiudad.Text))
             {
                 ciudad = true;
             }

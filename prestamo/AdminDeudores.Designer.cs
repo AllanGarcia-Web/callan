@@ -78,11 +78,11 @@
             this.btLimpiar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cBestados = new System.Windows.Forms.ComboBox();
             this.tbIne = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tBdeudor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cBestados = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGvDeudores)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tBemail.Margin = new System.Windows.Forms.Padding(2);
             this.tBemail.Name = "tBemail";
             this.tBemail.Size = new System.Drawing.Size(179, 20);
-            this.tBemail.TabIndex = 72;
+            this.tBemail.TabIndex = 13;
             this.tBemail.Leave += new System.EventHandler(this.tBemail_Leave);
             // 
             // tBapmaterno
@@ -113,7 +113,7 @@
             this.tBapmaterno.Margin = new System.Windows.Forms.Padding(2);
             this.tBapmaterno.Name = "tBapmaterno";
             this.tBapmaterno.Size = new System.Drawing.Size(179, 20);
-            this.tBapmaterno.TabIndex = 71;
+            this.tBapmaterno.TabIndex = 2;
             this.tBapmaterno.Leave += new System.EventHandler(this.tBapmaterno_Leave);
             // 
             // tBappaterno
@@ -122,7 +122,7 @@
             this.tBappaterno.Margin = new System.Windows.Forms.Padding(2);
             this.tBappaterno.Name = "tBappaterno";
             this.tBappaterno.Size = new System.Drawing.Size(179, 20);
-            this.tBappaterno.TabIndex = 70;
+            this.tBappaterno.TabIndex = 1;
             this.tBappaterno.Leave += new System.EventHandler(this.tBappaterno_Leave);
             // 
             // tBnombre
@@ -131,7 +131,7 @@
             this.tBnombre.Margin = new System.Windows.Forms.Padding(2);
             this.tBnombre.Name = "tBnombre";
             this.tBnombre.Size = new System.Drawing.Size(179, 20);
-            this.tBnombre.TabIndex = 69;
+            this.tBnombre.TabIndex = 0;
             this.tBnombre.Leave += new System.EventHandler(this.tBnombre_Leave);
             // 
             // label7
@@ -319,7 +319,7 @@
             this.tbCalle.Location = new System.Drawing.Point(360, 13);
             this.tbCalle.Name = "tbCalle";
             this.tbCalle.Size = new System.Drawing.Size(179, 20);
-            this.tbCalle.TabIndex = 75;
+            this.tbCalle.TabIndex = 4;
             this.tbCalle.Leave += new System.EventHandler(this.tbCalle_Leave);
             // 
             // tbNumero
@@ -327,7 +327,7 @@
             this.tbNumero.Location = new System.Drawing.Point(360, 49);
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(179, 20);
-            this.tbNumero.TabIndex = 76;
+            this.tbNumero.TabIndex = 5;
             this.tbNumero.Leave += new System.EventHandler(this.tbNumero_Leave);
             // 
             // label3
@@ -375,7 +375,7 @@
             this.tbColonia.Location = new System.Drawing.Point(360, 83);
             this.tbColonia.Name = "tbColonia";
             this.tbColonia.Size = new System.Drawing.Size(179, 20);
-            this.tbColonia.TabIndex = 81;
+            this.tbColonia.TabIndex = 6;
             this.tbColonia.Leave += new System.EventHandler(this.tbColonia_Leave);
             // 
             // tbCiudad
@@ -383,7 +383,7 @@
             this.tbCiudad.Location = new System.Drawing.Point(360, 113);
             this.tbCiudad.Name = "tbCiudad";
             this.tbCiudad.Size = new System.Drawing.Size(179, 20);
-            this.tbCiudad.TabIndex = 82;
+            this.tbCiudad.TabIndex = 7;
             this.tbCiudad.Leave += new System.EventHandler(this.tbCiudad_Leave);
             // 
             // tbCodigoPostal
@@ -391,7 +391,7 @@
             this.tbCodigoPostal.Location = new System.Drawing.Point(360, 144);
             this.tbCodigoPostal.Name = "tbCodigoPostal";
             this.tbCodigoPostal.Size = new System.Drawing.Size(179, 20);
-            this.tbCodigoPostal.TabIndex = 83;
+            this.tbCodigoPostal.TabIndex = 8;
             this.tbCodigoPostal.Leave += new System.EventHandler(this.tbCodigoPostal_Leave);
             // 
             // tbTelefono
@@ -399,7 +399,7 @@
             this.tbTelefono.Location = new System.Drawing.Point(639, 49);
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(179, 20);
-            this.tbTelefono.TabIndex = 85;
+            this.tbTelefono.TabIndex = 10;
             this.tbTelefono.Leave += new System.EventHandler(this.tbTelefono_Leave);
             // 
             // tbAval
@@ -407,7 +407,7 @@
             this.tbAval.Location = new System.Drawing.Point(639, 80);
             this.tbAval.Name = "tbAval";
             this.tbAval.Size = new System.Drawing.Size(179, 20);
-            this.tbAval.TabIndex = 86;
+            this.tbAval.TabIndex = 11;
             this.tbAval.Leave += new System.EventHandler(this.tbAval_Leave);
             // 
             // tbTelefonoAval
@@ -415,7 +415,7 @@
             this.tbTelefonoAval.Location = new System.Drawing.Point(639, 111);
             this.tbTelefonoAval.Name = "tbTelefonoAval";
             this.tbTelefonoAval.Size = new System.Drawing.Size(179, 20);
-            this.tbTelefonoAval.TabIndex = 87;
+            this.tbTelefonoAval.TabIndex = 12;
             this.tbTelefonoAval.Leave += new System.EventHandler(this.tbTelefonoAval_Leave);
             // 
             // label12
@@ -480,7 +480,7 @@
             this.btCrear.Margin = new System.Windows.Forms.Padding(2);
             this.btCrear.Name = "btCrear";
             this.btCrear.Size = new System.Drawing.Size(100, 33);
-            this.btCrear.TabIndex = 37;
+            this.btCrear.TabIndex = 20;
             this.btCrear.Text = "&Crear";
             this.btCrear.UseVisualStyleBackColor = true;
             this.btCrear.Click += new System.EventHandler(this.btCrear_Click);
@@ -493,7 +493,7 @@
             this.btActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btActualizar.Name = "btActualizar";
             this.btActualizar.Size = new System.Drawing.Size(100, 33);
-            this.btActualizar.TabIndex = 38;
+            this.btActualizar.TabIndex = 21;
             this.btActualizar.Text = "&Actualizar";
             this.btActualizar.UseVisualStyleBackColor = true;
             this.btActualizar.Click += new System.EventHandler(this.btActualizar_Click);
@@ -506,7 +506,7 @@
             this.btSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btSalir.Name = "btSalir";
             this.btSalir.Size = new System.Drawing.Size(79, 50);
-            this.btSalir.TabIndex = 40;
+            this.btSalir.TabIndex = 100;
             this.btSalir.Text = "&Salir";
             this.btSalir.UseVisualStyleBackColor = true;
             this.btSalir.Click += new System.EventHandler(this.btSalir_Click);
@@ -519,7 +519,7 @@
             this.btLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btLimpiar.Name = "btLimpiar";
             this.btLimpiar.Size = new System.Drawing.Size(100, 33);
-            this.btLimpiar.TabIndex = 41;
+            this.btLimpiar.TabIndex = 23;
             this.btLimpiar.Text = "Limpiar";
             this.btLimpiar.UseVisualStyleBackColor = true;
             this.btLimpiar.Click += new System.EventHandler(this.btLimpiar_Click);
@@ -532,7 +532,7 @@
             this.btEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(100, 34);
-            this.btEliminar.TabIndex = 39;
+            this.btEliminar.TabIndex = 22;
             this.btEliminar.Text = "&Eliminar";
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
@@ -576,41 +576,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
-            // tbIne
-            // 
-            this.tbIne.Location = new System.Drawing.Point(71, 148);
-            this.tbIne.Name = "tbIne";
-            this.tbIne.Size = new System.Drawing.Size(179, 20);
-            this.tbIne.TabIndex = 95;
-            this.tbIne.Leave += new System.EventHandler(this.tbIne_Leave);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 151);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 13);
-            this.label16.TabIndex = 94;
-            this.label16.Text = "No. INE";
-            // 
-            // tBdeudor
-            // 
-            this.tBdeudor.Enabled = false;
-            this.tBdeudor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBdeudor.Location = new System.Drawing.Point(71, 15);
-            this.tBdeudor.Name = "tBdeudor";
-            this.tBdeudor.Size = new System.Drawing.Size(179, 22);
-            this.tBdeudor.TabIndex = 93;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 92;
-            this.label6.Text = "No. Deudor";
-            // 
             // cBestados
             // 
             this.cBestados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -651,7 +616,42 @@
             this.cBestados.Location = new System.Drawing.Point(639, 12);
             this.cBestados.Name = "cBestados";
             this.cBestados.Size = new System.Drawing.Size(179, 21);
-            this.cBestados.TabIndex = 96;
+            this.cBestados.TabIndex = 9;
+            // 
+            // tbIne
+            // 
+            this.tbIne.Location = new System.Drawing.Point(71, 148);
+            this.tbIne.Name = "tbIne";
+            this.tbIne.Size = new System.Drawing.Size(179, 20);
+            this.tbIne.TabIndex = 3;
+            this.tbIne.Leave += new System.EventHandler(this.tbIne_Leave);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 151);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 13);
+            this.label16.TabIndex = 94;
+            this.label16.Text = "No. INE";
+            // 
+            // tBdeudor
+            // 
+            this.tBdeudor.Enabled = false;
+            this.tBdeudor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBdeudor.Location = new System.Drawing.Point(71, 15);
+            this.tBdeudor.Name = "tBdeudor";
+            this.tBdeudor.Size = new System.Drawing.Size(179, 22);
+            this.tBdeudor.TabIndex = 93;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 92;
+            this.label6.Text = "No. Deudor";
             // 
             // AdminDeudores
             // 
