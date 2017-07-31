@@ -34,7 +34,6 @@ namespace prestamo
         public bool colonia = false;
         public bool ciudad = false;
         public bool codigopostal = false;
-        public bool estado = false;
         public bool telefonoaval = false;
         public bool nombreaval = false;
         // de resultados de validaciones
@@ -59,15 +58,15 @@ namespace prestamo
             }
             else
             {
-                MessageBox.Show("Error al leer datos. " + BD.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btCrear_Click(object sender, EventArgs e)
+        private void btCrear_Click(object sender, EventArgs e) //crea deudor
         {
             if (tBnombre.Text.Trim() == "" || tBappaterno.Text.Trim() == "" || tbCalle.Text.Trim() == "" || tbNumero.Text.Trim() == "" || tbCiudad.Text.Trim() == "" || tbCodigoPostal.Text.Trim() == "" || tbIne.Text.Trim() == "" || tbAval.Text.Trim() == "" || tbTelefonoAval.Text.Trim() == "") //verificar campos en blanco
             {
-                MessageBox.Show("Algun campo esta en blanco verificalo");
+                DialogResult dialog = MessageBox.Show("Algun campo esta en blanco verificalo", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tBnombre.Focus();
             }
             else
@@ -77,12 +76,12 @@ namespace prestamo
                     BD basedatos = new libAccesoBD.BD();
                     if (basedatos.CrearDeudor(tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
                     {
-                        MessageBox.Show("Agregado Correctamente");
+                        DialogResult dialog = MessageBox.Show("Agregado Correctamente", "Deudor Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBnombre.Focus();
                     }
                     else
                     {
-                        MessageBox.Show("Se esta agregando a un usuario repetido" + BD.Error);
+                        DialogResult dialog = MessageBox.Show("Se esta repitiendo un deudor", "Deudor Repetido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
@@ -90,7 +89,7 @@ namespace prestamo
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error en la alta de usuario");
+                    DialogResult dialog = MessageBox.Show("Error en la alta del deudor" + BD.Error, "Error al crear deudor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminDeudores_Load(sender, e); // recargar datagrid
@@ -101,12 +100,12 @@ namespace prestamo
             BD basedatos = new libAccesoBD.BD();
             if (basedatos.EditarDeudor(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
             {
-                MessageBox.Show("Actualizado Correctamente");
+                DialogResult dialog = MessageBox.Show("Deudor actualizado satisfactoriamente" , "Deudor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tBnombre.Focus();
             }
             else
             {
-                MessageBox.Show("Error al actualizar" + BD.Error);
+                DialogResult dialog = MessageBox.Show("Hubo un error al actuliazar al deudor", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tBnombre.Focus();
                 tBnombre.SelectAll();
             }
@@ -122,11 +121,11 @@ namespace prestamo
                 BD basedatos = new libAccesoBD.BD();
                 if (basedatos.EliminarDeudor(tBdeudor.Text) == true)
                 {
-                    MessageBox.Show("Eliminado Correctamente");
+                    dialog = MessageBox.Show("Deudor eliminado correctamente", "Deudor eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("" + BD.Error);
+                    dialog = MessageBox.Show("Hubo un error al eliminar al deudor. " + BD.Error, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (dialog == DialogResult.No)
