@@ -41,6 +41,7 @@
             this.acercaDelSisremaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbbienvenido = new System.Windows.Forms.Label();
             this.lbnombre = new System.Windows.Forms.Label();
+            this.lbEquipo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.bt_salir.Image = ((System.Drawing.Image)(resources.GetObject("bt_salir.Image")));
             this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_salir.Location = new System.Drawing.Point(578, 281);
-            this.bt_salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_salir.Margin = new System.Windows.Forms.Padding(4);
             this.bt_salir.Name = "bt_salir";
             this.bt_salir.Size = new System.Drawing.Size(100, 26);
             this.bt_salir.TabIndex = 0;
@@ -102,8 +103,9 @@
             // prestamosToolStripMenuItem
             // 
             this.prestamosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prestamosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("prestamosToolStripMenuItem.Image")));
             this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
-            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.prestamosToolStripMenuItem.Text = "Prestamos";
             // 
             // prendasToolStripMenuItem
@@ -126,7 +128,7 @@
             // ayudaDelSistemaToolStripMenuItem
             // 
             this.ayudaDelSistemaToolStripMenuItem.Name = "ayudaDelSistemaToolStripMenuItem";
-            this.ayudaDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.ayudaDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.ayudaDelSistemaToolStripMenuItem.Text = "Ayuda del sistema";
             // 
             // acercaDelSisremaToolStripMenuItem
@@ -158,11 +160,21 @@
             this.lbnombre.TabIndex = 4;
             this.lbnombre.Text = "Error al cargar el nombre";
             // 
+            // lbEquipo
+            // 
+            this.lbEquipo.AutoSize = true;
+            this.lbEquipo.Location = new System.Drawing.Point(13, 281);
+            this.lbEquipo.Name = "lbEquipo";
+            this.lbEquipo.Size = new System.Drawing.Size(241, 15);
+            this.lbEquipo.TabIndex = 5;
+            this.lbEquipo.Text = "Equipo: Error obtieniendo el nombre";
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 335);
+            this.Controls.Add(this.lbEquipo);
             this.Controls.Add(this.lbnombre);
             this.Controls.Add(this.lbbienvenido);
             this.Controls.Add(this.statusStrip1);
@@ -171,7 +183,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
@@ -197,5 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDelSisremaToolStripMenuItem;
         private System.Windows.Forms.Label lbbienvenido;
         private System.Windows.Forms.Label lbnombre;
+        private System.Windows.Forms.Label lbEquipo;
     }
 }

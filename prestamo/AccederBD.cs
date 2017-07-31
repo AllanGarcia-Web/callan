@@ -70,7 +70,7 @@ namespace prestamo
         }// final desconectar
          // fin de manejo basico de base de datos
          // querys de modulo login
-        public bool login(string usuario, string pass) //Verifica acceso y mueve al form correcto
+        public bool Login(string usuario, string pass) //Verifica acceso y mueve al form correcto
         {
             bool res = false;
             try
@@ -437,7 +437,7 @@ namespace prestamo
                 ConectaDB();
                 com.Connection = this.con;
                 com.ExecuteNonQuery();      //conexión arreglada fin
-                DataTable dt = new DataTable();
+                dt = new DataTable();
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(com);
                 adaptador.Fill(dt);
                 return dt;

@@ -39,6 +39,21 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dGvDeudores = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.tbCalle = new System.Windows.Forms.TextBox();
             this.tbNumero = new System.Windows.Forms.TextBox();
@@ -64,25 +79,10 @@
             this.btLimpiar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbIne = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tBdeudor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tbIne = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGvDeudores)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(563, 145);
+            this.label5.Location = new System.Drawing.Point(563, 147);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
@@ -105,6 +105,7 @@
             this.tBemail.Name = "tBemail";
             this.tBemail.Size = new System.Drawing.Size(179, 20);
             this.tBemail.TabIndex = 72;
+            this.tBemail.Leave += new System.EventHandler(this.tBemail_Leave);
             // 
             // tBapmaterno
             // 
@@ -113,6 +114,7 @@
             this.tBapmaterno.Name = "tBapmaterno";
             this.tBapmaterno.Size = new System.Drawing.Size(179, 20);
             this.tBapmaterno.TabIndex = 71;
+            this.tBapmaterno.Leave += new System.EventHandler(this.tBapmaterno_Leave);
             // 
             // tBappaterno
             // 
@@ -121,6 +123,7 @@
             this.tBappaterno.Name = "tBappaterno";
             this.tBappaterno.Size = new System.Drawing.Size(179, 20);
             this.tBappaterno.TabIndex = 70;
+            this.tBappaterno.Leave += new System.EventHandler(this.tBappaterno_Leave);
             // 
             // tBnombre
             // 
@@ -129,6 +132,7 @@
             this.tBnombre.Name = "tBnombre";
             this.tBnombre.Size = new System.Drawing.Size(179, 20);
             this.tBnombre.TabIndex = 69;
+            this.tBnombre.Leave += new System.EventHandler(this.tBnombre_Leave);
             // 
             // label7
             // 
@@ -202,6 +206,104 @@
             this.dGvDeudores.TabIndex = 52;
             this.dGvDeudores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGvDeudores_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "No. Deudor";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Apellido Paterno";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Apellido Materno";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "No. INE";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Calle";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Numero";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Colonia";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Ciudad";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Codigo Postal";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Estado";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Telefono";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Nombre Aval";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Telefono Aval";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Email";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -218,6 +320,7 @@
             this.tbCalle.Name = "tbCalle";
             this.tbCalle.Size = new System.Drawing.Size(179, 20);
             this.tbCalle.TabIndex = 75;
+            this.tbCalle.Leave += new System.EventHandler(this.tbCalle_Leave);
             // 
             // tbNumero
             // 
@@ -225,6 +328,7 @@
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(179, 20);
             this.tbNumero.TabIndex = 76;
+            this.tbNumero.Leave += new System.EventHandler(this.tbNumero_Leave);
             // 
             // label3
             // 
@@ -249,7 +353,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(278, 113);
+            this.label10.Location = new System.Drawing.Point(280, 116);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
@@ -259,7 +363,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(278, 144);
+            this.label11.Location = new System.Drawing.Point(280, 148);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(75, 13);
@@ -272,6 +376,7 @@
             this.tbColonia.Name = "tbColonia";
             this.tbColonia.Size = new System.Drawing.Size(179, 20);
             this.tbColonia.TabIndex = 81;
+            this.tbColonia.Leave += new System.EventHandler(this.tbColonia_Leave);
             // 
             // tbCiudad
             // 
@@ -279,6 +384,7 @@
             this.tbCiudad.Name = "tbCiudad";
             this.tbCiudad.Size = new System.Drawing.Size(179, 20);
             this.tbCiudad.TabIndex = 82;
+            this.tbCiudad.Leave += new System.EventHandler(this.tbCiudad_Leave);
             // 
             // tbCodigoPostal
             // 
@@ -286,6 +392,7 @@
             this.tbCodigoPostal.Name = "tbCodigoPostal";
             this.tbCodigoPostal.Size = new System.Drawing.Size(179, 20);
             this.tbCodigoPostal.TabIndex = 83;
+            this.tbCodigoPostal.Leave += new System.EventHandler(this.tbCodigoPostal_Leave);
             // 
             // tbEstado
             // 
@@ -293,6 +400,7 @@
             this.tbEstado.Name = "tbEstado";
             this.tbEstado.Size = new System.Drawing.Size(179, 20);
             this.tbEstado.TabIndex = 84;
+            this.tbEstado.Leave += new System.EventHandler(this.tbEstado_Leave);
             // 
             // tbTelefono
             // 
@@ -300,6 +408,7 @@
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(179, 20);
             this.tbTelefono.TabIndex = 85;
+            this.tbTelefono.Leave += new System.EventHandler(this.tbTelefono_Leave);
             // 
             // tbAval
             // 
@@ -307,6 +416,7 @@
             this.tbAval.Name = "tbAval";
             this.tbAval.Size = new System.Drawing.Size(179, 20);
             this.tbAval.TabIndex = 86;
+            this.tbAval.Leave += new System.EventHandler(this.tbAval_Leave);
             // 
             // tbTelefonoAval
             // 
@@ -314,6 +424,7 @@
             this.tbTelefonoAval.Name = "tbTelefonoAval";
             this.tbTelefonoAval.Size = new System.Drawing.Size(179, 20);
             this.tbTelefonoAval.TabIndex = 87;
+            this.tbTelefonoAval.Leave += new System.EventHandler(this.tbTelefonoAval_Leave);
             // 
             // label12
             // 
@@ -364,7 +475,7 @@
             this.groupBox2.Controls.Add(this.btEliminar);
             this.groupBox2.Location = new System.Drawing.Point(992, 399);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(325, 192);
+            this.groupBox2.Size = new System.Drawing.Size(325, 173);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -468,10 +579,27 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(5, 399);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(981, 192);
+            this.groupBox1.Size = new System.Drawing.Size(981, 173);
             this.groupBox1.TabIndex = 93;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
+            // 
+            // tbIne
+            // 
+            this.tbIne.Location = new System.Drawing.Point(71, 148);
+            this.tbIne.Name = "tbIne";
+            this.tbIne.Size = new System.Drawing.Size(179, 20);
+            this.tbIne.TabIndex = 95;
+            this.tbIne.Leave += new System.EventHandler(this.tbIne_Leave);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 151);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 13);
+            this.label16.TabIndex = 94;
+            this.label16.Text = "No. INE";
             // 
             // tBdeudor
             // 
@@ -491,125 +619,11 @@
             this.label6.TabIndex = 92;
             this.label6.Text = "No. Deudor";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 151);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 13);
-            this.label16.TabIndex = 94;
-            this.label16.Text = "No. INE";
-            // 
-            // tbIne
-            // 
-            this.tbIne.Location = new System.Drawing.Point(71, 148);
-            this.tbIne.Name = "tbIne";
-            this.tbIne.Size = new System.Drawing.Size(179, 20);
-            this.tbIne.TabIndex = 95;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "No. Deudor";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Apellido Paterno";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Apellido Materno";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "No. INE";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Calle";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Numero";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Colonia";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Ciudad";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Codigo Postal";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Estado";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Telefono";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Nombre Aval";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Telefono Aval";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Email";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            // 
             // AdminDeudores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 603);
+            this.ClientSize = new System.Drawing.Size(1329, 580);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);

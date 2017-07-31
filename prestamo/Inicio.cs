@@ -22,7 +22,7 @@ namespace prestamo
         {
             if (tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verifica que no este vacio
             {
-                MessageBox.Show("Error: El usuario o contraseña estan en blanco");
+                DialogResult dialog = MessageBox.Show("El usuario o contraseña estan en blanco", "Campos en blanco", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (tBusuario.Text.Trim() == "") //vemos cual esta vacio y mandamos el focus al lugar vacio
                 {
                     tBusuario.Focus();
@@ -34,14 +34,14 @@ namespace prestamo
             }
             else
             {
-                bd basedatos = new libAccesoBD.bd();
-                if (basedatos.login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                BD basedatos = new libAccesoBD.BD();
+                if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 {
                     new menu().ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Error: " + bd.Error); //especifica el error
+                    DialogResult dialog = MessageBox.Show("Error: " + BD.Error, "Error: " + BD.Error, MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
                 }
                 basedatos.DesconectarDB();
             }
@@ -49,7 +49,7 @@ namespace prestamo
 
         private void btnSalir_Click(object sender, EventArgs e) //boton salir
         {
-            DialogResult dialog = MessageBox.Show("Quieres salir del sistema?", "Salir del Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Information); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("Quieres salir del sistema?", "Salir del Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
                 Application.Exit();

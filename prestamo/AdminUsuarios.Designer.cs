@@ -46,14 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dGvUsuarios = new System.Windows.Forms.DataGridView();
-            this.cbNivel = new System.Windows.Forms.ComboBox();
-            this.btEliminar = new System.Windows.Forms.Button();
-            this.btActualizar = new System.Windows.Forms.Button();
-            this.btCrear = new System.Windows.Forms.Button();
-            this.cBactivo = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +54,14 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbNivel = new System.Windows.Forms.ComboBox();
+            this.btEliminar = new System.Windows.Forms.Button();
+            this.btActualizar = new System.Windows.Forms.Button();
+            this.btCrear = new System.Windows.Forms.Button();
+            this.cBactivo = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGvUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -85,6 +85,7 @@
             this.tBemail.Name = "tBemail";
             this.tBemail.Size = new System.Drawing.Size(179, 20);
             this.tBemail.TabIndex = 49;
+            this.tBemail.Leave += new System.EventHandler(this.tBemail_Leave);
             // 
             // tBapmaterno
             // 
@@ -101,6 +102,7 @@
             this.tBappaterno.Name = "tBappaterno";
             this.tBappaterno.Size = new System.Drawing.Size(179, 20);
             this.tBappaterno.TabIndex = 47;
+            this.tBappaterno.Leave += new System.EventHandler(this.tBappaterno_Leave);
             // 
             // tBnombre
             // 
@@ -109,6 +111,7 @@
             this.tBnombre.Name = "tBnombre";
             this.tBnombre.Size = new System.Drawing.Size(179, 20);
             this.tBnombre.TabIndex = 46;
+            this.tBnombre.Leave += new System.EventHandler(this.tBnombre_Leave);
             // 
             // label7
             // 
@@ -248,6 +251,55 @@
             this.dGvUsuarios.TabIndex = 27;
             this.dGvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGvUsuarios_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Tipo Usuario";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Usuario";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Contraseña";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Apellido Paterno";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Apellido Materno";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Email";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Activo";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // cbNivel
             // 
             this.cbNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -355,55 +407,6 @@
             this.groupBox2.TabIndex = 54;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Tipo Usuario";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Usuario";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Contraseña";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Apellido Paterno";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Apellido Materno";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Email";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Activo";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // label10
             // 

@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using libAccesoBD;
+using libValidaciones;
 
 namespace prestamo
 {
     public partial class AdminUsuarios : Form
     {
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
+        // resultados de validaciones
+        public bool nombre = false;
+        public bool apellidop = false;
+        public bool email = false;
+        // fin de resultados validaciones
 
         public AdminUsuarios()
         {
@@ -53,22 +59,22 @@ namespace prestamo
         {
             dGvUsuarios.Rows.Clear();
             //AccederBD basedatos = new AccederBD();
-            bd basedatos = new libAccesoBD.bd();
-            if (basedatos.LeerUsuarios() == true)
+            BD basedatos = new libAccesoBD.BD();
+            if (basedatos.LeerUsuarios() == true) //carga datos al datagredview
             {
-                while (bd.Lector.Read()) //datos de la bd
+                while (BD.Lector.Read()) //datos de la bd
                 {
-                    dGvUsuarios.Rows.Add(bd.Lector.GetString(0), bd.Lector.GetString(1), bd.Lector.GetString(2), bd.Lector.GetString(3), bd.Lector.GetString(4), bd.Lector.GetString(5), bd.Lector.GetString(6), bd.Lector.GetString(7)); // cargar datos
+                    dGvUsuarios.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5), BD.Lector.GetString(6), BD.Lector.GetString(7)); // cargar datos
                 }
                 basedatos.DesconectarDB();
             }
             else
             {
-                MessageBox.Show("Error al leer datos. "+bd.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. "+BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btCrear_Click(object sender, EventArgs e)
+        private void btCrear_Click(object sender, EventArgs e) //agrega usuarios
         {
             if (cBactivo.Checked == false)
             {
@@ -78,24 +84,32 @@ namespace prestamo
             {
                 estado = "Si";
             }
-            if (tBnombre.Text.Trim() == "" || tBappaterno.Text.Trim() == "" || tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "" || tBemail.Text.Trim() == "") //verificar campos en blanco
+            if (nombre == true && apellidop == true && email == true || tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verificar campos en blanco
             {
-                MessageBox.Show("Algun campo esta en blanco verificalo");
-                tBusuario.Focus();
+                if (tBusuario.Text.Trim() == "")
+                {
+                    DialogResult dialog = MessageBox.Show("Usuario Vacio", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tBusuario.Focus();
+                }
+                else if (tBpass.Text.Trim() == "")
+                {
+                    DialogResult dialog = MessageBox.Show("Contraseña Vacia", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tBpass.Focus();
+                }
             }
             else
             {
                 try
                 {
-                    bd basedatos = new libAccesoBD.bd();
+                    BD basedatos = new libAccesoBD.BD();
                     if (basedatos.CrearUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
-                        MessageBox.Show("Agregado Correctamente");
+                        DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte!!. ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBusuario.Focus();
                     }
                     else
                     {
-                        MessageBox.Show("Se esta agregando a un usuario repetido");
+                        DialogResult dialog = MessageBox.Show("Usuario repetido", "Se esta agregando a un usuario repetido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBusuario.Focus();
                         tBusuario.SelectAll();
                     }
@@ -103,7 +117,7 @@ namespace prestamo
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error en la alta de usuario");
+                    DialogResult dialog = MessageBox.Show("Error en la alta de usuario", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminUsuarios_Load(sender,e);
@@ -121,22 +135,22 @@ namespace prestamo
             }
             if (tBnombre.Text.Trim() == "" || tBappaterno.Text.Trim() == "" || tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "" || tBemail.Text.Trim() == "") //verificar campos en blanco
             {
-                MessageBox.Show("Algun campo esta en blanco verificalo");
+                DialogResult dialog = MessageBox.Show("Algun campo esta en blanco verificalo", "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tBusuario.Focus();
             }
             else
             {
                 try
                 {
-                    bd basedatos = new libAccesoBD.bd();
+                    BD basedatos = new libAccesoBD.BD();
                     if (basedatos.EditarUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
-                        MessageBox.Show("Usuario seleccionado actualizado");
+                        DialogResult dialog = MessageBox.Show("Usuario seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBusuario.Focus();
                     }
                     else
                     {
-                        MessageBox.Show("Se esta actuaizando a un usuario inexistente");
+                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente", "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBusuario.Focus();
                         tBusuario.SelectAll();
                     }
@@ -144,7 +158,7 @@ namespace prestamo
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error al actualizar el usuario");
+                    DialogResult dialog = MessageBox.Show("Error al actualizar el usuario", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminUsuarios_Load(sender, e);
@@ -152,17 +166,17 @@ namespace prestamo
 
         private void btEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado?", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado? \n Es irreversible", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                bd basedatos = new libAccesoBD.bd();
+                BD basedatos = new libAccesoBD.BD();
                 if (basedatos.EliminarUsuario(tBusuario.Text) == true)
                 {
-                    MessageBox.Show("Eliminado Correctamente");
+                    dialog = MessageBox.Show("Eliminado Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("" + bd.Error);
+                    dialog = MessageBox.Show("Error: " + BD.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 AdminUsuarios_Load(sender, e);
             }
@@ -184,6 +198,45 @@ namespace prestamo
             tBemail.Clear();
             cBactivo.Checked = true;
             AdminUsuarios_Load(sender, e);
+        }
+
+        private void tBnombre_Leave(object sender, EventArgs e)
+        {
+            if (libValidaciones.libValidaciones.NombrePersonal(tBnombre.Text))
+            {
+                nombre = true;
+            }
+            else
+            {
+                tBnombre.Focus();
+                tBnombre.SelectAll();
+            }
+        }
+
+        private void tBappaterno_Leave(object sender, EventArgs e)
+        {
+            if (libValidaciones.libValidaciones.NombrePersonal(tBappaterno.Text))
+            {
+                apellidop = true;
+            }
+            else
+            {
+                tBappaterno.Focus();
+                tBappaterno.SelectAll();
+            }
+        }
+
+        private void tBemail_Leave(object sender, EventArgs e)
+        {
+            if (libValidaciones.libValidaciones.Email(tBemail.Text))
+            {
+                email = true;
+            }
+            else
+            {
+                tBemail.Focus();
+                tBemail.SelectAll();
+            }
         }
     }
 }
