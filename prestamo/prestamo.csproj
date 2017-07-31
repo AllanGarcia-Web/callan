@@ -58,6 +58,9 @@
     <Reference Include="libAccesoBD">
       <HintPath>..\..\libAccesoBD\libAccesoBD\bin\Debug\libAccesoBD.dll</HintPath>
     </Reference>
+    <Reference Include="libValidaciones">
+      <HintPath>..\..\..\Validaciones\Validaciones\bin\Debug\libValidaciones.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
