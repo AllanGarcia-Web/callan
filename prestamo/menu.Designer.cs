@@ -42,6 +42,7 @@
             this.lbbienvenido = new System.Windows.Forms.Label();
             this.lbnombre = new System.Windows.Forms.Label();
             this.lbEquipo = new System.Windows.Forms.Label();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@
             this.deudoresToolStripMenuItem,
             this.prestamosToolStripMenuItem,
             this.prendasToolStripMenuItem,
+            this.reportesToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -171,6 +173,12 @@
             this.lbEquipo.TabIndex = 5;
             this.lbEquipo.Text = "Equipo: Error obtieniendo el nombre";
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -212,5 +220,6 @@
         private System.Windows.Forms.Label lbbienvenido;
         private System.Windows.Forms.Label lbnombre;
         private System.Windows.Forms.Label lbEquipo;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }
