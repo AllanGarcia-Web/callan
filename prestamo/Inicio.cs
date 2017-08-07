@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using libAccesoBD;
+using libperloan;
 
 namespace prestamo
 { 
@@ -34,14 +35,17 @@ namespace prestamo
             }
             else
             {
-                BD basedatos = new libAccesoBD.BD();
+                BD basedatos = new libAccesoBD.BD(); //clase BD
+                Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
                 if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                //if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+
                 {
                     new menu().ShowDialog();
                 }
                 else
                 {
-                    DialogResult dialog = MessageBox.Show("Error: " + BD.Error, "Error: " + BD.Error, MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
+                    DialogResult dialog = MessageBox.Show("Error: " + BD.Error, "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
                 }
                 basedatos.DesconectarDB();
             }

@@ -62,20 +62,6 @@ namespace prestamo
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             dGvUsuarios.Rows.Clear();
-
-            //if (basedatos.LeerUsuarios() == true) //carga datos al datagredview
-            //{
-            //    while (BD.Lector.Read()) //datos de la bd
-            //    {
-            //        dGvUsuarios.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5), BD.Lector.GetString(6), BD.Lector.GetString(7)); // cargar datos
-            //    }
-            //    basedatos.DesconectarDB();
-            //}
-            //else
-            //{
-            //    DialogResult dialog = MessageBox.Show("Error al leer datos. " + BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
             if (ClassUsuarios.LeerUsuarios() == true) //carga datos al datagredview desde middleware
             {
                 while (Usuarios.Lector.Read()) //datos de la bd
@@ -117,7 +103,6 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
                     if (basedatos.CrearUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte!!. ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -158,7 +143,6 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
                     if (basedatos.EditarUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Usuario seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);

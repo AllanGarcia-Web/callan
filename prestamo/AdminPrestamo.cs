@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using libAccesoBD;
+using libperloan;
 using libValidaciones;
 
 namespace prestamo
@@ -19,6 +20,10 @@ namespace prestamo
         public bool monto = false;
         public bool plazo = false;
         // fin de resultados validaciones
+        Prestamo ClassPrestamos = new Prestamo();
+        Deudores ClassDeudores = new Deudores();
+        Prenda ClassPrenda = new Prenda();
+        BD basedatos = new BD();
 
         public AdminPrestamo()
         {
@@ -47,38 +52,37 @@ namespace prestamo
         {
             dGvPrestamos.Rows.Clear(); //limpia datgrid
             cBbumDeudor.Items.Clear(); //limpia combo de deudor
-            CbNumPrenda.Items.Clear(); //limpia combo de prenda
-            //AccederBD basedatos = new AccederBD();
-            BD basedatos = new libAccesoBD.BD();
+            CbNumPrenda.Items.Clear(); //limpia combo de prenda    
+
             // inicio leer deudores
-            if (basedatos.LeerDeudores()==true)
+            if (ClassDeudores.LeerDeudores()==true) //carga comnboox con deudores
             {
-                while (BD.Lector.Read())
+                while (Deudores.Lector.Read())
                 {
-                    cBbumDeudor.Items.Add(BD.Lector.GetString(0));
+                    cBbumDeudor.Items.Add(Deudores.Lector.GetString(0));
                 }
             }
             // fin leer deudores
             // inicio leer prendas
-            if (basedatos.LeerPrendas() == true)
+            if (ClassPrenda.Leer() == true)
             {
-                while (BD.Lector.Read())
+                while (Prenda.Lector.Read())
                 {
-                    CbNumPrenda.Items.Add(BD.Lector.GetString(0));
+                    CbNumPrenda.Items.Add(Prenda.Lector.GetString(0));
                 }
             }
             // fin leer prendas
-            if (basedatos.LeerPrestamos() == true) //carga datos al datagredview
+            if (ClassPrestamos.Leer() == true) //carga datos al datagredview
             {
-                while (BD.Lector.Read()) //datos de la bd
+                while (Prestamo.Lector.Read()) //datos de la bd
                 {
-                    dGvPrestamos.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5)); // cargar datos
+                    dGvPrestamos.Rows.Add(Prestamo.Lector.GetString(0), Prestamo.Lector.GetString(1), Prestamo.Lector.GetString(2), Prestamo.Lector.GetString(3), Prestamo.Lector.GetString(4), Prestamo.Lector.GetString(5)); // cargar datos
                 }
                 basedatos.DesconectarDB();
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. "+BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. "+Prestamo.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,7 +105,6 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
                     if (basedatos.CrearPrestamo(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prestamo Registrado \n Consulte No. de Prestamo ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -141,7 +144,6 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
                     if (basedatos.EditarPrestamo(TbNumPrestamo.Text ,cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prestamo seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -167,7 +169,6 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar el prestamo seleccionado? \n ES IRREVERSIBLE", "Eliminar Prestamo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                BD basedatos = new libAccesoBD.BD();
                 if (basedatos.EliminarPrestamo(TbNumPrestamo.Text) == true)
                 {
                     dialog = MessageBox.Show("Eliminado Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -234,12 +235,11 @@ namespace prestamo
         private void cBbumDuedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             BD basedatos = new libAccesoBD.BD();
-            //if (basedatos.LeerDuedorID(cBbumDudor.Text) == true) //cargar label nombre de prenda con el nombre de prenda
             if (basedatos.LeerDuedorID(cBbumDeudor.Text) == true)
             {
                 while (BD.Lector.Read())
                 {
-                    tBNombreDudor.Text = BD.Lector.GetString(1)+" "+ BD.Lector.GetString(2);
+                    tBNombreDudor.Text = BD.Lector.GetString(1) + " " + BD.Lector.GetString(2);
                 }
             }
             else
