@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using libAccesoBD;
 using libValidaciones;
+using libperloan;
 
 namespace prestamo
 {
@@ -37,6 +38,8 @@ namespace prestamo
         public bool telefonoaval = false;
         public bool nombreaval = false;
         // de resultados de validaciones
+        BD basedatos = new libAccesoBD.BD();
+        libperloan.Deudores ClassDeudores = new Deudores();
 
         private void btSalir_Click(object sender, EventArgs e)
         {
@@ -47,18 +50,18 @@ namespace prestamo
         {
             cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes
             dGvDeudores.Rows.Clear();
-            BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerDeudores() == true)
+
+            if (ClassDeudores.LeerDeudores() == true)
             {
-                while (BD.Lector.Read()) //datos de la bd
+                while (Deudores.Lector.Read()) //datos de la bd
                 {
-                    dGvDeudores.Rows.Add(BD.Lector.GetInt32(0).ToString(), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5), BD.Lector.GetString(6), BD.Lector.GetString(7), BD.Lector.GetString(8), BD.Lector.GetString(9), BD.Lector.GetString(10), BD.Lector.GetString(11), BD.Lector.GetString(12), BD.Lector.GetString(13), BD.Lector.GetString(14), BD.Lector.GetString(15)); // cargar datos
+                    dGvDeudores.Rows.Add(Deudores.Lector.GetInt32(0).ToString(), Deudores.Lector.GetString(1), Deudores.Lector.GetString(2), Deudores.Lector.GetString(3), Deudores.Lector.GetString(4), Deudores.Lector.GetString(5), Deudores.Lector.GetString(6), Deudores.Lector.GetString(7), Deudores.Lector.GetString(8), Deudores.Lector.GetString(9), Deudores.Lector.GetString(10), Deudores.Lector.GetString(11), Deudores.Lector.GetString(12), Deudores.Lector.GetString(13), Deudores.Lector.GetString(14), Deudores.Lector.GetString(15)); // cargar datos
                 }
-                basedatos.DesconectarDB();
+                ClassDeudores.DesconectarBD();
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. " + BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + Deudores.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -118,14 +121,13 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar al deudor seleccionado?\nESTO ES IRREVERSIBLE", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                BD basedatos = new libAccesoBD.BD();
-                if (basedatos.EliminarDeudor(tBdeudor.Text) == true)
+                if (ClassDeudores.EliminarDeudor(tBdeudor.Text) == true)
                 {
                     dialog = MessageBox.Show("Deudor eliminado correctamente", "Deudor eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    dialog = MessageBox.Show("Hubo un error al eliminar al deudor. " + BD.Error, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dialog = MessageBox.Show("Hubo un error al eliminar al deudor. " + Deudores.Error, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (dialog == DialogResult.No)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,8 @@ namespace prestamo
         public bool apellidop = false;
         public bool email = false;
         // fin de resultados validaciones
+        Usuarios ClassUsuarios = new Usuarios();
+        BD basedatos = new libAccesoBD.BD();
 
         public AdminUsuarios()
         {
@@ -59,7 +62,7 @@ namespace prestamo
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             dGvUsuarios.Rows.Clear();
-            //BD basedatos = new libAccesoBD.BD();
+
             //if (basedatos.LeerUsuarios() == true) //carga datos al datagredview
             //{
             //    while (BD.Lector.Read()) //datos de la bd
@@ -70,17 +73,16 @@ namespace prestamo
             //}
             //else
             //{
-            //    DialogResult dialog = MessageBox.Show("Error al leer datos. "+BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    DialogResult dialog = MessageBox.Show("Error al leer datos. " + BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
-            Usuarios ClassUsuarios = new Usuarios();
-            
+
             if (ClassUsuarios.LeerUsuarios() == true) //carga datos al datagredview desde middleware
             {
                 while (Usuarios.Lector.Read()) //datos de la bd
                 {
                     dGvUsuarios.Rows.Add(Usuarios.Lector.GetString(0), Usuarios.Lector.GetString(1), Usuarios.Lector.GetString(2), Usuarios.Lector.GetString(3), Usuarios.Lector.GetString(4), Usuarios.Lector.GetString(5), Usuarios.Lector.GetString(6), Usuarios.Lector.GetString(7)); // cargar datos
                 }
-                //basedatos.DesconectarDB();
+                ClassUsuarios.DesconectarBD();
             }
             else
             {
@@ -178,19 +180,19 @@ namespace prestamo
             AdminUsuarios_Load(sender, e);
         }
 
-        private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
+        private void btEliminar_Click(object sender, EventArgs e) //elimina usuario
         {
             DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado? \n Es irreversible", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                BD basedatos = new libAccesoBD.BD();
-                if (basedatos.EliminarUsuario(tBusuario.Text) == true)
+                if (ClassUsuarios.EliminarUsuario(tBusuario.Text) == true)
                 {
                     dialog = MessageBox.Show("Eliminado Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    dialog = MessageBox.Show("Error: " + BD.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dialog = MessageBox.Show("Error: " + Usuarios.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(""+BD.Error2);
                 }
                 AdminUsuarios_Load(sender, e);
             }
