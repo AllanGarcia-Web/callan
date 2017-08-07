@@ -58,6 +58,9 @@
     <Reference Include="libAccesoBD">
       <HintPath>..\..\libAccesoBD\libAccesoBD\bin\Debug\libAccesoBD.dll</HintPath>
     </Reference>
+    <Reference Include="libperloan">
+      <HintPath>..\..\libperloan\libperloan\bin\Debug\libperloan.dll</HintPath>
+    </Reference>
     <Reference Include="libValidaciones">
       <HintPath>..\..\..\Validaciones\Validaciones\bin\Debug\libValidaciones.dll</HintPath>
     </Reference>

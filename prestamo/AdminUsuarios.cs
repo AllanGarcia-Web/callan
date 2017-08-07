@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using libAccesoBD;
 using libValidaciones;
+using libperloan;
 
 namespace prestamo
 {
@@ -58,19 +59,32 @@ namespace prestamo
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             dGvUsuarios.Rows.Clear();
-            //AccederBD basedatos = new AccederBD();
-            BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerUsuarios() == true) //carga datos al datagredview
+            //BD basedatos = new libAccesoBD.BD();
+            //if (basedatos.LeerUsuarios() == true) //carga datos al datagredview
+            //{
+            //    while (BD.Lector.Read()) //datos de la bd
+            //    {
+            //        dGvUsuarios.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5), BD.Lector.GetString(6), BD.Lector.GetString(7)); // cargar datos
+            //    }
+            //    basedatos.DesconectarDB();
+            //}
+            //else
+            //{
+            //    DialogResult dialog = MessageBox.Show("Error al leer datos. "+BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            Usuarios ClassUsuarios = new Usuarios();
+            
+            if (ClassUsuarios.LeerUsuarios() == true) //carga datos al datagredview desde middleware
             {
-                while (BD.Lector.Read()) //datos de la bd
+                while (Usuarios.Lector.Read()) //datos de la bd
                 {
-                    dGvUsuarios.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5), BD.Lector.GetString(6), BD.Lector.GetString(7)); // cargar datos
+                    dGvUsuarios.Rows.Add(Usuarios.Lector.GetString(0), Usuarios.Lector.GetString(1), Usuarios.Lector.GetString(2), Usuarios.Lector.GetString(3), Usuarios.Lector.GetString(4), Usuarios.Lector.GetString(5), Usuarios.Lector.GetString(6), Usuarios.Lector.GetString(7)); // cargar datos
                 }
-                basedatos.DesconectarDB();
+                //basedatos.DesconectarDB();
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. "+BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + Usuarios.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
