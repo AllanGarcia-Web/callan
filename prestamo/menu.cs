@@ -15,7 +15,6 @@ namespace prestamo
 {
     public partial class menu : Form
     {
-        
         public menu()
         {
             InitializeComponent();
@@ -97,6 +96,26 @@ namespace prestamo
         private void bt_salir_Click(object sender, EventArgs e) //boton salir
         {
             this.Close();
+        }
+
+        private void btn_Usuarios_Click(object sender, EventArgs e)
+        {
+            new AdminUsuarios().ShowDialog();
+        }
+
+        private void btn_Deudores_Click(object sender, EventArgs e)
+        {
+            new AdminDeudores().ShowDialog();
+        }
+
+        private void btn_Prestamos_Click(object sender, EventArgs e)
+        {
+            new AdminPrestamo().ShowDialog();
+        }
+
+        private void btn_Prendas_Click(object sender, EventArgs e)
+        {
+            new AdminPrenda().ShowDialog();
         }
     }
 }

@@ -72,6 +72,7 @@ namespace prestamo
                 }
             }
             // fin leer prendas
+            // inicio de carga prestamos
             if (ClassPrestamos.Leer() == true) //carga datos al datagredview
             {
                 while (Prestamo.Lector.Read()) //datos de la bd
@@ -84,9 +85,10 @@ namespace prestamo
             {
                 DialogResult dialog = MessageBox.Show("Error al leer datos. "+Prestamo.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // fin de carga de prestamos
         }
 
-        private void btCrear_Click(object sender, EventArgs e) //agrega usuarios
+        private void btCrear_Click(object sender, EventArgs e) //agregar prestamo
         {
             if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
             {
@@ -125,7 +127,7 @@ namespace prestamo
             AdminPrestamo_Load(sender,e);
         }
 
-        private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
+        private void btActualizar_Click(object sender, EventArgs e) // actuliza prestamo
         {
             if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
             {
@@ -164,7 +166,7 @@ namespace prestamo
             AdminPrestamo_Load(sender, e);
         }
 
-        private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
+        private void btEliminar_Click(object sender, EventArgs e) //elimina prestamo
         {
             DialogResult dialog = MessageBox.Show("Quieres eliminar el prestamo seleccionado? \n ES IRREVERSIBLE", "Eliminar Prestamo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -194,7 +196,7 @@ namespace prestamo
             AdminPrestamo_Load(sender, e);
         }
 
-        private void TbMontoPrestamo_Leave(object sender, EventArgs e) // valida nombre usuario
+        private void TbMontoPrestamo_Leave(object sender, EventArgs e) // valida monto prestamo
         {
             if (libValidaciones.libValidaciones.Numeros(TbMontoPrestamo.Text))
             {
@@ -207,7 +209,7 @@ namespace prestamo
             }
         }
 
-        private void TbPlazoSemanas_Leave(object sender, EventArgs e) // valida apellido paterno usuario
+        private void TbPlazoSemanas_Leave(object sender, EventArgs e) // valida plazo de prestamo
         {
             if (libValidaciones.libValidaciones.Numeros(TbPlazoSemanas.Text))
             {
@@ -223,7 +225,7 @@ namespace prestamo
         private void CbNumPrenda_SelectedIndexChanged(object sender, EventArgs e)
         {
             BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label nombre de prenda con el nombre de prenda
+            if (basedatos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
             {
                 while (BD.Lector.Read())
                 {
@@ -232,7 +234,7 @@ namespace prestamo
             }
         }
 
-        private void cBbumDuedor_SelectedIndexChanged(object sender, EventArgs e)
+        private void cBbumDuedor_SelectedIndexChanged(object sender, EventArgs e) //carga label con nombre y apellido de deudor
         {
             BD basedatos = new libAccesoBD.BD();
             if (basedatos.LeerDuedorID(cBbumDeudor.Text) == true)

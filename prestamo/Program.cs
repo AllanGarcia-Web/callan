@@ -16,7 +16,7 @@ namespace prestamo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminPrestamo());
+            Application.Run(new Inicio());
         }
     }
 }

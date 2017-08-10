@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using libAccesoBD;
+using libAccesoBD;
+using libperloan;
 using libValidaciones;
 
 namespace prestamo
@@ -20,6 +22,10 @@ namespace prestamo
         public bool apellidop = false;
         public bool email = false;
         // fin de resultados validaciones
+        Prestamo ClassPrestamos = new Prestamo();
+        Deudores ClassDeudores = new Deudores();
+        Prenda ClassPrenda = new Prenda();
+        BD basedatos = new BD();
 
         public AdminPrenda()
         {
@@ -29,18 +35,17 @@ namespace prestamo
         private void AdminPrenda_Load(object sender, EventArgs e)
         {
             dGvPrendas.Rows.Clear();
-            BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerPrendas() == true) //carga datos al datagredview
+            if (ClassPrenda.Leer() == true) //carga datos al datagredview con la clase prenda
             {
-                while (BD.Lector.Read()) //datos de la bd
+                while (Prenda.Lector.Read()) //datos de la bd
                 {
-                    dGvPrendas.Rows.Add(BD.Lector.GetString(0), BD.Lector.GetString(1), BD.Lector.GetString(2), BD.Lector.GetString(3), BD.Lector.GetString(4), BD.Lector.GetString(5)); // cargar datos
+                    dGvPrendas.Rows.Add(Prenda.Lector.GetString(0), Prenda.Lector.GetString(1), Prenda.Lector.GetString(2), Prenda.Lector.GetString(3), Prenda.Lector.GetString(4), Prenda.Lector.GetString(5)); // cargar datos
                 }
                 basedatos.DesconectarDB();
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. " + BD.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + Prenda.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

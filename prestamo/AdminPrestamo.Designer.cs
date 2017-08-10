@@ -40,6 +40,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dGvPrestamos = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btEliminar = new System.Windows.Forms.Button();
             this.btActualizar = new System.Windows.Forms.Button();
             this.btCrear = new System.Windows.Forms.Button();
@@ -53,12 +59,6 @@
             this.TbNumPrestamo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGvPrestamos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -191,6 +191,42 @@
             this.dGvPrestamos.TabIndex = 27;
             this.dGvPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGvUsuarios_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "No. Prestamo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "No. Deudor";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Monto Prestado";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Plazo en Semanas";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "No. Prenda";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Prenda";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // btEliminar
             // 
             this.btEliminar.Image = global::prestamo.Properties.Resources.Clearallrequests_8816;
@@ -219,7 +255,7 @@
             // 
             // btCrear
             // 
-            this.btCrear.Image = global::prestamo.Properties.Resources._1491352434_Accept;
+            this.btCrear.Image = ((System.Drawing.Image)(resources.GetObject("btCrear.Image")));
             this.btCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btCrear.Location = new System.Drawing.Point(5, 21);
             this.btCrear.Margin = new System.Windows.Forms.Padding(2);
@@ -341,42 +377,6 @@
             this.label10.TabIndex = 55;
             this.label10.Text = "Nota:\r\nEl numero de  prestamo se genera automaticamente\r\n\r\nEliminar un prestamo e" +
     "s IRREVERSIBLE";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "No. Prestamo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "No. Deudor";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Monto Prestado";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Plazo en Semanas";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "No. Prenda";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Prenda";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // AdminPrestamo
             // 

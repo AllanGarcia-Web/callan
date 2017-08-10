@@ -160,10 +160,10 @@
             // 
             this.btSalir.Image = ((System.Drawing.Image)(resources.GetObject("btSalir.Image")));
             this.btSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSalir.Location = new System.Drawing.Point(171, 99);
+            this.btSalir.Location = new System.Drawing.Point(150, 120);
             this.btSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btSalir.Name = "btSalir";
-            this.btSalir.Size = new System.Drawing.Size(79, 50);
+            this.btSalir.Size = new System.Drawing.Size(100, 38);
             this.btSalir.TabIndex = 40;
             this.btSalir.Text = "&Salir";
             this.btSalir.UseVisualStyleBackColor = true;
@@ -340,7 +340,7 @@
             // 
             // btCrear
             // 
-            this.btCrear.Image = global::prestamo.Properties.Resources._1491352434_Accept;
+            this.btCrear.Image = ((System.Drawing.Image)(resources.GetObject("btCrear.Image")));
             this.btCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btCrear.Location = new System.Drawing.Point(5, 21);
             this.btCrear.Margin = new System.Windows.Forms.Padding(2);

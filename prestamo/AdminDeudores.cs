@@ -57,7 +57,7 @@ namespace prestamo
                 {
                     dGvDeudores.Rows.Add(Deudores.Lector.GetInt32(0).ToString(), Deudores.Lector.GetString(1), Deudores.Lector.GetString(2), Deudores.Lector.GetString(3), Deudores.Lector.GetString(4), Deudores.Lector.GetString(5), Deudores.Lector.GetString(6), Deudores.Lector.GetString(7), Deudores.Lector.GetString(8), Deudores.Lector.GetString(9), Deudores.Lector.GetString(10), Deudores.Lector.GetString(11), Deudores.Lector.GetString(12), Deudores.Lector.GetString(13), Deudores.Lector.GetString(14), Deudores.Lector.GetString(15)); // cargar datos
                 }
-                ClassDeudores.DesconectarBD();
+                //ClassDeudores.DesconectarBD();
             }
             else
             {

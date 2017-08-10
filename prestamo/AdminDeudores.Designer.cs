@@ -202,7 +202,7 @@
             this.dGvDeudores.Name = "dGvDeudores";
             this.dGvDeudores.ReadOnly = true;
             this.dGvDeudores.RowTemplate.Height = 24;
-            this.dGvDeudores.Size = new System.Drawing.Size(1313, 354);
+            this.dGvDeudores.Size = new System.Drawing.Size(1246, 354);
             this.dGvDeudores.TabIndex = 52;
             this.dGvDeudores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGvDeudores_CellClick);
             // 
@@ -467,14 +467,14 @@
             this.groupBox2.Controls.Add(this.btEliminar);
             this.groupBox2.Location = new System.Drawing.Point(992, 399);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(325, 173);
+            this.groupBox2.Size = new System.Drawing.Size(259, 173);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
             // 
             // btCrear
             // 
-            this.btCrear.Image = global::prestamo.Properties.Resources._1491352434_Accept;
+            this.btCrear.Image = ((System.Drawing.Image)(resources.GetObject("btCrear.Image")));
             this.btCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btCrear.Location = new System.Drawing.Point(5, 21);
             this.btCrear.Margin = new System.Windows.Forms.Padding(2);
@@ -502,10 +502,10 @@
             // 
             this.btSalir.Image = ((System.Drawing.Image)(resources.GetObject("btSalir.Image")));
             this.btSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSalir.Location = new System.Drawing.Point(171, 99);
+            this.btSalir.Location = new System.Drawing.Point(150, 119);
             this.btSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btSalir.Name = "btSalir";
-            this.btSalir.Size = new System.Drawing.Size(79, 50);
+            this.btSalir.Size = new System.Drawing.Size(100, 45);
             this.btSalir.TabIndex = 100;
             this.btSalir.Text = "&Salir";
             this.btSalir.UseVisualStyleBackColor = true;
@@ -571,7 +571,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(5, 399);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(981, 173);
+            this.groupBox1.Size = new System.Drawing.Size(826, 173);
             this.groupBox1.TabIndex = 93;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
@@ -657,7 +657,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 580);
+            this.ClientSize = new System.Drawing.Size(1255, 580);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);

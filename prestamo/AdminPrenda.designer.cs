@@ -41,24 +41,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dGvPrendas = new System.Windows.Forms.DataGridView();
-            this.cbTipoPrenda = new System.Windows.Forms.ComboBox();
-            this.btEliminar = new System.Windows.Forms.Button();
-            this.btActualizar = new System.Windows.Forms.Button();
-            this.btCrear = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tBnumPrenda = new System.Windows.Forms.TextBox();
-            this.tBnombre = new System.Windows.Forms.TextBox();
-            this.rTdescripcion = new System.Windows.Forms.RichTextBox();
-            this.rTdetalles = new System.Windows.Forms.RichTextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbTipoPrenda = new System.Windows.Forms.ComboBox();
+            this.btEliminar = new System.Windows.Forms.Button();
+            this.btActualizar = new System.Windows.Forms.Button();
+            this.btCrear = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rTdetalles = new System.Windows.Forms.RichTextBox();
+            this.rTdescripcion = new System.Windows.Forms.RichTextBox();
+            this.tBnumPrenda = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tBnombre = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGvPrendas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -202,6 +202,42 @@
             this.dGvPrendas.TabIndex = 27;
             this.dGvPrendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGvUsuarios_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "No. Prenda";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tipo";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Nombre Prenda";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Descripción";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Detalles";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "No. Deudor";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // cbTipoPrenda
             // 
             this.cbTipoPrenda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -244,7 +280,7 @@
             // 
             // btCrear
             // 
-            this.btCrear.Image = global::prestamo.Properties.Resources._1491352434_Accept;
+            this.btCrear.Image = ((System.Drawing.Image)(resources.GetObject("btCrear.Image")));
             this.btCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btCrear.Location = new System.Drawing.Point(5, 21);
             this.btCrear.Margin = new System.Windows.Forms.Padding(2);
@@ -278,6 +314,48 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // rTdetalles
+            // 
+            this.rTdetalles.Location = new System.Drawing.Point(348, 105);
+            this.rTdetalles.Name = "rTdetalles";
+            this.rTdetalles.Size = new System.Drawing.Size(214, 91);
+            this.rTdetalles.TabIndex = 4;
+            this.rTdetalles.Text = "";
+            // 
+            // rTdescripcion
+            // 
+            this.rTdescripcion.Location = new System.Drawing.Point(348, 22);
+            this.rTdescripcion.Name = "rTdescripcion";
+            this.rTdescripcion.Size = new System.Drawing.Size(214, 72);
+            this.rTdescripcion.TabIndex = 3;
+            this.rTdescripcion.Text = "";
+            // 
+            // tBnumPrenda
+            // 
+            this.tBnumPrenda.Enabled = false;
+            this.tBnumPrenda.Location = new System.Drawing.Point(92, 23);
+            this.tBnumPrenda.Name = "tBnumPrenda";
+            this.tBnumPrenda.Size = new System.Drawing.Size(180, 20);
+            this.tBnumPrenda.TabIndex = 53;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Numero Prenda";
+            // 
+            // tBnombre
+            // 
+            this.tBnombre.Location = new System.Drawing.Point(92, 174);
+            this.tBnombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tBnombre.Name = "tBnombre";
+            this.tBnombre.Size = new System.Drawing.Size(179, 20);
+            this.tBnombre.TabIndex = 2;
+            this.tBnombre.Leave += new System.EventHandler(this.tBnombre_Leave);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btCrear);
@@ -301,84 +379,6 @@
             this.label10.TabIndex = 55;
             this.label10.Text = "Nota:\r\nEl numero de prenda se genera automaticamente\r\n\r\nEliminar una prenda es IR" +
     "REVERSIBLE\r\n\r\n\r\nEl campo de detalles es opcional";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 13);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "Numero Prenda";
-            // 
-            // tBnumPrenda
-            // 
-            this.tBnumPrenda.Enabled = false;
-            this.tBnumPrenda.Location = new System.Drawing.Point(92, 23);
-            this.tBnumPrenda.Name = "tBnumPrenda";
-            this.tBnumPrenda.Size = new System.Drawing.Size(180, 20);
-            this.tBnumPrenda.TabIndex = 53;
-            // 
-            // tBnombre
-            // 
-            this.tBnombre.Location = new System.Drawing.Point(92, 174);
-            this.tBnombre.Margin = new System.Windows.Forms.Padding(2);
-            this.tBnombre.Name = "tBnombre";
-            this.tBnombre.Size = new System.Drawing.Size(179, 20);
-            this.tBnombre.TabIndex = 2;
-            this.tBnombre.Leave += new System.EventHandler(this.tBnombre_Leave);
-            // 
-            // rTdescripcion
-            // 
-            this.rTdescripcion.Location = new System.Drawing.Point(348, 22);
-            this.rTdescripcion.Name = "rTdescripcion";
-            this.rTdescripcion.Size = new System.Drawing.Size(214, 72);
-            this.rTdescripcion.TabIndex = 3;
-            this.rTdescripcion.Text = "";
-            // 
-            // rTdetalles
-            // 
-            this.rTdetalles.Location = new System.Drawing.Point(348, 105);
-            this.rTdetalles.Name = "rTdetalles";
-            this.rTdetalles.Size = new System.Drawing.Size(214, 91);
-            this.rTdetalles.TabIndex = 4;
-            this.rTdetalles.Text = "";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "No. Prenda";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tipo";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Nombre Prenda";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Descripción";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Detalles";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "No. Deudor";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // AdminPrenda
             // 
