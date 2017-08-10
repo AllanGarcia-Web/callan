@@ -37,6 +37,8 @@
             this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDePrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDePrendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDelSisremaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +51,10 @@
             this.btn_Prendas = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.reporteDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +75,8 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 311);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 19, 0);
@@ -128,9 +136,28 @@
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDeUsuariosToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.reporteDePrestamosToolStripMenuItem,
+            this.reporteDePrendasToolStripMenuItem});
+            this.reportesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reporteDePrestamosToolStripMenuItem
+            // 
+            this.reporteDePrestamosToolStripMenuItem.Name = "reporteDePrestamosToolStripMenuItem";
+            this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.reporteDePrestamosToolStripMenuItem.Text = "Reporte de Prestamos";
+            this.reporteDePrestamosToolStripMenuItem.Click += new System.EventHandler(this.reporteDePrestamosToolStripMenuItem_Click);
+            // 
+            // reporteDePrendasToolStripMenuItem
+            // 
+            this.reporteDePrendasToolStripMenuItem.Name = "reporteDePrendasToolStripMenuItem";
+            this.reporteDePrendasToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.reporteDePrendasToolStripMenuItem.Text = "Reporte de Prendas";
             // 
             // ayudaToolStripMenuItem
             // 
@@ -256,6 +283,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciones";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
+            // 
+            // reporteDeUsuariosToolStripMenuItem
+            // 
+            this.reporteDeUsuariosToolStripMenuItem.Name = "reporteDeUsuariosToolStripMenuItem";
+            this.reporteDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.reporteDeUsuariosToolStripMenuItem.Text = "Reporte de Usuarios";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel1.Text = "Fecha:";
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -277,6 +321,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal : Sistema de Prestamos Perloan";
             this.Load += new System.EventHandler(this.menu_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -307,5 +353,10 @@
         private System.Windows.Forms.Button btn_Prendas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripMenuItem reporteDePrestamosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDePrendasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

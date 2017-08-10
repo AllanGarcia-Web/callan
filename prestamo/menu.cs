@@ -117,5 +117,10 @@ namespace prestamo
         {
             new AdminPrenda().ShowDialog();
         }
+
+        private void reporteDePrestamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ReportePrestamos().ShowDialog();
+        }
     }
 }
