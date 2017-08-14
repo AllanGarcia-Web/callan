@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libAccesoBD;
 using libperloan;
 using libValidaciones;
 
@@ -24,7 +23,6 @@ namespace prestamo
         Prestamo ClassPrestamos = new Prestamo();
         Deudores ClassDeudores = new Deudores();
         Prenda ClassPrenda = new Prenda();
-        BD basedatos = new BD();
 
         public AdminPrenda()
         {
@@ -40,7 +38,6 @@ namespace prestamo
                 {
                     dGvPrendas.Rows.Add(Prenda.Lector.GetString(0), Prenda.Lector.GetString(1), Prenda.Lector.GetString(2), Prenda.Lector.GetString(3), Prenda.Lector.GetString(4), Prenda.Lector.GetString(5)); // cargar datos
                 }
-                basedatos.DesconectarDB();
             }
             else
             {
@@ -80,23 +77,21 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
-                    if (basedatos.CrearPrenda(cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
+                    if (ClassPrenda.Insertar(cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
                     {
-                        DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dialog = MessageBox.Show("Prenda Agregada Correctamnte", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBnombre.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Nombre de prenda repetido", "Prenda Repetida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Nombre de prenda repetido"+Prenda.Error, "Prenda Repetida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
-                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error en la alta de la prenda", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error en la alta de la prenda"+Prenda.Error, "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrenda_Load(sender,e);
@@ -113,23 +108,21 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
-                    if (basedatos.EditarPrenda(tBnumPrenda.Text,cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
+                    if (ClassPrenda.Actualizar(tBnumPrenda.Text,cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
                     {
-                        DialogResult dialog = MessageBox.Show("Prenda seleccionado actualizada", "Actualizada Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dialog = MessageBox.Show("Prenda seleccionada actualizada", "Actualizada Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBnombre.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a una prenda inexistente"+BD.Error, "Prenda Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a una prenda inexistente"+Prenda.Error, "Prenda Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
-                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error al actualizar la prenda seleccionada", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error al actualizar la prenda seleccionada"+Prenda.Error, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrenda_Load(sender, e);
@@ -137,7 +130,7 @@ namespace prestamo
 
         private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
         {
-            DialogResult dialog = MessageBox.Show("Quieres eliminar la prenda seleccionado? \n ES IRREVERSIBLE", "Eliminar Prenda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("Quieres eliminar la prenda seleccionada? \n ES IRREVERSIBLE", "Eliminar Prenda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
                 if (ClassPrenda.Eliminar(tBnumPrenda.Text) == true)
@@ -148,7 +141,6 @@ namespace prestamo
                 {
                     dialog = MessageBox.Show("Error: " + Prenda.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //AdminPrenda_Load(sender, e);
             }
             else if (dialog == DialogResult.No)
             {
