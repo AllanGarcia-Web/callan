@@ -20,10 +20,13 @@ namespace prestamo
             InitializeComponent();
             //lbEquipo.Text= "Nombre del equipo: "+ Dns.GetHostName().ToString() +"       IP Local: "+GetComputer_LanIP().ToString() +"       IP Publica: "+GetComputer_InternetIP(); //nombre del equipo, ip local e ip externa (tarda en cargar ip externa)
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
+            lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
             BD basedatos = new libAccesoBD.BD(); //conexión a libreria
             if (BD.valor == 1) //verificar que es cobrador, para desactivar modulos
             {
                 usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
+                reporteDeUsuariosToolStripMenuItem.Visible = false; //desactiva acceso a reporte usuarios a cobrador
+                btn_Usuarios.Visible = false; //desactiva boton usuarios a cobrador
             }
         }
 
@@ -121,6 +124,11 @@ namespace prestamo
         private void reporteDePrestamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ReportePrestamos().ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
         }
     }
 }
