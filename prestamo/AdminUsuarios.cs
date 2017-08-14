@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libAccesoBD;
 using libValidaciones;
 using libperloan;
 
@@ -164,7 +163,6 @@ namespace prestamo
                 else
                 {
                     dialog = MessageBox.Show("Error: " + Usuarios.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show(""+BD.Error2);
                 }
                 AdminUsuarios_Load(sender, e);
             }

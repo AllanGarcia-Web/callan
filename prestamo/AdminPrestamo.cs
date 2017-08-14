@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libAccesoBD;
 using libperloan;
 using libValidaciones;
 
@@ -22,7 +21,6 @@ namespace prestamo
         Prestamo ClassPrestamos = new Prestamo();
         Deudores ClassDeudores = new Deudores();
         Prenda ClassPrenda = new Prenda();
-        BD basedatos = new BD();
 
         public AdminPrestamo()
         {
@@ -78,7 +76,6 @@ namespace prestamo
                 {
                     dGvPrestamos.Rows.Add(Prestamo.Lector.GetString(0), Prestamo.Lector.GetString(1), Prestamo.Lector.GetString(2), Prestamo.Lector.GetString(3), Prestamo.Lector.GetString(4), Prestamo.Lector.GetString(5)); // cargar datos
                 }
-                basedatos.DesconectarDB();
             }
             else
             {
@@ -106,7 +103,6 @@ namespace prestamo
             {
                 try
                 {
-                    //if (basedatos.CrearPrestamo(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     if (ClassPrestamos.Insertar(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prestamo Registrado \n Consulte No. de Prestamo ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,7 +113,6 @@ namespace prestamo
                         DialogResult dialog = MessageBox.Show("Se le esta asignado otro presteamo al mismo deudor ", "Deudor con Prestamo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         cBbumDeudor.Focus();
                     }
-                    //basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
@@ -156,7 +151,6 @@ namespace prestamo
                         DialogResult dialog = MessageBox.Show("Se esta actualizando un prestamo inexistente \n Por favor verifique ", "Prestamo Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TbNumPrestamo.Focus();
                     }
-                    //basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
@@ -224,8 +218,6 @@ namespace prestamo
 
         private void CbNumPrenda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BD basedatos = new libAccesoBD.BD();
-            //if (basedatos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
             if (ClassPrestamos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
             {
                 while (Prestamo.Lector.Read())
@@ -241,8 +233,6 @@ namespace prestamo
 
         private void cBbumDuedor_SelectedIndexChanged(object sender, EventArgs e) //carga label con nombre y apellido de deudor
         {
-            BD basedatos = new libAccesoBD.BD();
-            //if (basedatos.LeerDuedorID(cBbumDeudor.Text) == true)
             if (ClassPrestamos.LeerDuedorID(cBbumDeudor.Text) == true)
             {
                 while (Prestamo.Lector.Read())
