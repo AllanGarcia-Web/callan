@@ -72,6 +72,7 @@ namespace prestamo
         private void Inicio_Load(object sender, EventArgs e)
         {
             this.lbVer.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            
         }
     }
 }

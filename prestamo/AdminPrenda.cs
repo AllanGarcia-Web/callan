@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using libAccesoBD;
-using libAccesoBD;
 using libperloan;
 using libValidaciones;
 
@@ -141,16 +140,15 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar la prenda seleccionado? \n ES IRREVERSIBLE", "Eliminar Prenda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                BD basedatos = new libAccesoBD.BD();
-                if (basedatos.EliminarPrenda(tBnumPrenda.Text) == true)
+                if (ClassPrenda.Eliminar(tBnumPrenda.Text) == true)
                 {
                     dialog = MessageBox.Show("Eliminada Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    dialog = MessageBox.Show("Error: " + BD.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dialog = MessageBox.Show("Error: " + Prenda.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                AdminPrenda_Load(sender, e);
+                //AdminPrenda_Load(sender, e);
             }
             else if (dialog == DialogResult.No)
             {
@@ -191,17 +189,16 @@ namespace prestamo
 
         private void tBnumDeudor_TextChanged(object sender, EventArgs e) // carga el nombre del deudor basado en el id de la tabla deudores
         {
-            BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerDuedorID(tBnumDeudor.Text) == true)
+            if (ClassPrestamos.LeerDuedorID(tBnumDeudor.Text) == true)
             {
-                while (BD.Lector.Read())
+                while (Prestamo.Lector.Read())
                 {
-                    tBNombreDudor.Text = BD.Lector.GetString(1) + " " + BD.Lector.GetString(2);
+                    tBNombreDudor.Text = Prestamo.Lector.GetString(1) + " " + Prestamo.Lector.GetString(2);
                 }
             }
             else
             {
-                MessageBox.Show("" + BD.Error);
+                MessageBox.Show("" + Prestamo.Error);
             }
         }
     }

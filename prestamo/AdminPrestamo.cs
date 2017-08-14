@@ -15,7 +15,6 @@ namespace prestamo
 {
     public partial class AdminPrestamo : Form
     {
-        public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         // resultados de validaciones
         public bool monto = false;
         public bool plazo = false;
@@ -107,21 +106,22 @@ namespace prestamo
             {
                 try
                 {
-                    if (basedatos.CrearPrestamo(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
+                    //if (basedatos.CrearPrestamo(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
+                    if (ClassPrestamos.Insertar(cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prestamo Registrado \n Consulte No. de Prestamo ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         TbMontoPrestamo.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se le esta asignado otro presteamo al mismo deudor", "Deudor con Prestamo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Se le esta asignado otro presteamo al mismo deudor ", "Deudor con Prestamo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         cBbumDeudor.Focus();
                     }
-                    basedatos.DesconectarDB();
+                    //basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error en la alta de usuario", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error en la alta de usuario ", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrestamo_Load(sender,e);
@@ -146,7 +146,7 @@ namespace prestamo
             {
                 try
                 {
-                    if (basedatos.EditarPrestamo(TbNumPrestamo.Text ,cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
+                    if (ClassPrestamos.Actualizar(TbNumPrestamo.Text ,cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prestamo seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         TbMontoPrestamo.Focus();
@@ -156,11 +156,11 @@ namespace prestamo
                         DialogResult dialog = MessageBox.Show("Se esta actualizando un prestamo inexistente \n Por favor verifique ", "Prestamo Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TbNumPrestamo.Focus();
                     }
-                    basedatos.DesconectarDB();
+                    //basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error al actualizar el prestamo", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error al actualizar el prestamo" + Prestamo.Error, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminPrestamo_Load(sender, e);
@@ -171,13 +171,13 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar el prestamo seleccionado? \n ES IRREVERSIBLE", "Eliminar Prestamo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                if (basedatos.EliminarPrestamo(TbNumPrestamo.Text) == true)
+                if (ClassPrestamos.Eliminar(TbNumPrestamo.Text) == true)
                 {
                     dialog = MessageBox.Show("Eliminado Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    dialog = MessageBox.Show("Error: " + BD.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dialog = MessageBox.Show("Error: " + Prestamo.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 AdminPrestamo_Load(sender, e);
             }
@@ -225,28 +225,34 @@ namespace prestamo
         private void CbNumPrenda_SelectedIndexChanged(object sender, EventArgs e)
         {
             BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
+            //if (basedatos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
+            if (ClassPrestamos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
             {
-                while (BD.Lector.Read())
+                while (Prestamo.Lector.Read())
                 {
-                    TbNomPrenda.Text=BD.Lector.GetString(2);
+                    TbNomPrenda.Text=Prestamo.Lector.GetString(2);
                 }
+            }
+            else
+            {
+                MessageBox.Show("" + Prestamo.Error);
             }
         }
 
         private void cBbumDuedor_SelectedIndexChanged(object sender, EventArgs e) //carga label con nombre y apellido de deudor
         {
             BD basedatos = new libAccesoBD.BD();
-            if (basedatos.LeerDuedorID(cBbumDeudor.Text) == true)
+            //if (basedatos.LeerDuedorID(cBbumDeudor.Text) == true)
+            if (ClassPrestamos.LeerDuedorID(cBbumDeudor.Text) == true)
             {
-                while (BD.Lector.Read())
+                while (Prestamo.Lector.Read())
                 {
-                    tBNombreDudor.Text = BD.Lector.GetString(1) + " " + BD.Lector.GetString(2);
+                    tBNombreDudor.Text = Prestamo.Lector.GetString(1) + " " + Prestamo.Lector.GetString(2);
                 }
             }
             else
             {
-                MessageBox.Show("" + BD.Error);
+                MessageBox.Show("" + Prestamo.Error);
             }
         }
     }

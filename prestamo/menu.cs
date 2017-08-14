@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 using System.Net;
 using libAccesoBD;
 using System.IO;
@@ -129,6 +130,11 @@ namespace prestamo
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void ayudaDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://localhost/perloan");
         }
     }
 }

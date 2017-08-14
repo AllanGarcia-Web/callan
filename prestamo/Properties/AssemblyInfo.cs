@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sontechs México")]
 [assembly: AssemblyProduct("Perloan")]
-[assembly: AssemblyCopyright("Copyright © Sontechs México 2017")]
+[assembly: AssemblyCopyright("Copyright 2017 © Sontechs México")]
 [assembly: AssemblyTrademark("Perloan - Sontechs México")]
 [assembly: AssemblyCulture("")]
 

@@ -156,6 +156,7 @@
             this.ayudaDelSistemaToolStripMenuItem.Name = "ayudaDelSistemaToolStripMenuItem";
             this.ayudaDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.ayudaDelSistemaToolStripMenuItem.Text = "Ayuda del sistema";
+            this.ayudaDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.ayudaDelSistemaToolStripMenuItem_Click);
             // 
             // acercaDelSisremaToolStripMenuItem
             // 

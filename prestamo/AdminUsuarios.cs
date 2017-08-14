@@ -17,13 +17,7 @@ namespace prestamo
     public partial class AdminUsuarios : Form
     {
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
-        // resultados de validaciones
-        public bool nombre = false;
-        public bool apellidop = false;
-        public bool email = false;
-        // fin de resultados validaciones
         Usuarios ClassUsuarios = new Usuarios();
-        BD basedatos = new libAccesoBD.BD();
 
         public AdminUsuarios()
         {
@@ -62,13 +56,12 @@ namespace prestamo
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             dGvUsuarios.Rows.Clear();
-            if (ClassUsuarios.LeerUsuarios() == true) //carga datos al datagredview desde middleware
+            if (ClassUsuarios.Leer() == true) //carga datos al datagredview desde middleware
             {
                 while (Usuarios.Lector.Read()) //datos de la bd
                 {
                     dGvUsuarios.Rows.Add(Usuarios.Lector.GetString(0), Usuarios.Lector.GetString(1), Usuarios.Lector.GetString(2), Usuarios.Lector.GetString(3), Usuarios.Lector.GetString(4), Usuarios.Lector.GetString(5), Usuarios.Lector.GetString(6), Usuarios.Lector.GetString(7)); // cargar datos
                 }
-                ClassUsuarios.DesconectarBD();
             }
             else
             {
@@ -86,24 +79,21 @@ namespace prestamo
             {
                 estado = "Si";
             }
-            if (nombre == true && apellidop == true && email == true || tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verificar campos en blanco
+            if (tBusuario.Text.Trim() == "")
             {
-                if (tBusuario.Text.Trim() == "")
-                {
-                    DialogResult dialog = MessageBox.Show("Usuario Vacio", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tBusuario.Focus();
-                }
-                else if (tBpass.Text.Trim() == "")
-                {
-                    DialogResult dialog = MessageBox.Show("Contraseña Vacia", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tBpass.Focus();
-                }
+                DialogResult dialog = MessageBox.Show("Usuario Vacio", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tBusuario.Focus();
+            }
+            else if (tBpass.Text.Trim() == "")
+            {
+                DialogResult dialog = MessageBox.Show("Contraseña Vacia", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tBpass.Focus();
             }
             else
             {
                 try
                 {
-                    if (basedatos.CrearUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
+                    if (ClassUsuarios.Insertar(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true)
                     {
                         DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte!!. ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBusuario.Focus();
@@ -114,7 +104,6 @@ namespace prestamo
                         tBusuario.Focus();
                         tBusuario.SelectAll();
                     }
-                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
@@ -143,18 +132,17 @@ namespace prestamo
             {
                 try
                 {
-                    if (basedatos.EditarUsuario(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
+                    if (ClassUsuarios.Actualizar(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Usuario seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBusuario.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente", "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente"+Usuarios.Error, "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBusuario.Focus();
                         tBusuario.SelectAll();
                     }
-                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
@@ -169,7 +157,7 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado? \n Es irreversible", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                if (ClassUsuarios.EliminarUsuario(tBusuario.Text) == true)
+                if (ClassUsuarios.Eliminar(tBusuario.Text) == true)
                 {
                     dialog = MessageBox.Show("Eliminado Correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -204,7 +192,6 @@ namespace prestamo
         {
             if (libValidaciones.libValidaciones.NombrePersonal(tBnombre.Text))
             {
-                nombre = true;
             }
             else
             {
@@ -217,7 +204,6 @@ namespace prestamo
         {
             if (libValidaciones.libValidaciones.NombrePersonal(tBappaterno.Text))
             {
-                apellidop = true;
             }
             else
             {
@@ -230,7 +216,6 @@ namespace prestamo
         {
             if (libValidaciones.libValidaciones.Email(tBemail.Text))
             {
-                email = true;
             }
             else
             {
