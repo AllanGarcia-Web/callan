@@ -52,7 +52,7 @@ namespace prestamo
             CbNumPrenda.Items.Clear(); //limpia combo de prenda    
 
             // inicio leer deudores
-            if (ClassDeudores.LeerDeudores()==true) //carga comnboox con deudores
+            if (ClassDeudores.Leer()==true) //carga comnboox con deudores
             {
                 while (Deudores.Lector.Read())
                 {

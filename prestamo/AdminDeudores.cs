@@ -8,7 +8,6 @@ using System.Text;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libAccesoBD;
 using libValidaciones;
 using libperloan;
 
@@ -38,7 +37,6 @@ namespace prestamo
         public bool telefonoaval = false;
         public bool nombreaval = false;
         // de resultados de validaciones
-        BD basedatos = new libAccesoBD.BD();
         libperloan.Deudores ClassDeudores = new Deudores();
 
         private void btSalir_Click(object sender, EventArgs e)
@@ -51,13 +49,12 @@ namespace prestamo
             cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes
             dGvDeudores.Rows.Clear();
 
-            if (ClassDeudores.LeerDeudores() == true)
+            if (ClassDeudores.Leer() == true)
             {
                 while (Deudores.Lector.Read()) //datos de la bd
                 {
                     dGvDeudores.Rows.Add(Deudores.Lector.GetInt32(0).ToString(), Deudores.Lector.GetString(1), Deudores.Lector.GetString(2), Deudores.Lector.GetString(3), Deudores.Lector.GetString(4), Deudores.Lector.GetString(5), Deudores.Lector.GetString(6), Deudores.Lector.GetString(7), Deudores.Lector.GetString(8), Deudores.Lector.GetString(9), Deudores.Lector.GetString(10), Deudores.Lector.GetString(11), Deudores.Lector.GetString(12), Deudores.Lector.GetString(13), Deudores.Lector.GetString(14), Deudores.Lector.GetString(15)); // cargar datos
                 }
-                //ClassDeudores.DesconectarBD();
             }
             else
             {
@@ -76,10 +73,9 @@ namespace prestamo
             {
                 try
                 {
-                    BD basedatos = new libAccesoBD.BD();
-                    if (basedatos.CrearDeudor(tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
+                    if (ClassDeudores.Insertar(tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
                     {
-                        DialogResult dialog = MessageBox.Show("Agregado Correctamente", "Deudor Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dialog = MessageBox.Show("Registrado Correctamente", "Deudor Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBnombre.Focus();
                     }
                     else
@@ -88,27 +84,26 @@ namespace prestamo
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
-                    basedatos.DesconectarDB();
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error en la alta del deudor" + BD.Error, "Error al crear deudor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error en la alta del deudor" + Deudores.Error, "Error al crear deudor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             AdminDeudores_Load(sender, e); // recargar datagrid
+            btLimpiar_Click(sender, e); //llamar a boton limpiar
         }
 
         private void btActualizar_Click(object sender, EventArgs e) //actualiza deudor
         {
-            BD basedatos = new libAccesoBD.BD();
-            if (basedatos.EditarDeudor(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
+            if (ClassDeudores.Actualizar(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
             {
                 DialogResult dialog = MessageBox.Show("Deudor actualizado satisfactoriamente" , "Deudor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tBnombre.Focus();
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Hubo un error al actuliazar al deudor", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialog = MessageBox.Show("Hubo un error al actualiazar al deudor", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tBnombre.Focus();
                 tBnombre.SelectAll();
             }
@@ -121,7 +116,7 @@ namespace prestamo
             DialogResult dialog = MessageBox.Show("Quieres eliminar al deudor seleccionado?\nESTO ES IRREVERSIBLE", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
-                if (ClassDeudores.EliminarDeudor(tBdeudor.Text) == true)
+                if (ClassDeudores.Eliminar(tBdeudor.Text) == true)
                 {
                     dialog = MessageBox.Show("Deudor eliminado correctamente", "Deudor eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -150,7 +145,7 @@ namespace prestamo
             tbColonia.Clear();
             tbCiudad.Clear();
             tbCodigoPostal.Clear();
-            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes
+            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes como estado predeterminado
             tbTelefono.Clear();
             tbAval.Clear();
             tbTelefonoAval.Clear();
