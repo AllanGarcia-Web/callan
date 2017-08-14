@@ -37,9 +37,8 @@ namespace prestamo
             {
                 BD basedatos = new libAccesoBD.BD(); //clase BD
                 Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
-                if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
-                //if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
-
+                //if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 {
                     new menu().ShowDialog();
                 }
@@ -66,7 +65,7 @@ namespace prestamo
 
         private void LinkLabelAyuda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://sontechs.com/trabajos/analisis");
+            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
         }
 
         private void Inicio_Load(object sender, EventArgs e)
