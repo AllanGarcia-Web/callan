@@ -33,9 +33,14 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.reporteDeDeudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDePrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDePrendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,14 +55,9 @@
             this.btn_Deudores = new System.Windows.Forms.Button();
             this.btn_Prendas = new System.Windows.Forms.Button();
             this.btn_Prestamos = new System.Windows.Forms.Button();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_salir = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.reporteDeDeudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -98,6 +98,42 @@
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // deudoresToolStripMenuItem
+            // 
+            this.deudoresToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deudoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deudoresToolStripMenuItem.Image")));
+            this.deudoresToolStripMenuItem.Name = "deudoresToolStripMenuItem";
+            this.deudoresToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.deudoresToolStripMenuItem.Text = "Deudores";
+            this.deudoresToolStripMenuItem.Click += new System.EventHandler(this.deudoresToolStripMenuItem_Click);
+            // 
+            // prestamosToolStripMenuItem
+            // 
+            this.prestamosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prestamosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("prestamosToolStripMenuItem.Image")));
+            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
+            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.prestamosToolStripMenuItem.Text = "Prestamos";
+            this.prestamosToolStripMenuItem.Click += new System.EventHandler(this.prestamosToolStripMenuItem_Click);
+            // 
+            // prendasToolStripMenuItem
+            // 
+            this.prendasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prendasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("prendasToolStripMenuItem.Image")));
+            this.prendasToolStripMenuItem.Name = "prendasToolStripMenuItem";
+            this.prendasToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.prendasToolStripMenuItem.Text = "Prendas";
+            this.prendasToolStripMenuItem.Click += new System.EventHandler(this.prendasToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -124,6 +160,13 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
+            // 
+            // reporteDeDeudoresToolStripMenuItem
+            // 
+            this.reporteDeDeudoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reporteDeDeudoresToolStripMenuItem.Image")));
+            this.reporteDeDeudoresToolStripMenuItem.Name = "reporteDeDeudoresToolStripMenuItem";
+            this.reporteDeDeudoresToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.reporteDeDeudoresToolStripMenuItem.Text = "Reporte de Deudores";
             // 
             // reporteDePrestamosToolStripMenuItem
             // 
@@ -267,42 +310,6 @@
             this.btn_Prestamos.UseVisualStyleBackColor = true;
             this.btn_Prestamos.Click += new System.EventHandler(this.btn_Prestamos_Click);
             // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            // 
-            // deudoresToolStripMenuItem
-            // 
-            this.deudoresToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deudoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deudoresToolStripMenuItem.Image")));
-            this.deudoresToolStripMenuItem.Name = "deudoresToolStripMenuItem";
-            this.deudoresToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.deudoresToolStripMenuItem.Text = "Deudores";
-            this.deudoresToolStripMenuItem.Click += new System.EventHandler(this.deudoresToolStripMenuItem_Click);
-            // 
-            // prestamosToolStripMenuItem
-            // 
-            this.prestamosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prestamosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("prestamosToolStripMenuItem.Image")));
-            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
-            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
-            this.prestamosToolStripMenuItem.Text = "Prestamos";
-            this.prestamosToolStripMenuItem.Click += new System.EventHandler(this.prestamosToolStripMenuItem_Click);
-            // 
-            // prendasToolStripMenuItem
-            // 
-            this.prendasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prendasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("prendasToolStripMenuItem.Image")));
-            this.prendasToolStripMenuItem.Name = "prendasToolStripMenuItem";
-            this.prendasToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.prendasToolStripMenuItem.Text = "Prendas";
-            this.prendasToolStripMenuItem.Click += new System.EventHandler(this.prendasToolStripMenuItem_Click);
-            // 
             // bt_salir
             // 
             this.bt_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -332,13 +339,6 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // reporteDeDeudoresToolStripMenuItem
-            // 
-            this.reporteDeDeudoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reporteDeDeudoresToolStripMenuItem.Image")));
-            this.reporteDeDeudoresToolStripMenuItem.Name = "reporteDeDeudoresToolStripMenuItem";
-            this.reporteDeDeudoresToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.reporteDeDeudoresToolStripMenuItem.Text = "Reporte de Deudores";
-            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -361,7 +361,7 @@
             this.MaximizeBox = false;
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal : Sistema de Prestamos Perloan";
+            this.Text = "Menu Principal : Sistema de Préstamos Perloan";
             this.Load += new System.EventHandler(this.menu_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

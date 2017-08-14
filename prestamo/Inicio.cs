@@ -18,6 +18,7 @@ namespace prestamo
         public Inicio()
         {
             InitializeComponent();
+            tBusuario.Focus();
         }
         private void BtnAcceso_Click(object sender, EventArgs e)
         {
@@ -37,14 +38,15 @@ namespace prestamo
             {
                 BD basedatos = new libAccesoBD.BD(); //clase BD
                 Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
-                //if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
-                if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                //if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 {
                     new menu().ShowDialog();
                 }
                 else
                 {
                     DialogResult dialog = MessageBox.Show("Error: " + BD.Error, "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
+                    tBusuario.Focus();
                 }
                 basedatos.DesconectarDB();
             }
@@ -59,7 +61,7 @@ namespace prestamo
             }
             else if (dialog == DialogResult.No)
             {
-                //regresa a la ventana anterior
+                tBusuario.Focus();
             }
         }
 
@@ -71,7 +73,7 @@ namespace prestamo
         private void Inicio_Load(object sender, EventArgs e)
         {
             this.lbVer.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
-            
+            tBusuario.Focus();
         }
     }
 }
