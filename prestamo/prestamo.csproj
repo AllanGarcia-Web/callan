@@ -144,6 +144,12 @@
     <Compile Include="ReportePrestamos.Designer.cs">
       <DependentUpon>ReportePrestamos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteUsuario.Designer.cs">
+      <DependentUpon>ReporteUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
@@ -181,6 +187,9 @@
     </Compile>
     <EmbeddedResource Include="ReportePrestamos.resx">
       <DependentUpon>ReportePrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteUsuario.resx">
+      <DependentUpon>ReporteUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

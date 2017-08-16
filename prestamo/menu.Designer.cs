@@ -55,9 +55,9 @@
             this.btn_Deudores = new System.Windows.Forms.Button();
             this.btn_Prendas = new System.Windows.Forms.Button();
             this.btn_Prestamos = new System.Windows.Forms.Button();
-            this.bt_salir = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bt_salir = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -147,7 +147,6 @@
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
-            this.reportesToolStripMenuItem.Visible = false;
             // 
             // reporteDeUsuariosToolStripMenuItem
             // 
@@ -155,6 +154,7 @@
             this.reporteDeUsuariosToolStripMenuItem.Name = "reporteDeUsuariosToolStripMenuItem";
             this.reporteDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.reporteDeUsuariosToolStripMenuItem.Text = "Reporte de Usuarios";
+            this.reporteDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeUsuariosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -167,6 +167,7 @@
             this.reporteDeDeudoresToolStripMenuItem.Name = "reporteDeDeudoresToolStripMenuItem";
             this.reporteDeDeudoresToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.reporteDeDeudoresToolStripMenuItem.Text = "Reporte de Deudores";
+            this.reporteDeDeudoresToolStripMenuItem.Visible = false;
             // 
             // reporteDePrestamosToolStripMenuItem
             // 
@@ -182,6 +183,7 @@
             this.reporteDePrendasToolStripMenuItem.Name = "reporteDePrendasToolStripMenuItem";
             this.reporteDePrendasToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.reporteDePrendasToolStripMenuItem.Text = "Reporte de Prendas";
+            this.reporteDePrendasToolStripMenuItem.Visible = false;
             // 
             // ayudaToolStripMenuItem
             // 
@@ -257,7 +259,7 @@
             this.groupBox1.Controls.Add(this.btn_Prestamos);
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(709, 204);
+            this.groupBox1.Size = new System.Drawing.Size(711, 204);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciones";
@@ -310,20 +312,6 @@
             this.btn_Prestamos.UseVisualStyleBackColor = true;
             this.btn_Prestamos.Click += new System.EventHandler(this.btn_Prestamos_Click);
             // 
-            // bt_salir
-            // 
-            this.bt_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_salir.Image = ((System.Drawing.Image)(resources.GetObject("bt_salir.Image")));
-            this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_salir.Location = new System.Drawing.Point(610, 289);
-            this.bt_salir.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_salir.Name = "bt_salir";
-            this.bt_salir.Size = new System.Drawing.Size(100, 26);
-            this.bt_salir.TabIndex = 0;
-            this.bt_salir.Text = "&Salir";
-            this.bt_salir.UseVisualStyleBackColor = true;
-            this.bt_salir.Click += new System.EventHandler(this.bt_salir_Click);
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -338,6 +326,20 @@
             this.pictureBox1.Size = new System.Drawing.Size(16, 16);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            // 
+            // bt_salir
+            // 
+            this.bt_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_salir.Image = ((System.Drawing.Image)(resources.GetObject("bt_salir.Image")));
+            this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_salir.Location = new System.Drawing.Point(610, 289);
+            this.bt_salir.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_salir.Name = "bt_salir";
+            this.bt_salir.Size = new System.Drawing.Size(100, 26);
+            this.bt_salir.TabIndex = 0;
+            this.bt_salir.Text = "&Salir";
+            this.bt_salir.UseVisualStyleBackColor = true;
+            this.bt_salir.Click += new System.EventHandler(this.bt_salir_Click);
             // 
             // menu
             // 
@@ -361,7 +363,7 @@
             this.MaximizeBox = false;
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal : Sistema de Préstamos Perloan";
+            this.Text = "Menu Principal : Sistema de Préstamos PERLOAN";
             this.Load += new System.EventHandler(this.menu_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

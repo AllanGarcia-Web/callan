@@ -136,5 +136,10 @@ namespace prestamo
         {
             System.Diagnostics.Process.Start("http://localhost/perloan");
         }
+
+        private void reporteDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ReporteUsuario().ShowDialog();
+        }
     }
 }
