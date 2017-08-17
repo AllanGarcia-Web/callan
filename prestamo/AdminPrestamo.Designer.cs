@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPrestamo));
             this.TbPlazoSemanas = new System.Windows.Forms.TextBox();
             this.TbMontoPrestamo = new System.Windows.Forms.TextBox();
@@ -59,9 +60,22 @@
             this.TbNumPrestamo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cMSderecho = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.plazoDePrestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.semanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.semanasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.semanasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.semanasToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.motosDePrestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pesosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pesosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pesosToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dGvPrestamos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.cMSderecho.SuspendLayout();
             this.SuspendLayout();
             // 
             // TbPlazoSemanas
@@ -378,11 +392,113 @@
             this.label10.Text = "Nota:\r\nEl numero de  prestamo se genera automaticamente\r\n\r\nEliminar un prestamo e" +
     "s IRREVERSIBLE";
             // 
+            // cMSderecho
+            // 
+            this.cMSderecho.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plazoDePrestamoToolStripMenuItem,
+            this.motosDePrestamoToolStripMenuItem,
+            this.ayudaToolStripMenuItem});
+            this.cMSderecho.Name = "cMSderecho";
+            this.cMSderecho.Size = new System.Drawing.Size(178, 92);
+            // 
+            // plazoDePrestamoToolStripMenuItem
+            // 
+            this.plazoDePrestamoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.semanasToolStripMenuItem,
+            this.semanasToolStripMenuItem1,
+            this.semanasToolStripMenuItem2,
+            this.semanasToolStripMenuItem3});
+            this.plazoDePrestamoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("plazoDePrestamoToolStripMenuItem.Image")));
+            this.plazoDePrestamoToolStripMenuItem.Name = "plazoDePrestamoToolStripMenuItem";
+            this.plazoDePrestamoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.plazoDePrestamoToolStripMenuItem.Text = "Plazo de Prestamo";
+            // 
+            // semanasToolStripMenuItem
+            // 
+            this.semanasToolStripMenuItem.Name = "semanasToolStripMenuItem";
+            this.semanasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.semanasToolStripMenuItem.Text = "4 Semanas";
+            this.semanasToolStripMenuItem.Click += new System.EventHandler(this.semanasToolStripMenuItem_Click);
+            // 
+            // semanasToolStripMenuItem1
+            // 
+            this.semanasToolStripMenuItem1.Name = "semanasToolStripMenuItem1";
+            this.semanasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.semanasToolStripMenuItem1.Text = "8 Semanas";
+            this.semanasToolStripMenuItem1.Click += new System.EventHandler(this.semanasToolStripMenuItem1_Click);
+            // 
+            // semanasToolStripMenuItem2
+            // 
+            this.semanasToolStripMenuItem2.Name = "semanasToolStripMenuItem2";
+            this.semanasToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.semanasToolStripMenuItem2.Text = "12 Semanas";
+            this.semanasToolStripMenuItem2.Click += new System.EventHandler(this.semanasToolStripMenuItem2_Click);
+            // 
+            // semanasToolStripMenuItem3
+            // 
+            this.semanasToolStripMenuItem3.Name = "semanasToolStripMenuItem3";
+            this.semanasToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.semanasToolStripMenuItem3.Text = "16 Semanas";
+            this.semanasToolStripMenuItem3.Click += new System.EventHandler(this.semanasToolStripMenuItem3_Click);
+            // 
+            // motosDePrestamoToolStripMenuItem
+            // 
+            this.motosDePrestamoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pesosToolStripMenuItem,
+            this.pesosToolStripMenuItem1,
+            this.pesosToolStripMenuItem2,
+            this.pesosToolStripMenuItem3});
+            this.motosDePrestamoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("motosDePrestamoToolStripMenuItem.Image")));
+            this.motosDePrestamoToolStripMenuItem.Name = "motosDePrestamoToolStripMenuItem";
+            this.motosDePrestamoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.motosDePrestamoToolStripMenuItem.Text = "Motos de Prestamo";
+            // 
+            // pesosToolStripMenuItem
+            // 
+            this.pesosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pesosToolStripMenuItem.Image")));
+            this.pesosToolStripMenuItem.Name = "pesosToolStripMenuItem";
+            this.pesosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pesosToolStripMenuItem.Text = "5,000 Pesos";
+            this.pesosToolStripMenuItem.Click += new System.EventHandler(this.pesosToolStripMenuItem_Click);
+            // 
+            // pesosToolStripMenuItem1
+            // 
+            this.pesosToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("pesosToolStripMenuItem1.Image")));
+            this.pesosToolStripMenuItem1.Name = "pesosToolStripMenuItem1";
+            this.pesosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.pesosToolStripMenuItem1.Text = "10,000 Pesos";
+            this.pesosToolStripMenuItem1.Click += new System.EventHandler(this.pesosToolStripMenuItem1_Click);
+            // 
+            // pesosToolStripMenuItem2
+            // 
+            this.pesosToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("pesosToolStripMenuItem2.Image")));
+            this.pesosToolStripMenuItem2.Name = "pesosToolStripMenuItem2";
+            this.pesosToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.pesosToolStripMenuItem2.Text = "15,000 Pesos";
+            this.pesosToolStripMenuItem2.Click += new System.EventHandler(this.pesosToolStripMenuItem2_Click);
+            // 
+            // pesosToolStripMenuItem3
+            // 
+            this.pesosToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("pesosToolStripMenuItem3.Image")));
+            this.pesosToolStripMenuItem3.Name = "pesosToolStripMenuItem3";
+            this.pesosToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.pesosToolStripMenuItem3.Text = "20,000 Pesos";
+            this.pesosToolStripMenuItem3.Click += new System.EventHandler(this.pesosToolStripMenuItem3_Click);
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ayudaToolStripMenuItem.Image")));
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
+            // 
             // AdminPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 566);
+            this.ContextMenuStrip = this.cMSderecho;
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -400,6 +516,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.cMSderecho.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,5 +553,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ContextMenuStrip cMSderecho;
+        private System.Windows.Forms.ToolStripMenuItem plazoDePrestamoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem semanasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem semanasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem semanasToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem semanasToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem motosDePrestamoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pesosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pesosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pesosToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem pesosToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
     }
 }

@@ -245,5 +245,50 @@ namespace prestamo
                 MessageBox.Show("" + Prestamo.Error);
             }
         }
+
+        private void semanasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TbPlazoSemanas.Text = "4";
+        }
+
+        private void pesosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TbMontoPrestamo.Text = "5000";
+        }
+
+        private void pesosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TbMontoPrestamo.Text = "10000";
+        }
+
+        private void pesosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            TbMontoPrestamo.Text = "15000";
+        }
+
+        private void pesosToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            TbMontoPrestamo.Text = "20000";
+        }
+
+        private void semanasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TbPlazoSemanas.Text = "8";
+        }
+
+        private void semanasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            TbPlazoSemanas.Text = "12";
+        }
+
+        private void semanasToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            TbPlazoSemanas.Text = "16";
+        }
+
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
+        }
     }
 }

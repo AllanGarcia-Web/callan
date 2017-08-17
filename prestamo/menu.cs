@@ -28,6 +28,7 @@ namespace prestamo
                 usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
                 reporteDeUsuariosToolStripMenuItem.Visible = false; //desactiva acceso a reporte usuarios a cobrador
                 btn_Usuarios.Visible = false; //desactiva boton usuarios a cobrador
+                abrirUsuariosToolStripMenuItem.Visible = false; //desactiva Abrir Usuarios en menú secundario si es cobrador
             }
         }
 
@@ -134,12 +135,42 @@ namespace prestamo
 
         private void ayudaDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://localhost/perloan");
+            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
         }
 
         private void reporteDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ReporteUsuario().ShowDialog();
+        }
+
+        private void abrirDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AdminDeudores().ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void abrirUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AdminUsuarios().ShowDialog();
+        }
+
+        private void abrirPrestamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AdminPrestamo().ShowDialog();
+        }
+
+        private void abrirPrendaasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AdminPrenda().ShowDialog();
+        }
+
+        private void abrirAyudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
         }
     }
 }

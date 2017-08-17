@@ -54,7 +54,7 @@ namespace prestamo
 
         private void BtnSalir_Click(object sender, EventArgs e) //boton salir
         {
-            DialogResult dialog = MessageBox.Show("Quieres salir del sistema?", "Salir del Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("¿Quieres salir del sistema?", "Salir del Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
                 Application.Exit();
