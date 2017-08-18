@@ -59,8 +59,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bt_salir = new System.Windows.Forms.Button();
             this.cMSderecho = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.abrirDeudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirDeudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirPrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirPrendaasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -361,14 +361,6 @@
             this.cMSderecho.Name = "cMSderecho";
             this.cMSderecho.Size = new System.Drawing.Size(159, 136);
             // 
-            // abrirDeudoresToolStripMenuItem
-            // 
-            this.abrirDeudoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("abrirDeudoresToolStripMenuItem.Image")));
-            this.abrirDeudoresToolStripMenuItem.Name = "abrirDeudoresToolStripMenuItem";
-            this.abrirDeudoresToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.abrirDeudoresToolStripMenuItem.Text = "Abrir Deudores";
-            this.abrirDeudoresToolStripMenuItem.Click += new System.EventHandler(this.abrirDeudoresToolStripMenuItem_Click);
-            // 
             // abrirUsuariosToolStripMenuItem
             // 
             this.abrirUsuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("abrirUsuariosToolStripMenuItem.Image")));
@@ -376,6 +368,14 @@
             this.abrirUsuariosToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.abrirUsuariosToolStripMenuItem.Text = "Abrir Usuarios";
             this.abrirUsuariosToolStripMenuItem.Click += new System.EventHandler(this.abrirUsuariosToolStripMenuItem_Click);
+            // 
+            // abrirDeudoresToolStripMenuItem
+            // 
+            this.abrirDeudoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("abrirDeudoresToolStripMenuItem.Image")));
+            this.abrirDeudoresToolStripMenuItem.Name = "abrirDeudoresToolStripMenuItem";
+            this.abrirDeudoresToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.abrirDeudoresToolStripMenuItem.Text = "Abrir Deudores";
+            this.abrirDeudoresToolStripMenuItem.Click += new System.EventHandler(this.abrirDeudoresToolStripMenuItem_Click);
             // 
             // abrirPrestamosToolStripMenuItem
             // 

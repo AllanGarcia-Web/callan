@@ -49,7 +49,9 @@ namespace prestamo
         {
             dGvPrestamos.Rows.Clear(); //limpia datgrid
             cBbumDeudor.Items.Clear(); //limpia combo de deudor
-            CbNumPrenda.Items.Clear(); //limpia combo de prenda    
+            CbNumPrenda.Items.Clear(); //limpia combo de prenda 
+            monto = false;
+            plazo = false;
 
             // inicio leer deudores
             if (ClassDeudores.Leer()==true) //carga comnboox con deudores
@@ -86,7 +88,7 @@ namespace prestamo
 
         private void btCrear_Click(object sender, EventArgs e) //agregar prestamo
         {
-            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
+            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "" && monto==true && plazo==true) //verificar campos en blanco
             {
                 if (TbMontoPrestamo.Text.Trim() == "")
                 {
@@ -124,17 +126,20 @@ namespace prestamo
 
         private void btActualizar_Click(object sender, EventArgs e) // actuliza prestamo
         {
-            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
+            if (monto == true && plazo == true)
             {
-                if (TbMontoPrestamo.Text.Trim() == "")
+                if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "") //verificar campos en blanco
                 {
-                    DialogResult dialog = MessageBox.Show("Cantidad a prestar vacia", "Prestamo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cBbumDeudor.Focus();
-                }
-                else if (TbPlazoSemanas.Text.Trim() == "")
-                {
-                    DialogResult dialog = MessageBox.Show("Semanas del Plazo Vacio", "Plazo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TbPlazoSemanas.Focus();
+                    if (TbMontoPrestamo.Text.Trim() == "")
+                    {
+                        DialogResult dialog = MessageBox.Show("Cantidad a prestar vacia", "Prestamo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cBbumDeudor.Focus();
+                    }
+                    else if (TbPlazoSemanas.Text.Trim() == "")
+                    {
+                        DialogResult dialog = MessageBox.Show("Semanas del Plazo Vacio", "Plazo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TbPlazoSemanas.Focus();
+                    }
                 }
             }
             else
@@ -198,6 +203,7 @@ namespace prestamo
             }
             else
             {
+                monto = false;
                 TbMontoPrestamo.Focus();
                 TbMontoPrestamo.SelectAll();
             }
@@ -211,6 +217,7 @@ namespace prestamo
             }
             else
             {
+                plazo = false;
                 TbPlazoSemanas.Focus();
                 TbPlazoSemanas.SelectAll();
             }
@@ -218,7 +225,7 @@ namespace prestamo
 
         private void CbNumPrenda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ClassPrestamos.LeerPrendaID(CbNumPrenda.Text) == true) //cargar label con el nombre de prenda
+            if (ClassPrestamos.LeerPrendaID(CbNumPrenda.Text)) //cargar label con el nombre de prenda
             {
                 while (Prestamo.Lector.Read())
                 {
