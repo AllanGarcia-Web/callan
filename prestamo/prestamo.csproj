@@ -124,6 +124,12 @@
     <Compile Include="BotonSalir.Designer.cs">
       <DependentUpon>BotonSalir.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmImagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImagen.Designer.cs">
+      <DependentUpon>FrmImagen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BotonSalir.resx">
       <DependentUpon>BotonSalir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImagen.resx">
+      <DependentUpon>FrmImagen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
