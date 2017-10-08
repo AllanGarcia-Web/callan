@@ -176,10 +176,5 @@ namespace prestamo
         {
             System.Diagnostics.Process.Start("http://sontechs.com/perloan");
         }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }
