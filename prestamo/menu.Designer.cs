@@ -37,6 +37,11 @@
             this.deudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónDeBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mySQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSServerSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.postgreSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -46,8 +51,6 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDelSisremaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraciónDeBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbbienvenido = new System.Windows.Forms.Label();
             this.lbnombre = new System.Windows.Forms.Label();
             this.lbEquipo = new System.Windows.Forms.Label();
@@ -67,7 +70,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bt_salir = new System.Windows.Forms.Button();
-            this.mySQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -100,9 +102,9 @@
             this.deudoresToolStripMenuItem,
             this.prestamosToolStripMenuItem,
             this.prendasToolStripMenuItem,
+            this.configuraciónToolStripMenuItem,
             this.reportesToolStripMenuItem,
-            this.ayudaToolStripMenuItem,
-            this.configuraciónToolStripMenuItem});
+            this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -145,6 +147,44 @@
             this.prendasToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.prendasToolStripMenuItem.Text = "Prendas";
             this.prendasToolStripMenuItem.Click += new System.EventHandler(this.prendasToolStripMenuItem_Click);
+            // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuraciónDeBasesDeDatosToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // configuraciónDeBasesDeDatosToolStripMenuItem
+            // 
+            this.configuraciónDeBasesDeDatosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mySQLToolStripMenuItem,
+            this.mSServerSQLToolStripMenuItem,
+            this.postgreSQLToolStripMenuItem});
+            this.configuraciónDeBasesDeDatosToolStripMenuItem.Name = "configuraciónDeBasesDeDatosToolStripMenuItem";
+            this.configuraciónDeBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.configuraciónDeBasesDeDatosToolStripMenuItem.Text = "Configuración de Bases de Datos";
+            // 
+            // mySQLToolStripMenuItem
+            // 
+            this.mySQLToolStripMenuItem.Name = "mySQLToolStripMenuItem";
+            this.mySQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mySQLToolStripMenuItem.Text = "MySQL";
+            this.mySQLToolStripMenuItem.Click += new System.EventHandler(this.mySQLToolStripMenuItem_Click);
+            // 
+            // mSServerSQLToolStripMenuItem
+            // 
+            this.mSServerSQLToolStripMenuItem.Name = "mSServerSQLToolStripMenuItem";
+            this.mSServerSQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mSServerSQLToolStripMenuItem.Text = "MS Server SQL";
+            this.mSServerSQLToolStripMenuItem.Click += new System.EventHandler(this.mSServerSQLToolStripMenuItem_Click);
+            // 
+            // postgreSQLToolStripMenuItem
+            // 
+            this.postgreSQLToolStripMenuItem.Name = "postgreSQLToolStripMenuItem";
+            this.postgreSQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.postgreSQLToolStripMenuItem.Text = "PostgreSQL";
             // 
             // reportesToolStripMenuItem
             // 
@@ -222,22 +262,6 @@
             this.acercaDelSisremaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.acercaDelSisremaToolStripMenuItem.Text = "Acerca del sistema";
             this.acercaDelSisremaToolStripMenuItem.Click += new System.EventHandler(this.acercaDelSisremaToolStripMenuItem_Click);
-            // 
-            // configuraciónToolStripMenuItem
-            // 
-            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuraciónDeBasesDeDatosToolStripMenuItem});
-            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.configuraciónToolStripMenuItem.Text = "Configuración";
-            // 
-            // configuraciónDeBasesDeDatosToolStripMenuItem
-            // 
-            this.configuraciónDeBasesDeDatosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mySQLToolStripMenuItem});
-            this.configuraciónDeBasesDeDatosToolStripMenuItem.Name = "configuraciónDeBasesDeDatosToolStripMenuItem";
-            this.configuraciónDeBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.configuraciónDeBasesDeDatosToolStripMenuItem.Text = "Configuración de Bases de Datos";
             // 
             // lbbienvenido
             // 
@@ -429,13 +453,6 @@
             this.bt_salir.UseVisualStyleBackColor = true;
             this.bt_salir.Click += new System.EventHandler(this.bt_salir_Click);
             // 
-            // mySQLToolStripMenuItem
-            // 
-            this.mySQLToolStripMenuItem.Name = "mySQLToolStripMenuItem";
-            this.mySQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mySQLToolStripMenuItem.Text = "MySQL";
-            this.mySQLToolStripMenuItem.Click += new System.EventHandler(this.mySQLToolStripMenuItem_Click);
-            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -513,5 +530,7 @@
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraciónDeBasesDeDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mySQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mSServerSQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem postgreSQLToolStripMenuItem;
     }
 }
