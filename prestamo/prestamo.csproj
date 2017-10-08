@@ -131,6 +131,12 @@
     <Compile Include="BotonSalir.Designer.cs">
       <DependentUpon>BotonSalir.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConfiguración.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfiguración.Designer.cs">
+      <DependentUpon>FrmConfiguración.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImagen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BotonSalir.resx">
       <DependentUpon>BotonSalir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfiguración.resx">
+      <DependentUpon>FrmConfiguración.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImagen.resx">
       <DependentUpon>FrmImagen.cs</DependentUpon>

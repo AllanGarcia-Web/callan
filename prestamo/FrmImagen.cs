@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using libAccesoBD;
-using LibArchivo;
 
 namespace prestamo
 {

@@ -29,6 +29,7 @@ namespace prestamo
                 reporteDeUsuariosToolStripMenuItem.Visible = false; //desactiva acceso a reporte usuarios a cobrador
                 btn_Usuarios.Visible = false; //desactiva boton usuarios a cobrador
                 abrirUsuariosToolStripMenuItem.Visible = false; //desactiva Abrir Usuarios en menú secundario si es cobrador
+                mySQLToolStripMenuItem.Visible = false;
             }
         }
 
@@ -173,6 +174,11 @@ namespace prestamo
         private void abrirAyudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://sontechs.com/perloan");
+        }
+
+        private void mySQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmConfiguraciónMySQL().ShowDialog();
         }
     }
 }
