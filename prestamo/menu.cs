@@ -38,7 +38,6 @@ namespace prestamo
             lbnombre.Text = MySQL.nombre + " " + MySQL.ApellidoP + " " + MySQL.ApellidoM; //leer el nombre del usuario actual
         }
 
-
         private string GetComputer_LanIP() //obtiene la ip local, para soporte remoto
         {
             string strHostName = Dns.GetHostName();
@@ -77,8 +76,7 @@ namespace prestamo
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de usuarios
         {
-            AdminUsuarios.GetForm.ShowDialog();
-            //new AdminUsuarios().ShowDialog();
+            new AdminUsuarios().ShowDialog();
         }
 
         private void deudoresToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de deudores

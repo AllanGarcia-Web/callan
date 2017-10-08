@@ -24,16 +24,6 @@ namespace prestamo
             cbNivel.Text = cbNivel.Items[0].ToString(); //deja cargado Cobrador por default
             cBactivo.Checked = true; //casilla activada por default
         }
-        private static AdminUsuarios inst;
-        public static AdminUsuarios GetForm
-        {
-            get
-            {
-                if (inst == null || inst.IsDisposed)
-                    inst = new AdminUsuarios();
-                return inst;
-            }
-        }
 
         private void btSalir_Click(object sender, EventArgs e) //boton salir
         {
