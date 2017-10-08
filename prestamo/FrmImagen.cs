@@ -55,25 +55,25 @@ namespace prestamo
             //ImageData = br.ReadBytes((int)fs.Length);
             //br.Close();
             //fs.Close();
-            BD mysql = new BD();
-            if (mysql.Insertar("imagen", "name, image", "'"+tBnombre.Text+"','"+ ImageData +"'"))
+            MySQL mysql = new MySQL();
+            if (mysql.Insertar("imagen", "name, image", "'"+tBnombre.Text+"',"+ ImageData +""))
             {
                 MessageBox.Show("Cargado");
             }
             else
             {
-                MessageBox.Show(BD.Error);
+                MessageBox.Show(MySQL.Error);
             }
         }
 
         private void btnLeer_Click(object sender, EventArgs e)
         {
-            BD mysql = new BD();
+            MySQL mysql = new MySQL();
             if (mysql.Leer("*", "imagen WHERE name='" + tBnombreBD.Text + "'"))
             {
-                while (BD.Lector.Read())
+                while (MySQL.Lector.Read())
                 {
-                    sbyte ImageData = BD.Lector.GetSByte(0);
+                    sbyte ImageData = MySQL.Lector.GetSByte(0);
                     using (var byteStream = new MemoryStream(ImageData))
                     {
                         pBimagenguardada.Image = new Bitmap(byteStream);
@@ -83,7 +83,7 @@ namespace prestamo
             }
             else
             {
-                MessageBox.Show(BD.Error);
+                MessageBox.Show(MySQL.Error);
             }
         }
     }

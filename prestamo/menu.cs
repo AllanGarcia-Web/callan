@@ -22,8 +22,8 @@ namespace prestamo
             //lbEquipo.Text= "Nombre del equipo: "+ Dns.GetHostName().ToString() +"       IP Local: "+GetComputer_LanIP().ToString() +"       IP Publica: "+GetComputer_InternetIP(); //nombre del equipo, ip local e ip externa (tarda en cargar ip externa)
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
             lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
-            BD basedatos = new libAccesoBD.BD(); //conexión a libreria
-            if (BD.valor == 1) //verificar que es cobrador, para desactivar modulos
+            MySQL basedatos = new libAccesoBD.MySQL(); //conexión a libreria
+            if (MySQL.valor == 1) //verificar que es cobrador, para desactivar modulos
             {
                 usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
                 reporteDeUsuariosToolStripMenuItem.Visible = false; //desactiva acceso a reporte usuarios a cobrador
@@ -34,8 +34,8 @@ namespace prestamo
 
         private void menu_Load(object sender, EventArgs e)
         {
-            lbbienvenido.Text = "Bienvenido " + BD.nivel + ":";
-            lbnombre.Text = BD.nombre + " " + BD.ApellidoP + " " + BD.ApellidoM; //leer el nombre del usuario actual
+            lbbienvenido.Text = "Bienvenido " + MySQL.nivel + ":";
+            lbnombre.Text = MySQL.nombre + " " + MySQL.ApellidoP + " " + MySQL.ApellidoM; //leer el nombre del usuario actual
         }
 
         private string GetComputer_LanIP() //obtiene la ip local, para soporte remoto

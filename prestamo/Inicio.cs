@@ -36,7 +36,7 @@ namespace prestamo
             }
             else
             {
-                BD basedatos = new libAccesoBD.BD(); //clase BD
+                MySQL basedatos = new libAccesoBD.MySQL(); //clase BD
                 Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
                 if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 //if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
@@ -45,7 +45,7 @@ namespace prestamo
                 }
                 else
                 {
-                    DialogResult dialog = MessageBox.Show("Error: " + BD.Error, "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
+                    DialogResult dialog = MessageBox.Show("Error: " + MySQL.Error, "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
                     tBusuario.Focus();
                 }
                 basedatos.DesconectarDB();
