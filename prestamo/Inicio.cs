@@ -15,11 +15,17 @@ namespace prestamo
 { 
     public partial class Inicio : Form
     {
+        public static int cont=0;
+
+        public static bool visible;
         public Inicio()
         {
             InitializeComponent();
             tBusuario.Focus();
+            cont++;
+            label5.Text = cont.ToString();
         }
+
         private void BtnAcceso_Click(object sender, EventArgs e)
         {
             if (tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verifica que no este vacio
@@ -72,6 +78,7 @@ namespace prestamo
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            visible = this.Visible;
             this.lbVer.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
             tBusuario.Focus();
         }

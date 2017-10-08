@@ -38,6 +38,7 @@ namespace prestamo
             lbnombre.Text = MySQL.nombre + " " + MySQL.ApellidoP + " " + MySQL.ApellidoM; //leer el nombre del usuario actual
         }
 
+
         private string GetComputer_LanIP() //obtiene la ip local, para soporte remoto
         {
             string strHostName = Dns.GetHostName();
@@ -73,9 +74,11 @@ namespace prestamo
                 Replace("</body></html>", string.Empty);
         }
 
+
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de usuarios
         {
-            new AdminUsuarios().ShowDialog();
+            AdminUsuarios.GetForm.ShowDialog();
+            //new AdminUsuarios().ShowDialog();
         }
 
         private void deudoresToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de deudores
@@ -160,6 +163,7 @@ namespace prestamo
 
         private void abrirPrestamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             new AdminPrestamo().ShowDialog();
         }
 
@@ -171,6 +175,11 @@ namespace prestamo
         private void abrirAyudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://sontechs.com/perloan");
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
