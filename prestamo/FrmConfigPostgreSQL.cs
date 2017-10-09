@@ -11,22 +11,22 @@ using LibArchivo;
 
 namespace prestamo
 {
-    public partial class FrmConfiguraciónMySQL : Form
+    public partial class FrmConfigPostgreSQL : Form
     {
-        private string filename = "mysql.ini";
+        private string filename = "postgresql.ini";
         ArchivosBD File = new ArchivosBD();
         /// <summary>
         /// Carga configuración de BD
         /// </summary>
         private void CargaConf()
         {
-            if (File.MySqlConnectionRead(filename))
+            if (File.PostgreSQLConnectionRead(filename))
             {
-                tbMysql.Text = File.mysqlcon;
+                tbPostgreSQL.Text = File.PostgreSQL;
             }
             else
             {
-                MessageBox.Show("Error al leer el archivo de configuración de MySQL: "+filename, "Error al leer el archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al leer el archivo de configuración de PostgreSQL: " + filename, "Error al leer el archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
@@ -40,16 +40,15 @@ namespace prestamo
             }
             else
             {
-                if (File.MySqlConnectionWriter(filename, tBhost.Text, tBbd.Text, tBusuario.Text, tBpass.Text))
+                if (File.PostgreSQLConnectionWriter(filename, tBhost.Text, tBbd.Text, tBusuario.Text, tBpass.Text))
                 {
                     MessageBox.Show("Datos gurdados correctamente", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
-        public FrmConfiguraciónMySQL()
+        public FrmConfigPostgreSQL()
         {
             InitializeComponent();
-            CargaConf();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -60,11 +59,6 @@ namespace prestamo
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FrmConfiguraciónMySQL_Load(object sender, EventArgs e)
-        {
-            btnSalir.Focus();
         }
     }
 }

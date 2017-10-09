@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using libAccesoBD;
+using LibArchivo;
 
 namespace prestamo
 {
     public partial class FrmImagen : Form
     {
+        private OpenFileDialog openFile = new OpenFileDialog();
+        /// <summary>
+        /// Formulario de manejo de imagen
+        /// </summary>
         public FrmImagen()
         {
             InitializeComponent();
@@ -21,47 +26,46 @@ namespace prestamo
         string path;
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Title = "Selecciona archivo a cargar";
-            if (openFile.ShowDialog() == DialogResult.OK)
+            try
             {
-                pBimagenaguardar.Image = System.Drawing.Image.FromFile(openFile.FileName);
+                openFile.Title = "Selecciona archivo a cargar";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    pBimagenaguardar.Load(openFile.FileName); //cargar picturebox
+                }
+                tBnombre.Text = openFile.SafeFileName;
+                path = openFile.FileName;
             }
-            tBnombre.Text = openFile.SafeFileName;
-            path = openFile.FileName;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog();
-            if (openFile.ShowDialog() == DialogResult.OK)
+            catch (IOException Error)
             {
-                openFile.Title = "Selecciona Imagen a buscar";
-                //pBimagenguardada.Image = System.Drawing.Image.FromFile(openFile.FileName);
-                tBnombreBD.Text = openFile.SafeFileName;
-                
+                MessageBox.Show("No se pudo seleccionar la imagen "+Error);
             }
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            //FileStream fs;
-            //BinaryReader br;
-            string FileName = path;
-            byte[] ImageData = File.ReadAllBytes(path);
-            //fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-            //br = new BinaryReader(fs);
-            //ImageData = br.ReadBytes((int)fs.Length);
-            //br.Close();
-            //fs.Close();
             MySQL mysql = new MySQL();
-            if (mysql.Insertar("imagen", "name, image", "'"+tBnombre.Text+"',"+ ImageData +""))
+            Imagen Img = new Imagen();
+            byte[] ImageData = File.ReadAllBytes(path);
+            //System.IO.MemoryStream ms = new System.IO.MemoryStream(ImageData);
+            //if (mysql.Insertar("imagen", "name, image", "'"+tBnombre.Text+"',"+ ImageData +""))
+            if (Img.Guardar(tBnombre.Text,openFile.SafeFileName,ImageData))
             {
                 MessageBox.Show("Cargado");
             }
             else
             {
                 MessageBox.Show(MySQL.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                openFile.Title = "Selecciona Imagen a buscar";
+                //pBimagenguardada.Load(openFile.FileName);
+                tBnombreBD.Text = openFile.SafeFileName;
             }
         }
 

@@ -74,6 +74,20 @@ namespace prestamo
                 Replace("</body></html>", string.Empty);
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void ayudaDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
+        }
+
+        private void abrirAyudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
+        }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de usuarios
         {
@@ -130,16 +144,6 @@ namespace prestamo
             new ReportePrestamos().ShowDialog();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
-        }
-
-        private void ayudaDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
-        }
-
         private void reporteDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ReporteUsuario().ShowDialog();
@@ -171,11 +175,6 @@ namespace prestamo
             new AdminPrenda().ShowDialog();
         }
 
-        private void abrirAyudaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://sontechs.com/perloan");
-        }
-
         private void mySQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmConfiguraciónMySQL().ShowDialog();
@@ -184,6 +183,16 @@ namespace prestamo
         private void mSServerSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmConfigMSSQLServer().ShowDialog();
+        }
+
+        private void postgreSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmConfigPostgreSQL().ShowDialog();
+        }
+
+        private void imagenABDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmImagen().ShowDialog();
         }
     }
 }

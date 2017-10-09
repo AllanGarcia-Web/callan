@@ -23,10 +23,10 @@ namespace prestamo
 
         private void BtnAcceso_Click(object sender, EventArgs e)
         {
-            if (tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "") //verifica que no este vacio
+            if (tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "")
             {
                 DialogResult dialog = MessageBox.Show("El usuario o contraseña estan en blanco", "Campos en blanco", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (tBusuario.Text.Trim() == "") //vemos cual esta vacio y mandamos el focus al lugar vacio
+                if (tBusuario.Text.Trim() == "")
                 {
                     tBusuario.Focus();
                 }

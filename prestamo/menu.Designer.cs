@@ -42,6 +42,7 @@
             this.mySQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mSServerSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postgreSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imagenABDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -151,9 +152,11 @@
             // configuraciónToolStripMenuItem
             // 
             this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuraciónDeBasesDeDatosToolStripMenuItem});
+            this.configuraciónDeBasesDeDatosToolStripMenuItem,
+            this.imagenABDToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.configuraciónToolStripMenuItem.Text = "Configuración";
             // 
             // configuraciónDeBasesDeDatosToolStripMenuItem
@@ -163,28 +166,36 @@
             this.mSServerSQLToolStripMenuItem,
             this.postgreSQLToolStripMenuItem});
             this.configuraciónDeBasesDeDatosToolStripMenuItem.Name = "configuraciónDeBasesDeDatosToolStripMenuItem";
-            this.configuraciónDeBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.configuraciónDeBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(287, 22);
             this.configuraciónDeBasesDeDatosToolStripMenuItem.Text = "Configuración de Bases de Datos";
             // 
             // mySQLToolStripMenuItem
             // 
             this.mySQLToolStripMenuItem.Name = "mySQLToolStripMenuItem";
-            this.mySQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mySQLToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.mySQLToolStripMenuItem.Text = "MySQL";
             this.mySQLToolStripMenuItem.Click += new System.EventHandler(this.mySQLToolStripMenuItem_Click);
             // 
             // mSServerSQLToolStripMenuItem
             // 
             this.mSServerSQLToolStripMenuItem.Name = "mSServerSQLToolStripMenuItem";
-            this.mSServerSQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mSServerSQLToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.mSServerSQLToolStripMenuItem.Text = "MS Server SQL";
             this.mSServerSQLToolStripMenuItem.Click += new System.EventHandler(this.mSServerSQLToolStripMenuItem_Click);
             // 
             // postgreSQLToolStripMenuItem
             // 
             this.postgreSQLToolStripMenuItem.Name = "postgreSQLToolStripMenuItem";
-            this.postgreSQLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.postgreSQLToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.postgreSQLToolStripMenuItem.Text = "PostgreSQL";
+            this.postgreSQLToolStripMenuItem.Click += new System.EventHandler(this.postgreSQLToolStripMenuItem_Click);
+            // 
+            // imagenABDToolStripMenuItem
+            // 
+            this.imagenABDToolStripMenuItem.Name = "imagenABDToolStripMenuItem";
+            this.imagenABDToolStripMenuItem.Size = new System.Drawing.Size(287, 22);
+            this.imagenABDToolStripMenuItem.Text = "Imagen a BD";
+            this.imagenABDToolStripMenuItem.Click += new System.EventHandler(this.imagenABDToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -532,5 +543,6 @@
         private System.Windows.Forms.ToolStripMenuItem mySQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mSServerSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postgreSQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imagenABDToolStripMenuItem;
     }
 }

@@ -46,7 +46,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(347, 247);
+            this.btnSalir.Location = new System.Drawing.Point(347, 262);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
@@ -56,7 +56,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(15, 247);
+            this.btnGuardar.Location = new System.Drawing.Point(15, 262);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 8;
@@ -74,7 +74,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tBhost);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 59);
+            this.groupBox1.Location = new System.Drawing.Point(13, 74);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 181);
             this.groupBox1.TabIndex = 7;
@@ -148,7 +148,7 @@
             // 
             // tbMSSQLServer
             // 
-            this.tbMSSQLServer.Location = new System.Drawing.Point(12, 32);
+            this.tbMSSQLServer.Location = new System.Drawing.Point(12, 47);
             this.tbMSSQLServer.Name = "tbMSSQLServer";
             this.tbMSSQLServer.Size = new System.Drawing.Size(410, 20);
             this.tbMSSQLServer.TabIndex = 6;
@@ -156,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 13);
             this.label1.TabIndex = 5;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 287);
+            this.ClientSize = new System.Drawing.Size(434, 300);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);

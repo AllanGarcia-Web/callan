@@ -1,6 +1,6 @@
 ﻿namespace prestamo
 {
-    partial class FrmConfiguraciónMySQL
+    partial class FrmConfigPostgreSQL
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbMysql = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tBbd = new System.Windows.Forms.TextBox();
             this.tBpass = new System.Windows.Forms.TextBox();
@@ -39,26 +39,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tBhost = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
+            this.tbPostgreSQL = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // btnSalir
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Configuración Actual de MySQL";
+            this.btnSalir.Location = new System.Drawing.Point(347, 251);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 9;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // tbMysql
+            // btnGuardar
             // 
-            this.tbMysql.Location = new System.Drawing.Point(12, 36);
-            this.tbMysql.Name = "tbMysql";
-            this.tbMysql.Size = new System.Drawing.Size(410, 20);
-            this.tbMysql.TabIndex = 1;
+            this.btnGuardar.Location = new System.Drawing.Point(15, 251);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // groupBox1
             // 
@@ -73,7 +77,7 @@
             this.groupBox1.Location = new System.Drawing.Point(13, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 181);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevos Datos";
             // 
@@ -142,39 +146,34 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Host:";
             // 
-            // btnGuardar
+            // tbPostgreSQL
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(15, 251);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 3;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.tbPostgreSQL.Location = new System.Drawing.Point(12, 36);
+            this.tbPostgreSQL.Name = "tbPostgreSQL";
+            this.tbPostgreSQL.Size = new System.Drawing.Size(410, 20);
+            this.tbPostgreSQL.TabIndex = 6;
             // 
-            // btnSalir
+            // label1
             // 
-            this.btnSalir.Location = new System.Drawing.Point(347, 251);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 4;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Configuración Actual de PostgreSQL";
             // 
-            // FrmConfiguraciónMySQL
+            // FrmConfigPostgreSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 289);
+            this.ClientSize = new System.Drawing.Size(433, 288);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tbMysql);
+            this.Controls.Add(this.tbPostgreSQL);
             this.Controls.Add(this.label1);
-            this.Name = "FrmConfiguraciónMySQL";
-            this.Text = "Configuración MySQL";
-            this.Load += new System.EventHandler(this.FrmConfiguraciónMySQL_Load);
+            this.Name = "FrmConfigPostgreSQL";
+            this.Text = "Configuración de PostgreSQL";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -184,10 +183,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbMysql;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBbd;
         private System.Windows.Forms.TextBox tBpass;
         private System.Windows.Forms.TextBox tBusuario;
@@ -195,7 +193,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tBhost;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbPostgreSQL;
+        private System.Windows.Forms.Label label1;
     }
 }
