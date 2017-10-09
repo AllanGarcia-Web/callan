@@ -129,8 +129,8 @@
             this.label4.Size = new System.Drawing.Size(355, 96);
             this.label4.TabIndex = 12;
             this.label4.Text = "SISTEMA EN DESARROLLO\r\nNO USAR EN PRODUCCIÖN\r\nPUEDE PRESENTAR FALLAS DURANTE SU U" +
-    "SO\r\n\r\nALGUNAS CARACTERISTICAS O FUNCIONES\r\nPUEDEN O NO ESTAR EN LA VERSIÓN FINAL" +
-    "";
+    "SO\r\n\r\nALGUNAS CARACTERISTICAS Y/O FUNCIONES\r\nPUEDEN O NO ESTAR EN LA VERSIÓN FIN" +
+    "AL";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
@@ -141,7 +141,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.LinkLabelAyuda);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(149, 181);
+            this.groupBox1.Location = new System.Drawing.Point(149, 178);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(225, 111);
             this.groupBox1.TabIndex = 15;
@@ -153,7 +153,7 @@
             this.BtnAcceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAcceso.Image = ((System.Drawing.Image)(resources.GetObject("BtnAcceso.Image")));
             this.BtnAcceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAcceso.Location = new System.Drawing.Point(149, 297);
+            this.BtnAcceso.Location = new System.Drawing.Point(149, 294);
             this.BtnAcceso.Name = "BtnAcceso";
             this.BtnAcceso.Size = new System.Drawing.Size(94, 23);
             this.BtnAcceso.TabIndex = 2;
@@ -168,7 +168,7 @@
             this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
             this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalir.Location = new System.Drawing.Point(297, 297);
+            this.BtnSalir.Location = new System.Drawing.Point(297, 294);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(77, 23);
             this.BtnSalir.TabIndex = 3;
@@ -193,7 +193,7 @@
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(4, 181);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 131);
+            this.pictureBox1.Size = new System.Drawing.Size(139, 136);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -203,7 +203,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnSalir;
-            this.ClientSize = new System.Drawing.Size(580, 327);
+            this.ClientSize = new System.Drawing.Size(580, 325);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbVer);
