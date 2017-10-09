@@ -155,8 +155,9 @@
             this.configuraciónDeBasesDeDatosToolStripMenuItem,
             this.imagenABDToolStripMenuItem});
             this.configuraciónToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.configuraciónToolStripMenuItem.Image = global::prestamo.Properties.Resources.PencilTool_206;
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
             this.configuraciónToolStripMenuItem.Text = "Configuración";
             // 
             // configuraciónDeBasesDeDatosToolStripMenuItem
