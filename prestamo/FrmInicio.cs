@@ -13,9 +13,9 @@ using libperloan;
 
 namespace prestamo
 { 
-    public partial class Inicio : Form
+    public partial class FrmInicio : Form
     {
-        public Inicio()
+        public FrmInicio()
         {
             InitializeComponent();
             tBusuario.Focus();
@@ -42,7 +42,8 @@ namespace prestamo
                 if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 //if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 {
-                    new menu().ShowDialog();
+                    //menu instance = new menu();
+                    new FrmMenu().ShowDialog();
                 }
                 else
                 {

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace prestamo
 {
-    partial class AboutBox1 : Form
+    partial class FrmAboutBox : Form
     {
-        public AboutBox1()
+        public FrmAboutBox()
         {
             InitializeComponent();
             this.Text = String.Format("Acerca de {0}", AssemblyTitle);

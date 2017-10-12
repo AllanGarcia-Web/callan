@@ -11,13 +11,16 @@ using System.Reflection;
 using System.Net;
 using libAccesoBD;
 using System.IO;
+using libperloan;
 
 namespace prestamo
 {
-    public partial class menu : Form
+    public partial class FrmMenu : Form
     {
-        public menu()
+        public static FrmMenu Instance;
+        public FrmMenu()
         {
+            Instance = this;
             InitializeComponent();
             //lbEquipo.Text= "Nombre del equipo: "+ Dns.GetHostName().ToString() +"       IP Local: "+GetComputer_LanIP().ToString() +"       IP Publica: "+GetComputer_InternetIP(); //nombre del equipo, ip local e ip externa (tarda en cargar ip externa)
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
@@ -91,27 +94,27 @@ namespace prestamo
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de usuarios
         {
-            new AdminUsuarios().ShowDialog();
+            new FrmAdminUsuarios().ShowDialog();
         }
 
         private void deudoresToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de deudores
         {
-            new AdminDeudores().ShowDialog();
+            new FrmAdminDeudores().ShowDialog();
         }
 
         private void acercaDelSisremaToolStripMenuItem_Click(object sender, EventArgs e) //acerca de
         {
-            new AboutBox1().ShowDialog();
+            new FrmAboutBox().ShowDialog();
         }
 
         private void prendasToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de prendas
         {
-            new AdminPrenda().ShowDialog();
+            new FrmAdminPrenda().ShowDialog();
         }
 
         private void prestamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AdminPrestamo().ShowDialog();
+            new FrmAdminPrestamo().ShowDialog();
         }
 
         private void bt_salir_Click(object sender, EventArgs e) //boton salir
@@ -121,37 +124,37 @@ namespace prestamo
 
         private void btn_Usuarios_Click(object sender, EventArgs e)
         {
-            new AdminUsuarios().ShowDialog();
+            new FrmAdminUsuarios().ShowDialog();
         }
 
         private void btn_Deudores_Click(object sender, EventArgs e)
         {
-            new AdminDeudores().ShowDialog();
+            new FrmAdminDeudores().ShowDialog();
         }
 
         private void btn_Prestamos_Click(object sender, EventArgs e)
         {
-            new AdminPrestamo().ShowDialog();
+            new FrmAdminPrestamo().ShowDialog();
         }
 
         private void btn_Prendas_Click(object sender, EventArgs e)
         {
-            new AdminPrenda().ShowDialog();
+            new FrmAdminPrenda().ShowDialog();
         }
 
         private void reporteDePrestamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ReportePrestamos().ShowDialog();
+            new FrmReportePrestamos().ShowDialog();
         }
 
         private void reporteDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ReporteUsuario().ShowDialog();
+            new FrmReporteUsuario().ShowDialog();
         }
 
         private void abrirDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AdminDeudores().ShowDialog();
+            new FrmAdminDeudores().ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,18 +164,18 @@ namespace prestamo
 
         private void abrirUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AdminUsuarios().ShowDialog();
+            new FrmAdminUsuarios().ShowDialog();
         }
 
         private void abrirPrestamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            new AdminPrestamo().ShowDialog();
+            new FrmAdminPrestamo().ShowDialog();
         }
 
         private void abrirPrendaasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AdminPrenda().ShowDialog();
+            new FrmAdminPrenda().ShowDialog();
         }
 
         private void mySQLToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,6 +196,12 @@ namespace prestamo
         private void imagenABDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmImagen().ShowDialog();
+        }
+
+        private void abrirLoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Singleton Inicio = Singleton.UniqueInstance;
+            new FrmInicio().ShowDialog();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace prestamo
 {
-    partial class ReportePrestamos
+    partial class FrmReportePrestamos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportePrestamos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportePrestamos));
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Salir = new System.Windows.Forms.Button();
             this.btn_excel = new System.Windows.Forms.Button();

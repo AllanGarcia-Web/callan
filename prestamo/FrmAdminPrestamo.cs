@@ -12,7 +12,7 @@ using libValidaciones;
 
 namespace prestamo
 {
-    public partial class AdminPrestamo : Form
+    public partial class FrmAdminPrestamo : Form
     {
         // resultados de validaciones
         public bool monto = false;
@@ -22,7 +22,7 @@ namespace prestamo
         Deudores ClassDeudores = new Deudores();
         Prenda ClassPrenda = new Prenda();
 
-        public AdminPrestamo()
+        public FrmAdminPrestamo()
         {
             InitializeComponent();
         }

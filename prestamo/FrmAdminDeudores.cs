@@ -13,35 +13,35 @@ using libperloan;
 
 namespace prestamo
 {
-    public partial class AdminDeudores : Form
+    public partial class FrmAdminDeudores : Form
     {
-        public AdminDeudores()
+        public FrmAdminDeudores()
         {
             InitializeComponent();
         }
-        // resultados de validaciones
-        public bool nombre = false;
-        public bool apellidop = false;
-        public bool apellidom = true; //por el momento true
-        public bool calle = false;
-        public bool numerodomicilio = false;
-        public bool curp = false;
-        public bool rfc = false;
-        public bool telefono = false;
-        public bool email = false;
-        public bool ine = false;
-        public bool numero = false;
-        public bool colonia = false;
-        public bool ciudad = false;
-        public bool codigopostal = false;
-        public bool telefonoaval = false;
-        public bool nombreaval = false;
-        // de resultados de validaciones
+        #region Validaciones
+        private bool nombre = false;
+        private bool apellidop = false;
+        private bool apellidom = false;
+        private bool calle = false;
+        private bool numerodomicilio = false;
+        private bool curp = false;
+        private bool rfc = false;
+        private bool telefono = false;
+        private bool email = false;
+        private bool ine = false;
+        private bool numero = false;
+        private bool colonia = false;
+        private bool ciudad = false;
+        private bool codigopostal = false;
+        private bool telefonoaval = false;
+        private bool nombreaval = false;
+        #endregion
         libperloan.Deudores ClassDeudores = new Deudores();
 
         private void btSalir_Click(object sender, EventArgs e)
         {
-            this.Close(); //cerrar form
+            this.Close();
         }
 
         private void AdminDeudores_Load(object sender, EventArgs e)
@@ -61,7 +61,28 @@ namespace prestamo
                 DialogResult dialog = MessageBox.Show("Error al leer datos. " + Deudores.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// Limpia los campos del formulario
+        /// </summary>
+        private void Limpiar()
+        {
+            tBdeudor.Clear();
+            tBnombre.Clear();
+            tBappaterno.Clear();
+            tBapmaterno.Clear();
+            tbIne.Clear();
+            tbCalle.Clear();
+            tbNumero.Clear();
+            tbColonia.Clear();
+            tbCiudad.Clear();
+            tbCodigoPostal.Clear();
+            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes como estado predeterminado
+            tbTelefono.Clear();
+            tbAval.Clear();
+            tbTelefonoAval.Clear();
+            tBemail.Clear();
+            tBnombre.Focus();
+        }
         private void btCrear_Click(object sender, EventArgs e) //crea deudor
         {
             if (tBnombre.Text.Trim() == "" || tBappaterno.Text.Trim() == "" || tbCalle.Text.Trim() == "" || tbNumero.Text.Trim() == "" || tbCiudad.Text.Trim() == "" || tbCodigoPostal.Text.Trim() == "" || tbIne.Text.Trim() == "" || tbAval.Text.Trim() == "" || tbTelefonoAval.Text.Trim() == "") //verificar campos en blanco
@@ -108,7 +129,7 @@ namespace prestamo
                 tBnombre.SelectAll();
             }
             AdminDeudores_Load(sender, e); // recargar datagrid
-            btLimpiar_Click(sender, e); //llamar a boton limpiar
+            Limpiar();
         }
 
         private void btEliminar_Click(object sender, EventArgs e) //elimina deudor
@@ -130,27 +151,12 @@ namespace prestamo
                 //cancelar borrado
             }
             AdminDeudores_Load(sender, e); // recargar datagrid
-            btLimpiar_Click(sender, e); //llamar a boton limpiar
+            Limpiar(); //llamar a boton limpiar
         }
 
         private void btLimpiar_Click(object sender, EventArgs e) //limpiar campos
         {
-            tBdeudor.Clear();
-            tBnombre.Clear();
-            tBappaterno.Clear();
-            tBapmaterno.Clear();
-            tbIne.Clear();
-            tbCalle.Clear();
-            tbNumero.Clear();
-            tbColonia.Clear();
-            tbCiudad.Clear();
-            tbCodigoPostal.Clear();
-            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes como estado predeterminado
-            tbTelefono.Clear();
-            tbAval.Clear();
-            tbTelefonoAval.Clear();
-            tBemail.Clear();
-            tBnombre.Focus();
+            Limpiar();
         }
 
         private void dGvDeudores_CellClick(object sender, DataGridViewCellEventArgs e) //cargar datos de dudores a los campos para edición
@@ -203,16 +209,22 @@ namespace prestamo
 
         private void tBapmaterno_Leave(object sender, EventArgs e) //valida apellido materno
         {
-            //if (libValidaciones.libValidaciones.NombrePersonal(tBapmaterno.Text))
-            //{
-            //    //nonbre = true;
-            //    //sin acción ya que es opcional
-            //}
-            //else
-            //{
-            //    tBapmaterno.Focus();
-            //    tBapmaterno.SelectAll();
-            //}
+            if (tBapmaterno.Text.Trim() == "")
+            {
+
+            }
+            else
+            {
+                if (libValidaciones.libValidaciones.NombrePersonal(tBapmaterno.Text))
+                {
+                    //sin acción ya que es opcional
+                }
+                else
+                {
+                    tBapmaterno.Focus();
+                    tBapmaterno.SelectAll();
+                }
+            }
         }
 
         private void tbIne_Leave(object sender, EventArgs e) //valida ine

@@ -15,9 +15,9 @@ using Microsoft.Office.Interop.Excel; //guardar en formato xlxs
 
 namespace prestamo
 {
-    public partial class ReporteUsuario : Form
+    public partial class FrmReporteUsuario : Form
     {
-        public ReporteUsuario()
+        public FrmReporteUsuario()
         {
             InitializeComponent();
         }

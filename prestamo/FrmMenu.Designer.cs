@@ -1,6 +1,6 @@
 ﻿namespace prestamo
 {
-    partial class menu
+    partial class FrmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -71,6 +71,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bt_salir = new System.Windows.Forms.Button();
+            this.abrirLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -153,7 +154,8 @@
             // 
             this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configuraciónDeBasesDeDatosToolStripMenuItem,
-            this.imagenABDToolStripMenuItem});
+            this.imagenABDToolStripMenuItem,
+            this.abrirLoginToolStripMenuItem});
             this.configuraciónToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.configuraciónToolStripMenuItem.Image = global::prestamo.Properties.Resources.PencilTool_206;
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
@@ -465,6 +467,13 @@
             this.bt_salir.UseVisualStyleBackColor = true;
             this.bt_salir.Click += new System.EventHandler(this.bt_salir_Click);
             // 
+            // abrirLoginToolStripMenuItem
+            // 
+            this.abrirLoginToolStripMenuItem.Name = "abrirLoginToolStripMenuItem";
+            this.abrirLoginToolStripMenuItem.Size = new System.Drawing.Size(287, 22);
+            this.abrirLoginToolStripMenuItem.Text = "Abrir login";
+            this.abrirLoginToolStripMenuItem.Click += new System.EventHandler(this.abrirLoginToolStripMenuItem_Click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -545,5 +554,6 @@
         private System.Windows.Forms.ToolStripMenuItem mSServerSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postgreSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imagenABDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirLoginToolStripMenuItem;
     }
 }

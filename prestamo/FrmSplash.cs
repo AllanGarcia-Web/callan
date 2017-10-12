@@ -16,7 +16,7 @@ namespace prestamo
         {
             InitializeComponent();
             this.Hide();
-            new Inicio().ShowDialog();
+            new FrmInicio().ShowDialog();
         }
     }
 }

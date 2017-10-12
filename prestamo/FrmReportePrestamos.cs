@@ -15,11 +15,11 @@ using Microsoft.Office.Interop.Excel; //guardar en formato xlxs
 
 namespace prestamo
 {
-    public partial class ReportePrestamos : Form
+    public partial class FrmReportePrestamos : Form
     {
         Prestamo ClassPrestamos = new Prestamo();
 
-        public ReportePrestamos()
+        public FrmReportePrestamos()
         {
             InitializeComponent();
         }

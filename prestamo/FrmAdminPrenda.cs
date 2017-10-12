@@ -12,19 +12,19 @@ using libValidaciones;
 
 namespace prestamo
 {
-    public partial class AdminPrenda : Form
+    public partial class FrmAdminPrenda : Form
     {
-        public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
+        private string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         // resultados de validaciones
-        public bool nombre = false;
-        public bool apellidop = false;
-        public bool email = false;
+        private bool nombre = false;
+        private bool apellidop = false;
+        private bool email = false;
         // fin de resultados validaciones
         Prestamo ClassPrestamos = new Prestamo();
         Deudores ClassDeudores = new Deudores();
         Prenda ClassPrenda = new Prenda();
 
-        public AdminPrenda()
+        public FrmAdminPrenda()
         {
             InitializeComponent();
             cbTipoPrenda.Text = cbTipoPrenda.Items[0].ToString(); //deja cargado automovil por default

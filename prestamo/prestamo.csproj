@@ -100,35 +100,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="FrmAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <Compile Include="FrmAboutBox.Designer.cs">
+      <DependentUpon>FrmAboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDeudores.cs">
+    <Compile Include="FrmAdminDeudores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminDeudores.Designer.cs">
-      <DependentUpon>AdminDeudores.cs</DependentUpon>
+    <Compile Include="FrmAdminDeudores.Designer.cs">
+      <DependentUpon>FrmAdminDeudores.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminPrenda.cs">
+    <Compile Include="FrmAdminPrenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPrenda.designer.cs">
-      <DependentUpon>AdminPrenda.cs</DependentUpon>
+    <Compile Include="FrmAdminPrenda.designer.cs">
+      <DependentUpon>FrmAdminPrenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminPrestamo.cs">
+    <Compile Include="FrmAdminPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPrestamo.designer.cs">
-      <DependentUpon>AdminPrestamo.cs</DependentUpon>
+    <Compile Include="FrmAdminPrestamo.designer.cs">
+      <DependentUpon>FrmAdminPrestamo.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUsuarios.cs">
+    <Compile Include="FrmAdminUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUsuarios.Designer.cs">
-      <DependentUpon>AdminUsuarios.cs</DependentUpon>
+    <Compile Include="FrmAdminUsuarios.Designer.cs">
+      <DependentUpon>FrmAdminUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="BotonSalir.cs">
       <SubType>UserControl</SubType>
@@ -166,47 +166,47 @@
     <Compile Include="FrmSplash.Designer.cs">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.cs">
+    <Compile Include="FrmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio.designer.cs">
-      <DependentUpon>Inicio.cs</DependentUpon>
+    <Compile Include="FrmInicio.designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="menu.cs">
+    <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="menu.Designer.cs">
-      <DependentUpon>menu.cs</DependentUpon>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportePrestamos.cs">
+    <Compile Include="FrmReportePrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportePrestamos.Designer.cs">
-      <DependentUpon>ReportePrestamos.cs</DependentUpon>
+    <Compile Include="FrmReportePrestamos.Designer.cs">
+      <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteUsuario.cs">
+    <Compile Include="FrmReporteUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteUsuario.Designer.cs">
-      <DependentUpon>ReporteUsuario.cs</DependentUpon>
+    <Compile Include="FrmReporteUsuario.Designer.cs">
+      <DependentUpon>FrmReporteUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAboutBox.resx">
+      <DependentUpon>FrmAboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminDeudores.resx">
-      <DependentUpon>AdminDeudores.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAdminDeudores.resx">
+      <DependentUpon>FrmAdminDeudores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminPrenda.resx">
-      <DependentUpon>AdminPrenda.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAdminPrenda.resx">
+      <DependentUpon>FrmAdminPrenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminPrestamo.resx">
-      <DependentUpon>AdminPrestamo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAdminPrestamo.resx">
+      <DependentUpon>FrmAdminPrestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUsuarios.resx">
-      <DependentUpon>AdminUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAdminUsuarios.resx">
+      <DependentUpon>FrmAdminUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BotonSalir.resx">
       <DependentUpon>BotonSalir.cs</DependentUpon>
@@ -226,11 +226,11 @@
     <EmbeddedResource Include="FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio.resx">
-      <DependentUpon>Inicio.cs</DependentUpon>
+    <EmbeddedResource Include="FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menu.resx">
-      <DependentUpon>menu.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -242,11 +242,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportePrestamos.resx">
-      <DependentUpon>ReportePrestamos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReportePrestamos.resx">
+      <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteUsuario.resx">
-      <DependentUpon>ReporteUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReporteUsuario.resx">
+      <DependentUpon>FrmReporteUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

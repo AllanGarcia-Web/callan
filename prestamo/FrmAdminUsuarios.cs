@@ -13,12 +13,12 @@ using libperloan;
 
 namespace prestamo
 {
-    public partial class AdminUsuarios : Form
+    public partial class FrmAdminUsuarios : Form
     {
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         Usuarios ClassUsuarios = new Usuarios();
 
-        public AdminUsuarios()
+        public FrmAdminUsuarios()
         {
             InitializeComponent();
             cbNivel.Text = cbNivel.Items[0].ToString(); //deja cargado Cobrador por default

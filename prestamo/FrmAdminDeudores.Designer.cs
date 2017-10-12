@@ -1,6 +1,6 @@
 ﻿namespace prestamo
 {
-    partial class AdminDeudores
+    partial class FrmAdminDeudores
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDeudores));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminDeudores));
             this.label5 = new System.Windows.Forms.Label();
             this.tBemail = new System.Windows.Forms.TextBox();
             this.tBapmaterno = new System.Windows.Forms.TextBox();
