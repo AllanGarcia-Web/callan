@@ -21,13 +21,10 @@ namespace Perloan_Desktop
         {
             InitializeComponent();
         }
-
-        private void btn_Salir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ReporteUsuario_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Carga inicial del formulario
+        /// </summary>
+        private void Inicio()
         {
             dGvUsuarios.Rows.Clear();
             Usuarios ClassUsuarios = new Usuarios();
@@ -43,8 +40,60 @@ namespace Perloan_Desktop
                 DialogResult dialog = MessageBox.Show("Error al leer datos. " + Usuarios.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btn_excel_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Guarda reporte de usuarios en PDF
+        /// </summary>
+        private void PDFusuarios()
+        {
+            SaveFileDialog File = new SaveFileDialog();
+            File.Filter = "Archivo PDF (*.pdf)| *.pdf";
+            File.FileName = "Reporte de Usuarios";
+            if (File.ShowDialog() == DialogResult.OK)
+            {
+                Document pdf = new Document(PageSize.A4.Rotate());
+                try
+                {
+                    PdfWriter.GetInstance(pdf, new FileStream(File.FileName, FileMode.Create)); //inicio de la generación del pdf
+                    pdf.Open();
+                    PdfPTable Tabla = new PdfPTable(5); //cantidad de columnas PDF
+                    PdfPCell Titulo = new PdfPCell(new Phrase("Reporte de Usuarios"));
+                    Titulo.HorizontalAlignment = 1; //1 para centrar
+                    Titulo.Colspan = 5;
+                    Tabla.AddCell(Titulo); //header pdf
+                    Tabla.AddCell("Tipo Usuario"); //titulo columna
+                    Tabla.AddCell("Usuario");
+                    Tabla.AddCell("Nombre");
+                    Tabla.AddCell("Email");
+                    //Tabla.AddCell("No. Prenda");
+                    Tabla.AddCell("Activo");
+                    for (int i = 0; i < dGvUsuarios.Rows.Count; i++) //leer datagrid
+                    {
+                        Tabla.AddCell(dGvUsuarios[0, i].Value.ToString()); //Tipo Usuario
+                        Tabla.AddCell(dGvUsuarios[1, i].Value.ToString()); //Usuario
+                        Tabla.AddCell(dGvUsuarios[3, i].Value.ToString()); //Nombre
+                        Tabla.AddCell(dGvUsuarios[6, i].Value.ToString()); //Email
+                                                                           //Tabla.AddCell(GvUsuarios[4, i].Value.ToString());
+                        Tabla.AddCell(dGvUsuarios[7, i].Value.ToString()); //Activo
+                    }
+                    pdf.Add(Tabla);
+                    pdf.Close(); //fin del pdf
+                }
+                catch (DocumentException PDFerror)
+                {
+                    MessageBox.Show("Error al generar el archivo PDF");
+                }
+                catch (IOException IOerror)
+                {
+                    MessageBox.Show("Error al acceder a la ruta de guardado");
+                }
+                MessageBox.Show("Archivo " + File.FileName + " guardado correctamente.");
+                System.Diagnostics.Process.Start(File.FileName); //abre reporte
+            }
+        }
+        /// <summary>
+        /// Guarda reporte de usuarios en XLXS
+        /// </summary>
+        private void XLXSusuarios()
         {
             SaveFileDialog File = new SaveFileDialog();
             File.Filter = "Archivo de Excel (*.xlsx)|*.xlsx";
@@ -81,53 +130,24 @@ namespace Perloan_Desktop
                 System.Diagnostics.Process.Start(File.FileName); //abre reporte
             }
         }
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ReporteUsuario_Load(object sender, EventArgs e)
+        {
+            Inicio();
+        }
+
+        private void btn_excel_Click(object sender, EventArgs e)
+        {
+            XLXSusuarios();
+        }
 
         private void btn_Pdf_Click(object sender, EventArgs e)
         {
-            SaveFileDialog File = new SaveFileDialog();
-            File.Filter = "Archivo PDF (*.pdf)| *.pdf";
-            File.FileName = "Reporte de Usuarios";
-            if (File.ShowDialog() == DialogResult.OK)
-            {
-                Document pdf = new Document(PageSize.A4.Rotate());
-                try
-                {
-                    PdfWriter.GetInstance(pdf, new FileStream(File.FileName, FileMode.Create)); //inicio de la generación del pdf
-                    pdf.Open();
-                    PdfPTable Tabla = new PdfPTable(5); //cantidad de columnas PDF
-                    PdfPCell Titulo = new PdfPCell(new Phrase("Reporte de Usuarios"));
-                    Titulo.HorizontalAlignment = 1; //1 para centrar
-                    Titulo.Colspan = 5;
-                    Tabla.AddCell(Titulo); //header pdf
-                    Tabla.AddCell("Tipo Usuario"); //titulo columna
-                    Tabla.AddCell("Usuario");
-                    Tabla.AddCell("Nombre");
-                    Tabla.AddCell("Email");
-                    //Tabla.AddCell("No. Prenda");
-                    Tabla.AddCell("Activo");
-                    for (int i = 0; i < dGvUsuarios.Rows.Count; i++) //leer datagrid
-                    {
-                        Tabla.AddCell(dGvUsuarios[0, i].Value.ToString()); //Tipo Usuario
-                        Tabla.AddCell(dGvUsuarios[1, i].Value.ToString()); //Usuario
-                        Tabla.AddCell(dGvUsuarios[3, i].Value.ToString()); //Nombre
-                        Tabla.AddCell(dGvUsuarios[6, i].Value.ToString()); //Email
-                      //Tabla.AddCell(GvUsuarios[4, i].Value.ToString());
-                        Tabla.AddCell(dGvUsuarios[7, i].Value.ToString()); //Activo
-                    }
-                    pdf.Add(Tabla);
-                    pdf.Close(); //fin del pdf
-                }
-                catch (DocumentException PDFerror)
-                {
-                    MessageBox.Show("Error al generar el archivo PDF");
-                }
-                catch (IOException IOerror)
-                {
-                    MessageBox.Show("Error al acceder a la ruta de guardado");
-                }
-                MessageBox.Show("Archivo " + File.FileName + " guardado correctamente.");
-                System.Diagnostics.Process.Start(File.FileName); //abre reporte
-            }
+            PDFusuarios();
         }
     }
 }

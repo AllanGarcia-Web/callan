@@ -20,8 +20,10 @@ namespace Perloan_Desktop
             InitializeComponent();
             tBusuario.Focus();
         }
-
-        private void BtnAcceso_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Acceder al sistema
+        /// </summary>
+        private void Login()
         {
             if (tBusuario.Text.Trim() == "" || tBpass.Text.Trim() == "")
             {
@@ -53,8 +55,10 @@ namespace Perloan_Desktop
                 basedatos.DesconectarDB();
             }
         }
-
-        private void BtnSalir_Click(object sender, EventArgs e) //boton salir
+        /// <summary>
+        /// Salir del sistema
+        /// </summary>
+        private void Salir()
         {
             DialogResult dialog = MessageBox.Show("¿Quieres salir del sistema?", "Salir del Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -66,12 +70,18 @@ namespace Perloan_Desktop
                 tBusuario.Focus();
             }
         }
-
+        private void BtnAcceso_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
         private void LinkLabelAyuda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://sontechs.com/perloan");
         }
-
         private void Inicio_Load(object sender, EventArgs e)
         {
             this.lbVer.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());

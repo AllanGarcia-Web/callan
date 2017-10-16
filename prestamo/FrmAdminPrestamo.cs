@@ -70,7 +70,7 @@ namespace Perloan_Desktop
             // fin de carga de prestamos
         }
         /// <summary>
-        /// Crea
+        /// Crea Prestamo
         /// </summary>
         private void Crear()
         {
@@ -110,7 +110,7 @@ namespace Perloan_Desktop
             Inicio();
         }
         /// <summary>
-        /// Actualiza
+        /// Actualiza Prestamo
         /// </summary>
         private void Actualizar()
         {
@@ -153,7 +153,7 @@ namespace Perloan_Desktop
             Inicio();
         }
         /// <summary>
-        /// Elimina
+        /// Elimina Prestamo
         /// </summary>
         private void Eliminar()
         {

@@ -1,6 +1,6 @@
 ﻿namespace Perloan_Desktop
 {
-    partial class FrmConfiguraciónMySQL
+    partial class FrmConfigMySQL
     {
         /// <summary>
         /// Required designer variable.
@@ -162,7 +162,7 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // FrmConfiguraciónMySQL
+            // FrmConfigMySQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -172,7 +172,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbMysql);
             this.Controls.Add(this.label1);
-            this.Name = "FrmConfiguraciónMySQL";
+            this.Name = "FrmConfigMySQL";
             this.Text = "Configuración MySQL";
             this.Load += new System.EventHandler(this.FrmConfiguraciónMySQL_Load);
             this.groupBox1.ResumeLayout(false);

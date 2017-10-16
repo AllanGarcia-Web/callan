@@ -18,75 +18,9 @@ namespace Perloan_Desktop
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         Usuarios ClassUsuarios = new Usuarios();
         /// <summary>
-        /// Carga inicial del formularop
+        /// Carga inicial del formulario
         /// </summary>
         private void Inicio()
-        {
-
-        }
-        /// <summary>
-        /// Crea
-        /// </summary>
-        private void Crear()
-        {
-
-        }
-        /// <summary>
-        /// Actualiza
-        /// </summary>
-        private void Actualizar()
-        {
-
-        }
-        /// <summary>
-        /// Elimina
-        /// </summary>
-        private void Eliminar()
-        {
-
-        }
-        /// <summary>
-        /// Limpia los datos nesarios del formularip
-        /// </summary>
-        private void Limpiar()
-        {
-
-        }
-        public FrmAdminUsuarios()
-        {
-            InitializeComponent();
-            cbNivel.Text = cbNivel.Items[0].ToString(); //deja cargado Cobrador por default
-            cBactivo.Checked = true; //casilla activada por default
-        }
-
-        private void btSalir_Click(object sender, EventArgs e) //boton salir
-        {
-            this.Close();
-        }
-
-        private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
-        {
-            if (e.RowIndex != -1)
-            {
-                cbNivel.Text = dGvUsuarios[0, e.RowIndex].Value.ToString(); //tipo de usuario, posible error de ejecución
-                tBusuario.Text = dGvUsuarios[1, e.RowIndex].Value.ToString();
-                tBpass.Text = dGvUsuarios[2, e.RowIndex].Value.ToString();
-                tBnombre.Text = dGvUsuarios[3, e.RowIndex].Value.ToString();
-                tBappaterno.Text = dGvUsuarios[4, e.RowIndex].Value.ToString();
-                tBapmaterno.Text = dGvUsuarios[5, e.RowIndex].Value.ToString();
-                tBemail.Text = dGvUsuarios[6, e.RowIndex].Value.ToString();
-                if (dGvUsuarios[7, e.RowIndex].Value.ToString() == "No") //activar no desactivar la casilla de activo al leer
-                {
-                    cBactivo.Checked = false;
-                }
-                else if (dGvUsuarios[7, e.RowIndex].Value.ToString() == "Si")
-                {
-                    cBactivo.Checked = true;
-                }
-            }
-        }
-
-        private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             dGvUsuarios.Rows.Clear();
             if (ClassUsuarios.Leer() == true) //carga datos al datagredview desde middleware
@@ -101,8 +35,10 @@ namespace Perloan_Desktop
                 DialogResult dialog = MessageBox.Show("Error al leer datos. " + Usuarios.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btCrear_Click(object sender, EventArgs e) //agrega usuarios
+        /// <summary>
+        /// Crea Usuario
+        /// </summary>
+        private void Crear()
         {
             if (cBactivo.Checked == false)
             {
@@ -143,10 +79,12 @@ namespace Perloan_Desktop
                     DialogResult dialog = MessageBox.Show("Error en la alta de usuario", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminUsuarios_Load(sender,e);
+            Inicio();
         }
-
-        private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
+        /// <summary>
+        /// Actualiza Usuario
+        /// </summary>
+        private void Actualizar()
         {
             if (cBactivo.Checked == false)
             {
@@ -172,7 +110,7 @@ namespace Perloan_Desktop
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente"+Usuarios.Error, "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a un usuario inexistente" + Usuarios.Error, "Usuario Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBusuario.Focus();
                         tBusuario.SelectAll();
                     }
@@ -182,10 +120,12 @@ namespace Perloan_Desktop
                     DialogResult dialog = MessageBox.Show("Error al actualizar el usuario", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminUsuarios_Load(sender, e);
+            Inicio();
         }
-
-        private void btEliminar_Click(object sender, EventArgs e) //elimina usuario
+        /// <summary>
+        /// Elimina Usuario
+        /// </summary>
+        private void Eliminar()
         {
             DialogResult dialog = MessageBox.Show("Quieres eliminar al usuario seleccionado? \n Es irreversible", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -198,16 +138,17 @@ namespace Perloan_Desktop
                 {
                     dialog = MessageBox.Show("Error: " + Usuarios.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                AdminUsuarios_Load(sender, e);
             }
             else if (dialog == DialogResult.No)
             {
                 //regresa a la ventana anterior
             }
-            AdminUsuarios_Load(sender, e);
+            Inicio();
         }
-
-        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
+        /// <summary>
+        /// Limpia los datos nesarios del formulario
+        /// </summary>
+        private void Limpiar()
         {
             cbNivel.Text = cbNivel.Items[0].ToString(); //tipo de usuario, posible error de ejecución
             tBusuario.Clear();
@@ -217,7 +158,65 @@ namespace Perloan_Desktop
             tBapmaterno.Clear();
             tBemail.Clear();
             cBactivo.Checked = true;
-            AdminUsuarios_Load(sender, e);
+            Inicio();
+        }
+        public FrmAdminUsuarios()
+        {
+            InitializeComponent();
+            cbNivel.Text = cbNivel.Items[0].ToString(); //deja cargado Cobrador por default
+            cBactivo.Checked = true; //casilla activada por default
+        }
+
+        private void btSalir_Click(object sender, EventArgs e) //boton salir
+        {
+            this.Close();
+        }
+
+        private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
+        {
+            if (e.RowIndex != -1)
+            {
+                cbNivel.Text = dGvUsuarios[0, e.RowIndex].Value.ToString(); //tipo de usuario, posible error de ejecución
+                tBusuario.Text = dGvUsuarios[1, e.RowIndex].Value.ToString();
+                tBpass.Text = dGvUsuarios[2, e.RowIndex].Value.ToString();
+                tBnombre.Text = dGvUsuarios[3, e.RowIndex].Value.ToString();
+                tBappaterno.Text = dGvUsuarios[4, e.RowIndex].Value.ToString();
+                tBapmaterno.Text = dGvUsuarios[5, e.RowIndex].Value.ToString();
+                tBemail.Text = dGvUsuarios[6, e.RowIndex].Value.ToString();
+                if (dGvUsuarios[7, e.RowIndex].Value.ToString() == "No") //activar no desactivar la casilla de activo al leer
+                {
+                    cBactivo.Checked = false;
+                }
+                else if (dGvUsuarios[7, e.RowIndex].Value.ToString() == "Si")
+                {
+                    cBactivo.Checked = true;
+                }
+            }
+        }
+
+        private void AdminUsuarios_Load(object sender, EventArgs e)
+        {
+            Inicio();
+        }
+
+        private void btCrear_Click(object sender, EventArgs e) //agrega usuarios
+        {
+            Crear();
+        }
+
+        private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
+        {
+            Actualizar();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e) //elimina usuario
+        {
+            Eliminar();
+        }
+
+        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
+        {
+            Limpiar();
         }
 
         private void tBnombre_Leave(object sender, EventArgs e) // valida nombre usuario

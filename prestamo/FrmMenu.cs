@@ -22,10 +22,16 @@ namespace Perloan_Desktop
         {
             Instance = this;
             InitializeComponent();
-            //lbEquipo.Text= "Nombre del equipo: "+ Dns.GetHostName().ToString() +"       IP Local: "+GetComputer_LanIP().ToString() +"       IP Publica: "+GetComputer_InternetIP(); //nombre del equipo, ip local e ip externa (tarda en cargar ip externa)
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
             lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
-            MySQL basedatos = new libAccesoBD.MySQL(); //conexión a libreria
+            MySQL basedatos = new MySQL(); //conexión a libreria
+            Usuario();
+        }
+        /// <summary>
+        /// Verifica tipo de usuario
+        /// </summary>
+        private void Usuario()
+        {
             if (MySQL.valor == 1) //verificar que es cobrador, para desactivar modulos
             {
                 usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
@@ -35,7 +41,6 @@ namespace Perloan_Desktop
                 configuraciónToolStripMenuItem.Visible = false;
             }
         }
-
         private void menu_Load(object sender, EventArgs e)
         {
             lbbienvenido.Text = "Bienvenido " + MySQL.nivel + ":";
@@ -56,25 +61,6 @@ namespace Perloan_Desktop
                 }
             }
             return "-";
-        }
-
-        private string GetComputer_InternetIP() //ip publica
-        {
-            // check IP using DynDNS's service
-            WebRequest request = WebRequest.Create("http://checkip.dyndns.org");
-            WebResponse response = request.GetResponse();
-            StreamReader stream = new StreamReader(response.GetResponseStream());
-
-            // IMPORTANT: set Proxy to null, to drastically INCREASE the speed of request
-            //request.Proxy = null;
-
-            // read complete response
-            string ipAddress = stream.ReadToEnd();
-
-            // replace everything and keep only IP
-            return ipAddress.
-                Replace("<html><head><title>Current IP Check</title></head><body>Current IP Address: ", string.Empty).
-                Replace("</body></html>", string.Empty);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -180,7 +166,7 @@ namespace Perloan_Desktop
 
         private void mySQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmConfiguraciónMySQL().ShowDialog();
+            new FrmConfigMySQL().ShowDialog();
         }
 
         private void mSServerSQLToolStripMenuItem_Click(object sender, EventArgs e)
@@ -200,7 +186,6 @@ namespace Perloan_Desktop
 
         private void abrirLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Singleton Inicio = Singleton.UniqueInstance;
             new FrmInicio().ShowDialog();
         }
     }

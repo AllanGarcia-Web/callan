@@ -24,7 +24,25 @@ namespace Perloan_Desktop
             InitializeComponent();
         }
         /// <summary>
-        /// Guarda el reporte de Perloan_Desktop en pdf
+        /// Carga inicial de datos del formulario
+        /// </summary>
+        private void Inicio()
+        {
+            if (ClassPrestamos.Leer() == true) //carga datos al datagredview
+            {
+                while (Prestamo.Lector.Read()) //datos de la bd
+                {
+                    dGvPrestamos.Rows.Add(Prestamo.Lector.GetString(0), Prestamo.Lector.GetString(1), Prestamo.Lector.GetString(2), Prestamo.Lector.GetString(3), Prestamo.Lector.GetString(4), Prestamo.Lector.GetString(5)); // cargar datos
+                }
+                //basedatos.DesconectarDB();
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + Prestamo.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// Guarda el reporte de Prestamos en PDF
         /// </summary>
         private void PdfPrestamo()
         {
@@ -73,28 +91,10 @@ namespace Perloan_Desktop
                 System.Diagnostics.Process.Start(File.FileName); //abre reporte
             }
         }
-        private void ReportePrestamos_Load(object sender, EventArgs e)
-        {
-            if (ClassPrestamos.Leer() == true) //carga datos al datagredview
-            {
-                while (Prestamo.Lector.Read()) //datos de la bd
-                {
-                    dGvPrestamos.Rows.Add(Prestamo.Lector.GetString(0), Prestamo.Lector.GetString(1), Prestamo.Lector.GetString(2), Prestamo.Lector.GetString(3), Prestamo.Lector.GetString(4), Prestamo.Lector.GetString(5)); // cargar datos
-                }
-                //basedatos.DesconectarDB();
-            }
-            else
-            {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. " + Prestamo.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btn_Pdf_Click(object sender, EventArgs e)
-        {
-            PdfPrestamo();
-        }
-
-        private void btn_excel_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Guarda el reporte de Prestamos en XLXS
+        /// </summary>
+        private void XLXSPrestamo()
         {
             SaveFileDialog File = new SaveFileDialog();
             File.Filter = "Archivo de Excel (*.xlsx)|*.xlsx";
@@ -130,6 +130,20 @@ namespace Perloan_Desktop
                 MessageBox.Show("Archivo " + File.FileName + " guardado correctamente.");
                 System.Diagnostics.Process.Start(File.FileName); //abre reporte
             }
+        }
+        private void ReportePrestamos_Load(object sender, EventArgs e)
+        {
+            Inicio();
+        }
+
+        private void btn_Pdf_Click(object sender, EventArgs e)
+        {
+            PdfPrestamo();
+        }
+        
+        private void btn_excel_Click(object sender, EventArgs e)
+        {
+            XLXSPrestamo();
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ using LibArchivo;
 
 namespace Perloan_Desktop
 {
-    public partial class FrmConfiguraciónMySQL : Form
+    public partial class FrmConfigMySQL : Form
     {
         private string filename = "mysql.ini";
         ArchivosBD File = new ArchivosBD();
@@ -46,7 +46,7 @@ namespace Perloan_Desktop
                 }
             }
         }
-        public FrmConfiguraciónMySQL()
+        public FrmConfigMySQL()
         {
             InitializeComponent();
             CargaConf();
