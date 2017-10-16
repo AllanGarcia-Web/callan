@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     partial class FrmAboutBox : Form
     {

@@ -11,7 +11,7 @@ using System.Reflection;
 using libAccesoBD;
 using libperloan;
 
-namespace prestamo
+namespace Perloan_Desktop
 { 
     public partial class FrmInicio : Form
     {

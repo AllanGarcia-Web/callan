@@ -1,4 +1,4 @@
-﻿namespace prestamo
+﻿namespace Perloan_Desktop
 {
     partial class FrmImagen
     {

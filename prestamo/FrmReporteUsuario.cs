@@ -13,7 +13,7 @@ using iTextSharp.text; //datos para el pdf
 using libperloan; //libreria de middleware perloan
 using Microsoft.Office.Interop.Excel; //guardar en formato xlxs
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmReporteUsuario : Form
     {

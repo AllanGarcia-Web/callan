@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibArchivo;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmConfigPostgreSQL : Form
     {

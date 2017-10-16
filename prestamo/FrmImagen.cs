@@ -11,7 +11,7 @@ using System.IO;
 using libAccesoBD;
 using LibArchivo;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmImagen : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace prestamo
+﻿namespace Perloan_Desktop
 {
     partial class FrmAdminPrestamo
     {
@@ -243,7 +243,7 @@
             // 
             // btEliminar
             // 
-            this.btEliminar.Image = global::prestamo.Properties.Resources.Clearallrequests_8816;
+            this.btEliminar.Image = global::Perloan_Desktop.Properties.Resources.Clearallrequests_8816;
             this.btEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btEliminar.Location = new System.Drawing.Point(150, 23);
             this.btEliminar.Margin = new System.Windows.Forms.Padding(2);
@@ -389,7 +389,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(252, 52);
             this.label10.TabIndex = 55;
-            this.label10.Text = "Nota:\r\nEl numero de  prestamo se genera automaticamente\r\n\r\nEliminar un prestamo e" +
+            this.label10.Text = "Nota:\r\nEl numero de  Perloan_Desktop se genera automaticamente\r\n\r\nEliminar un Perloan_Desktop e" +
     "s IRREVERSIBLE";
             // 
             // cMSderecho

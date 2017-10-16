@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prestamo", "prestamo\prestamo.csproj", "{618D158A-1E34-4CAE-8720-3DDDEA92959A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perloan_Desktop", "prestamo\Perloan_Desktop.csproj", "{618D158A-1E34-4CAE-8720-3DDDEA92959A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace prestamo
+﻿namespace Perloan_Desktop
 {
     partial class FrmMenu
     {
@@ -157,7 +157,7 @@
             this.imagenABDToolStripMenuItem,
             this.abrirLoginToolStripMenuItem});
             this.configuraciónToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.configuraciónToolStripMenuItem.Image = global::prestamo.Properties.Resources.PencilTool_206;
+            this.configuraciónToolStripMenuItem.Image = global::Perloan_Desktop.Properties.Resources.PencilTool_206;
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
             this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
             this.configuraciónToolStripMenuItem.Text = "Configuración";

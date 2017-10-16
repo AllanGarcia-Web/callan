@@ -11,13 +11,47 @@ using System.Windows.Forms;
 using libValidaciones;
 using libperloan;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmAdminUsuarios : Form
     {
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         Usuarios ClassUsuarios = new Usuarios();
+        /// <summary>
+        /// Carga inicial del formularop
+        /// </summary>
+        private void Inicio()
+        {
 
+        }
+        /// <summary>
+        /// Crea
+        /// </summary>
+        private void Crear()
+        {
+
+        }
+        /// <summary>
+        /// Actualiza
+        /// </summary>
+        private void Actualizar()
+        {
+
+        }
+        /// <summary>
+        /// Elimina
+        /// </summary>
+        private void Eliminar()
+        {
+
+        }
+        /// <summary>
+        /// Limpia los datos nesarios del formularip
+        /// </summary>
+        private void Limpiar()
+        {
+
+        }
         public FrmAdminUsuarios()
         {
             InitializeComponent();

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{618D158A-1E34-4CAE-8720-3DDDEA92959A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>prestamo</RootNamespace>
-    <AssemblyName>prestamo</AssemblyName>
+    <RootNamespace>Perloan_Desktop</RootNamespace>
+    <AssemblyName>Perloan</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

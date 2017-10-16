@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using libValidaciones;
 using libperloan;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmAdminDeudores : Form
     {
@@ -43,8 +43,10 @@ namespace prestamo
         {
             this.Close();
         }
-
-        private void AdminDeudores_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Carga inicial de los formularios
+        /// </summary>
+        private void Inicio()
         {
             cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes
             dGvDeudores.Rows.Clear();
@@ -62,28 +64,9 @@ namespace prestamo
             }
         }
         /// <summary>
-        /// Limpia los campos del formulario
+        /// Crea deudor
         /// </summary>
-        private void Limpiar()
-        {
-            tBdeudor.Clear();
-            tBnombre.Clear();
-            tBappaterno.Clear();
-            tBapmaterno.Clear();
-            tbIne.Clear();
-            tbCalle.Clear();
-            tbNumero.Clear();
-            tbColonia.Clear();
-            tbCiudad.Clear();
-            tbCodigoPostal.Clear();
-            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes como estado predeterminado
-            tbTelefono.Clear();
-            tbAval.Clear();
-            tbTelefonoAval.Clear();
-            tBemail.Clear();
-            tBnombre.Focus();
-        }
-        private void btCrear_Click(object sender, EventArgs e) //crea deudor
+        private void Crear()
         {
             if (tBnombre.Text.Trim() == "" || tBappaterno.Text.Trim() == "" || tbCalle.Text.Trim() == "" || tbNumero.Text.Trim() == "" || tbCiudad.Text.Trim() == "" || tbCodigoPostal.Text.Trim() == "" || tbIne.Text.Trim() == "" || tbAval.Text.Trim() == "" || tbTelefonoAval.Text.Trim() == "") //verificar campos en blanco
             {
@@ -111,15 +94,17 @@ namespace prestamo
                     DialogResult dialog = MessageBox.Show("Error en la alta del deudor" + Deudores.Error, "Error al crear deudor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminDeudores_Load(sender, e); // recargar datagrid
-            btLimpiar_Click(sender, e); //llamar a boton limpiar
+            Inicio(); // recargar datagrid
+            Limpiar(); //llamar a boton limpiar
         }
-
-        private void btActualizar_Click(object sender, EventArgs e) //actualiza deudor
+        /// <summary>
+        /// Actualiza deudor
+        /// </summary>
+        private void Actualizar()
         {
             if (ClassDeudores.Actualizar(tBdeudor.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tbIne.Text, tbCalle.Text, tbNumero.Text, tbColonia.Text, tbCiudad.Text, tbCodigoPostal.Text, cBestados.Text, tbTelefono.Text, tbAval.Text, tbTelefonoAval.Text, tBemail.Text) == true) //verifica creación
             {
-                DialogResult dialog = MessageBox.Show("Deudor actualizado satisfactoriamente" , "Deudor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult dialog = MessageBox.Show("Deudor actualizado satisfactoriamente", "Deudor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tBnombre.Focus();
             }
             else
@@ -128,11 +113,35 @@ namespace prestamo
                 tBnombre.Focus();
                 tBnombre.SelectAll();
             }
-            AdminDeudores_Load(sender, e); // recargar datagrid
+            Inicio(); // recargar datagrid
             Limpiar();
         }
-
-        private void btEliminar_Click(object sender, EventArgs e) //elimina deudor
+        /// <summary>
+        /// Limpia los campos del formulario
+        /// </summary>
+        private void Limpiar()
+        {
+            tBdeudor.Clear();
+            tBnombre.Clear();
+            tBappaterno.Clear();
+            tBapmaterno.Clear();
+            tbIne.Clear();
+            tbCalle.Clear();
+            tbNumero.Clear();
+            tbColonia.Clear();
+            tbCiudad.Clear();
+            tbCodigoPostal.Clear();
+            cBestados.Text = cBestados.Items[0].ToString(); //cargar aguascalientes como estado predeterminado
+            tbTelefono.Clear();
+            tbAval.Clear();
+            tbTelefonoAval.Clear();
+            tBemail.Clear();
+            tBnombre.Focus();
+        }
+        /// <summary>
+        /// Elimina deudor
+        /// </summary>
+        private void Eliminar()
         {
             DialogResult dialog = MessageBox.Show("Quieres eliminar al deudor seleccionado?\nESTO ES IRREVERSIBLE", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -148,10 +157,29 @@ namespace prestamo
             }
             else if (dialog == DialogResult.No)
             {
-                //cancelar borrado
+                //cancela borrado
             }
-            AdminDeudores_Load(sender, e); // recargar datagrid
+            Inicio(); // recargar datagrid
             Limpiar(); //llamar a boton limpiar
+        }
+        private void AdminDeudores_Load(object sender, EventArgs e)
+        {
+            Inicio();
+        }
+
+        private void btCrear_Click(object sender, EventArgs e) //crea deudor
+        {
+            Crear();
+        }
+
+        private void btActualizar_Click(object sender, EventArgs e) //actualiza deudor
+        {
+            Actualizar();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e) //elimina deudor
+        {
+            Eliminar();
         }
 
         private void btLimpiar_Click(object sender, EventArgs e) //limpiar campos

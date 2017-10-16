@@ -10,28 +10,33 @@ using System.Windows.Forms;
 using libperloan;
 using libValidaciones;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmAdminPrenda : Form
     {
-        private string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
-        // resultados de validaciones
+        #region validaciones
+        private string estado = "Si"; //siempre activo ya que casilla de activo esta marcada por default
         private bool nombre = false;
         private bool apellidop = false;
         private bool email = false;
-        // fin de resultados validaciones
+        #endregion
+        #region Recursos Externos
         Prestamo ClassPrestamos = new Prestamo();
         Deudores ClassDeudores = new Deudores();
         Prenda ClassPrenda = new Prenda();
+        #endregion
 
         public FrmAdminPrenda()
         {
             InitializeComponent();
-            cbTipoPrenda.Text = cbTipoPrenda.Items[0].ToString(); //deja cargado automovil por default
         }
-        private void AdminPrenda_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Carga de datos inicial
+        /// </summary>
+        private void Inicio()
         {
             dGvPrendas.Rows.Clear();
+            cbTipoPrenda.Text = cbTipoPrenda.Items[0].ToString(); //deja cargado automovil por default
             if (ClassPrenda.Leer() == true) //carga datos al datagredview con la clase prenda
             {
                 while (Prenda.Lector.Read()) //datos de la bd
@@ -44,21 +49,14 @@ namespace prestamo
                 DialogResult dialog = MessageBox.Show("Error al leer datos. " + Prenda.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
+        private void AdminPrenda_Load(object sender, EventArgs e)
         {
-            if (e.RowIndex != -1)
-            {
-                tBnumPrenda.Text = dGvPrendas[0, e.RowIndex].Value.ToString(); 
-                cbTipoPrenda.Text = dGvPrendas[1, e.RowIndex].Value.ToString();
-                tBnombre.Text = dGvPrendas[2, e.RowIndex].Value.ToString();
-                rTdescripcion.Text = dGvPrendas[3, e.RowIndex].Value.ToString();
-                rTdetalles.Text = dGvPrendas[4, e.RowIndex].Value.ToString();
-                tBnumDeudor.Text = dGvPrendas[5, e.RowIndex].Value.ToString();
-            }
+            Inicio();
         }
-
-        private void btCrear_Click(object sender, EventArgs e) //agrega prenda
+        /// <summary>
+        /// Crear Prenda
+        /// </summary>
+        private void Crear()
         {
             if (tBnombre.Text.Trim() == "" || rTdescripcion.Text.Trim() == "") //verificar campos en blanco
             {
@@ -77,27 +75,29 @@ namespace prestamo
             {
                 try
                 {
-                    if (ClassPrenda.Insertar(cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
+                    if (ClassPrenda.Insertar(cbTipoPrenda.Text, tBnombre.Text, rTdescripcion.Text, rTdetalles.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prenda Agregada Correctamnte", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBnombre.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Nombre de prenda repetido"+Prenda.Error, "Prenda Repetida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Nombre de prenda repetido" + Prenda.Error, "Prenda Repetida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error en la alta de la prenda"+Prenda.Error, "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error en la alta de la prenda" + Prenda.Error, "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminPrenda_Load(sender,e);
+            Inicio();
         }
-
-        private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
+        /// <summary>
+        /// Actualiza Prenda
+        /// </summary>
+        private void Actualizar()
         {
             if (tBnombre.Text.Trim() == "" || cbTipoPrenda.Text.Trim() == "" || rTdescripcion.Text.Trim() == "") //verificar campos en blanco
             {
@@ -108,27 +108,29 @@ namespace prestamo
             {
                 try
                 {
-                    if (ClassPrenda.Actualizar(tBnumPrenda.Text,cbTipoPrenda.Text,tBnombre.Text,rTdescripcion.Text,rTdetalles.Text) == true) //verifica creación
+                    if (ClassPrenda.Actualizar(tBnumPrenda.Text, cbTipoPrenda.Text, tBnombre.Text, rTdescripcion.Text, rTdetalles.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prenda seleccionada actualizada", "Actualizada Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBnombre.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a una prenda inexistente"+Prenda.Error, "Prenda Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Se esta actuaizando a una prenda inexistente" + Prenda.Error, "Prenda Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tBnombre.Focus();
                         tBnombre.SelectAll();
                     }
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error al actualizar la prenda seleccionada"+Prenda.Error, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error al actualizar la prenda seleccionada" + Prenda.Error, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminPrenda_Load(sender, e);
+            Inicio();
         }
-
-        private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
+        /// <summary>
+        /// Elimina Prenda
+        /// </summary>
+        private void Elimnar()
         {
             DialogResult dialog = MessageBox.Show("Quieres eliminar la prenda seleccionada? \n ES IRREVERSIBLE", "Eliminar Prenda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
@@ -146,10 +148,12 @@ namespace prestamo
             {
                 //regresa a la ventana anterior
             }
-            AdminPrenda_Load(sender, e);
+            Inicio();
         }
-
-        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
+        /// <summary>
+        /// Limpia lo campos necesarios en el formulario
+        /// </summary>
+        private void Limpiar()
         {
             cbTipoPrenda.Text = cbTipoPrenda.Items[0].ToString(); //tipo de usuario, posible error de ejecución
             tBnumPrenda.Clear();
@@ -158,7 +162,39 @@ namespace prestamo
             tBnombre.Clear();
             rTdescripcion.Clear();
             rTdetalles.Clear();
-            AdminPrenda_Load(sender, e);
+            Inicio();
+        }
+        private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
+        {
+            if (e.RowIndex != -1)
+            {
+                tBnumPrenda.Text = dGvPrendas[0, e.RowIndex].Value.ToString(); 
+                cbTipoPrenda.Text = dGvPrendas[1, e.RowIndex].Value.ToString();
+                tBnombre.Text = dGvPrendas[2, e.RowIndex].Value.ToString();
+                rTdescripcion.Text = dGvPrendas[3, e.RowIndex].Value.ToString();
+                rTdetalles.Text = dGvPrendas[4, e.RowIndex].Value.ToString();
+                tBnumDeudor.Text = dGvPrendas[5, e.RowIndex].Value.ToString();
+            }
+        }
+
+        private void btCrear_Click(object sender, EventArgs e) //agrega prenda
+        {
+            Crear();
+        }
+
+        private void btActualizar_Click(object sender, EventArgs e) // actuliza usuarios
+        {
+            Actualizar();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e) //elimina usuarios
+        {
+            Elimnar();
+        }
+
+        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
+        {
+            Limpiar();
         }
 
         private void tBnombre_Leave(object sender, EventArgs e) // valida nombre usuario

@@ -13,7 +13,7 @@ using libAccesoBD;
 using System.IO;
 using libperloan;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmMenu : Form
     {

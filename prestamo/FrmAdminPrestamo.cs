@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using libperloan;
 using libValidaciones;
 
-namespace prestamo
+namespace Perloan_Desktop
 {
     public partial class FrmAdminPrestamo : Form
     {
@@ -26,26 +26,10 @@ namespace prestamo
         {
             InitializeComponent();
         }
-
-        private void btSalir_Click(object sender, EventArgs e) //boton salir
-        {
-            this.Close();
-        }
-
-        private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
-        {
-            if (e.RowIndex != -1)
-            {
-                TbNumPrestamo.Text = dGvPrestamos[0, e.RowIndex].Value.ToString();
-                cBbumDeudor.Text = dGvPrestamos[1, e.RowIndex].Value.ToString();
-                TbMontoPrestamo.Text = dGvPrestamos[2, e.RowIndex].Value.ToString();
-                TbPlazoSemanas.Text = dGvPrestamos[3, e.RowIndex].Value.ToString();
-                CbNumPrenda.Text = dGvPrestamos[4, e.RowIndex].Value.ToString();
-                TbNomPrenda.Text = dGvPrestamos[5, e.RowIndex].Value.ToString();
-            }
-        }
-
-        private void AdminPrestamo_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Carga inicial del formularop
+        /// </summary>
+        private void Inicio()
         {
             dGvPrestamos.Rows.Clear(); //limpia datgrid
             cBbumDeudor.Items.Clear(); //limpia combo de deudor
@@ -54,7 +38,7 @@ namespace prestamo
             plazo = false;
 
             // inicio leer deudores
-            if (ClassDeudores.Leer()==true) //carga comnboox con deudores
+            if (ClassDeudores.Leer() == true) //carga comnboox con deudores
             {
                 while (Deudores.Lector.Read())
                 {
@@ -81,14 +65,16 @@ namespace prestamo
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Error al leer datos. "+Prestamo.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialog = MessageBox.Show("Error al leer datos. " + Prestamo.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // fin de carga de prestamos
         }
-
-        private void btCrear_Click(object sender, EventArgs e) //agregar prestamo
+        /// <summary>
+        /// Crea
+        /// </summary>
+        private void Crear()
         {
-            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "" && monto==true && plazo==true) //verificar campos en blanco
+            if (cBbumDeudor.Text.Trim() == "" || CbNumPrenda.Text.Trim() == "" || TbMontoPrestamo.Text.Trim() == "" || TbPlazoSemanas.Text.Trim() == "" && monto == true && plazo == true) //verificar campos en blanco
             {
                 if (TbMontoPrestamo.Text.Trim() == "")
                 {
@@ -121,10 +107,12 @@ namespace prestamo
                     DialogResult dialog = MessageBox.Show("Error en la alta de usuario ", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminPrestamo_Load(sender,e);
+            Inicio();
         }
-
-        private void btActualizar_Click(object sender, EventArgs e) // actuliza prestamo
+        /// <summary>
+        /// Actualiza
+        /// </summary>
+        private void Actualizar()
         {
             if (monto == true && plazo == true)
             {
@@ -146,28 +134,30 @@ namespace prestamo
             {
                 try
                 {
-                    if (ClassPrestamos.Actualizar(TbNumPrestamo.Text ,cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
+                    if (ClassPrestamos.Actualizar(TbNumPrestamo.Text, cBbumDeudor.Text, TbMontoPrestamo.Text, TbPlazoSemanas.Text, CbNumPrenda.Text, TbNomPrenda.Text, tBNombreDudor.Text) == true) //verifica creación
                     {
                         DialogResult dialog = MessageBox.Show("Prestamo seleccionado actualizado", "Actualizado Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         TbMontoPrestamo.Focus();
                     }
                     else
                     {
-                        DialogResult dialog = MessageBox.Show("Se esta actualizando un prestamo inexistente \n Por favor verifique ", "Prestamo Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult dialog = MessageBox.Show("Se esta actualizando un Perloan_Desktop inexistente \n Por favor verifique ", "Prestamo Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TbNumPrestamo.Focus();
                     }
                 }
                 catch (Exception)
                 {
-                    DialogResult dialog = MessageBox.Show("Error al actualizar el prestamo" + Prestamo.Error, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialog = MessageBox.Show("Error al actualizar el Perloan_Desktop" + Prestamo.Error, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            AdminPrestamo_Load(sender, e);
+            Inicio();
         }
-
-        private void btEliminar_Click(object sender, EventArgs e) //elimina prestamo
+        /// <summary>
+        /// Elimina
+        /// </summary>
+        private void Eliminar()
         {
-            DialogResult dialog = MessageBox.Show("Quieres eliminar el prestamo seleccionado? \n ES IRREVERSIBLE", "Eliminar Prestamo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
+            DialogResult dialog = MessageBox.Show("Quieres eliminar el Perloan_Desktop seleccionado? \n ES IRREVERSIBLE", "Eliminar Prestamo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //confima salida del sistema
             if (dialog == DialogResult.Yes)
             {
                 if (ClassPrestamos.Eliminar(TbNumPrestamo.Text) == true)
@@ -178,24 +168,68 @@ namespace prestamo
                 {
                     dialog = MessageBox.Show("Error: " + Prestamo.Error, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                AdminPrestamo_Load(sender, e);
+                Inicio();
             }
             else if (dialog == DialogResult.No)
             {
                 //regresa a la ventana anterior
             }
-            AdminPrestamo_Load(sender, e);
+            Inicio();
         }
-
-        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
+        /// <summary>
+        /// Limpia los datos nesarios del formularip
+        /// </summary>
+        private void Limpiar()
         {
             TbMontoPrestamo.Clear();
             TbPlazoSemanas.Clear();
             TbNumPrestamo.Clear();
-            AdminPrestamo_Load(sender, e);
+            Inicio();
+        }
+        private void btSalir_Click(object sender, EventArgs e) //boton salir
+        {
+            this.Close();
         }
 
-        private void TbMontoPrestamo_Leave(object sender, EventArgs e) // valida monto prestamo
+        private void dGvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //pasar fila seleccionada para editar
+        {
+            if (e.RowIndex != -1)
+            {
+                TbNumPrestamo.Text = dGvPrestamos[0, e.RowIndex].Value.ToString();
+                cBbumDeudor.Text = dGvPrestamos[1, e.RowIndex].Value.ToString();
+                TbMontoPrestamo.Text = dGvPrestamos[2, e.RowIndex].Value.ToString();
+                TbPlazoSemanas.Text = dGvPrestamos[3, e.RowIndex].Value.ToString();
+                CbNumPrenda.Text = dGvPrestamos[4, e.RowIndex].Value.ToString();
+                TbNomPrenda.Text = dGvPrestamos[5, e.RowIndex].Value.ToString();
+            }
+        }
+
+        private void AdminPrestamo_Load(object sender, EventArgs e)
+        {
+            Inicio();
+        }
+
+        private void btCrear_Click(object sender, EventArgs e) //agregar Perloan_Desktop
+        {
+            Crear();
+        }
+
+        private void btActualizar_Click(object sender, EventArgs e) // actuliza Perloan_Desktop
+        {
+            Actualizar();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e) //elimina Perloan_Desktop
+        {
+            Eliminar();
+        }
+
+        private void btLimpiar_Click(object sender, EventArgs e) //limpia textbox
+        {
+            Limpiar();
+        }
+
+        private void TbMontoPrestamo_Leave(object sender, EventArgs e) // valida monto Perloan_Desktop
         {
             if (libValidaciones.libValidaciones.Numeros(TbMontoPrestamo.Text))
             {
@@ -209,7 +243,7 @@ namespace prestamo
             }
         }
 
-        private void TbPlazoSemanas_Leave(object sender, EventArgs e) // valida plazo de prestamo
+        private void TbPlazoSemanas_Leave(object sender, EventArgs e) // valida plazo de Perloan_Desktop
         {
             if (libValidaciones.libValidaciones.Numeros(TbPlazoSemanas.Text))
             {
