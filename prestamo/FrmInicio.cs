@@ -84,8 +84,18 @@ namespace Perloan_Desktop
         }
         private void Inicio_Load(object sender, EventArgs e)
         {
-            this.lbVer.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            this.lblVer.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
             tBusuario.Focus();
+        }
+
+        private void btnVer_MouseHover(object sender, EventArgs e)
+        {
+            tBpass.UseSystemPasswordChar = false;
+        }
+
+        private void btnVer_MouseLeave(object sender, EventArgs e)
+        {
+            tBpass.UseSystemPasswordChar = true;
         }
     }
 }
