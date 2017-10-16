@@ -18,7 +18,7 @@ namespace Perloan_Desktop
         {
             if (!mutex.WaitOne(TimeSpan.FromSeconds(0), false))
             {
-                MessageBox.Show(Application.ProductName + " ya esta esta en ejecuión!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Application.ProductName + " ya esta esta en ejecución!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
