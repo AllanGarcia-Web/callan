@@ -61,7 +61,7 @@ namespace Perloan_Desktop
             else
             {
                 Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
-                if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text)) //verifica estado de acceso para el error
                 {
                     if (Usuarios.valor == 0)
                     {
@@ -75,7 +75,7 @@ namespace Perloan_Desktop
                         FrmMenuUsuario menusuario = new FrmMenuUsuario(Usuarios.valor,Usuarios.nivel,Usuarios.nombre,Usuarios.ApellidoP,Usuarios.ApellidoM);
                         menusuario.instance.Show();
                     }
-                    //new FrmMenu().ShowDialog();
+                    //new FrmMenu(Usuarios.valor, Usuarios.nivel, Usuarios.nombre, Usuarios.ApellidoP, Usuarios.ApellidoM).ShowDialog();
                 }
                 else
                 {
