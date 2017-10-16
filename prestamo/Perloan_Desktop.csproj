@@ -160,6 +160,12 @@
     <Compile Include="FrmImagen.Designer.cs">
       <DependentUpon>FrmImagen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMenuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuUsuario.designer.cs">
+      <DependentUpon>FrmMenuUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImagen.resx">
       <DependentUpon>FrmImagen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuUsuario.resx">
+      <DependentUpon>FrmMenuUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>

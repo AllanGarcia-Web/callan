@@ -8,18 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
-using libAccesoBD;
 using libperloan;
 
 namespace Perloan_Desktop
 { 
     public partial class FrmInicio : Form
     {
+        
         public FrmInicio()
         {
             InitializeComponent();
             tBusuario.Focus();
         }
+        #region Singleton
+        /// <summary>
+        /// Uso de sigletion en formulario
+        /// </summary>
+        private static FrmInicio _instance;
+        public FrmInicio instance
+        {
+            get
+            {
+                if (FrmInicio._instance == null)
+                {
+                    FrmInicio._instance = new FrmInicio();
+                }
+                else
+                {
+                    MessageBox.Show("Ya esta abierto menu inicio, se volvera a mostrar");
+                }
+                return FrmInicio._instance;
+            }
+        }
+        #endregion
         /// <summary>
         /// Acceder al sistema
         /// </summary>
@@ -39,20 +60,28 @@ namespace Perloan_Desktop
             }
             else
             {
-                MySQL basedatos = new libAccesoBD.MySQL(); //clase BD
                 Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
-                if (basedatos.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
-                //if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
+                if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text) == true) //verifica estado de acceso para el error
                 {
-                    //menu instance = new menu();
-                    new FrmMenu().ShowDialog();
+                    if (Usuarios.valor == 0)
+                    {
+                        this.Hide();
+                        FrmMenu menu = new FrmMenu(Usuarios.valor, Usuarios.nivel, Usuarios.nombre, Usuarios.ApellidoP, Usuarios.ApellidoM);
+                        menu.instance.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        FrmMenuUsuario menusuario = new FrmMenuUsuario(Usuarios.valor,Usuarios.nivel,Usuarios.nombre,Usuarios.ApellidoP,Usuarios.ApellidoM);
+                        menusuario.instance.Show();
+                    }
+                    //new FrmMenu().ShowDialog();
                 }
                 else
                 {
-                    DialogResult dialog = MessageBox.Show("Error: " + MySQL.Error, "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
+                    DialogResult dialog = MessageBox.Show("Error: " + Usuarios.Error, "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error); //especifica el error
                     tBusuario.Focus();
                 }
-                basedatos.DesconectarDB();
             }
         }
         /// <summary>
@@ -96,6 +125,13 @@ namespace Perloan_Desktop
         private void btnVer_MouseLeave(object sender, EventArgs e)
         {
             tBpass.UseSystemPasswordChar = true;
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInicio inicio = new FrmInicio();
+            inicio.instance.Show();
         }
     }
 }

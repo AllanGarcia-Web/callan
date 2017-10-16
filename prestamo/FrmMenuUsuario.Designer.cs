@@ -1,6 +1,6 @@
-锘縩amespace Perloan_Desktop
+namespace Perloan_Desktop
 {
-    partial class FrmMenu
+    partial class FrmMenuUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuUsuario));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -37,8 +37,8 @@
             this.deudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraci贸nToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraci贸nDeBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraci髇ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraci髇DeBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mySQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mSServerSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postgreSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +103,7 @@
             this.deudoresToolStripMenuItem,
             this.prestamosToolStripMenuItem,
             this.prendasToolStripMenuItem,
-            this.configuraci贸nToolStripMenuItem,
+            this.configuraci髇ToolStripMenuItem,
             this.reportesToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -149,26 +149,26 @@
             this.prendasToolStripMenuItem.Text = "Prendas";
             this.prendasToolStripMenuItem.Click += new System.EventHandler(this.prendasToolStripMenuItem_Click);
             // 
-            // configuraci贸nToolStripMenuItem
+            // configuraci髇ToolStripMenuItem
             // 
-            this.configuraci贸nToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuraci贸nDeBasesDeDatosToolStripMenuItem,
+            this.configuraci髇ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuraci髇DeBasesDeDatosToolStripMenuItem,
             this.imagenABDToolStripMenuItem});
-            this.configuraci贸nToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.configuraci贸nToolStripMenuItem.Image = global::Perloan_Desktop.Properties.Resources.PencilTool_206;
-            this.configuraci贸nToolStripMenuItem.Name = "configuraci贸nToolStripMenuItem";
-            this.configuraci贸nToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
-            this.configuraci贸nToolStripMenuItem.Text = "Configuraci贸n";
+            this.configuraci髇ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.configuraci髇ToolStripMenuItem.Image = global::Perloan_Desktop.Properties.Resources.PencilTool_206;
+            this.configuraci髇ToolStripMenuItem.Name = "configuraci髇ToolStripMenuItem";
+            this.configuraci髇ToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.configuraci髇ToolStripMenuItem.Text = "Configuraci髇";
             // 
-            // configuraci贸nDeBasesDeDatosToolStripMenuItem
+            // configuraci髇DeBasesDeDatosToolStripMenuItem
             // 
-            this.configuraci贸nDeBasesDeDatosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuraci髇DeBasesDeDatosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mySQLToolStripMenuItem,
             this.mSServerSQLToolStripMenuItem,
             this.postgreSQLToolStripMenuItem});
-            this.configuraci贸nDeBasesDeDatosToolStripMenuItem.Name = "configuraci贸nDeBasesDeDatosToolStripMenuItem";
-            this.configuraci贸nDeBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(287, 22);
-            this.configuraci贸nDeBasesDeDatosToolStripMenuItem.Text = "Configuraci贸n de Bases de Datos";
+            this.configuraci髇DeBasesDeDatosToolStripMenuItem.Name = "configuraci髇DeBasesDeDatosToolStripMenuItem";
+            this.configuraci髇DeBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(287, 22);
+            this.configuraci髇DeBasesDeDatosToolStripMenuItem.Text = "Configuraci髇 de Bases de Datos";
             // 
             // mySQLToolStripMenuItem
             // 
@@ -313,7 +313,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 15);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Informaci贸n de Soporte:";
+            this.label1.Text = "Informaci髇 de Soporte:";
             // 
             // groupBox1
             // 
@@ -465,7 +465,7 @@
             this.bt_salir.UseVisualStyleBackColor = true;
             this.bt_salir.Click += new System.EventHandler(this.bt_salir_Click);
             // 
-            // FrmMenu
+            // FrmMenuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -486,9 +486,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "FrmMenu";
+            this.Name = "FrmMenuUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal : Sistema de Pr茅stamos PERLOAN";
+            this.Text = "Menu Principal : Sistema de Pr閟tamos PERLOAN";
             this.Load += new System.EventHandler(this.menu_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -539,8 +539,8 @@
         private System.Windows.Forms.ToolStripMenuItem abrirPrendaasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirAyudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuraci贸nToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuraci贸nDeBasesDeDatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraci髇ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraci髇DeBasesDeDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mySQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mSServerSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postgreSQLToolStripMenuItem;

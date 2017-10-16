@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,25 +14,20 @@ using libperloan;
 
 namespace Perloan_Desktop
 {
-    public partial class FrmMenu : Form
+    public partial class FrmMenuUsuario : Form
     {
-        private string nivel;
-        private string nombre;
-        private string apellidom;
-        private string apellidop;
-        private int valor;
         #region Singleton
         /// <summary>
         /// Uso de sigletion en formulario
         /// </summary>
-        private static FrmMenu _instance;
-        public FrmMenu instance
+        private static FrmMenuUsuario _instance;
+        public FrmMenuUsuario instance
         {
             get
             {
-                if (FrmMenu._instance == null)
+                if (FrmMenuUsuario._instance == null)
                 {
-                    FrmMenu._instance = new FrmMenu(Usuarios.valor, Usuarios.nivel, Usuarios.nombre, Usuarios.ApellidoP, Usuarios.ApellidoM);
+                    FrmMenuUsuario._instance = new FrmMenuUsuario(Usuarios.valor, Usuarios.nivel, Usuarios.nombre, Usuarios.ApellidoP, Usuarios.ApellidoM);
                 }
                 else
                 {
@@ -42,12 +37,16 @@ namespace Perloan_Desktop
                     lbnombre.Text = nombre + " " + apellidop + " " + apellidom; //leer el nombre del usuario actual
                     lbnombre.Update();
                 }
-                return FrmMenu._instance;
+                return FrmMenuUsuario._instance;
             }
         }
         #endregion
-
-        public FrmMenu(int valor, string nivel, string nombre, string apellidop, string apellidom)
+        private string nivel;
+        private string nombre;
+        private string apellidom;
+        private string apellidop;
+        private int valor;
+        public FrmMenuUsuario(int valor, string nivel, string nombre, string apellidop, string apellidom)
         {
             InitializeComponent();
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
@@ -58,6 +57,7 @@ namespace Perloan_Desktop
             this.nombre = nombre;
             this.apellidom = apellidom;
             this.apellidop = apellidop;
+
         }
         /// <summary>
         /// Verifica tipo de usuario
@@ -69,8 +69,8 @@ namespace Perloan_Desktop
                 usuariosToolStripMenuItem.Visible = false; //desactivar acceso a usuario a cobrador
                 reporteDeUsuariosToolStripMenuItem.Visible = false; //desactiva acceso a reporte usuarios a cobrador
                 btn_Usuarios.Visible = false; //desactiva boton usuarios a cobrador
-                abrirUsuariosToolStripMenuItem.Visible = false; //desactiva Abrir Usuarios en menÃº secundario si es cobrador
-                configuraciÃ³nToolStripMenuItem.Visible = false;
+                abrirUsuariosToolStripMenuItem.Visible = false; //desactiva Abrir Usuarios en menú secundario si es cobrador
+                configuraciónToolStripMenuItem.Visible = false;
             }
         }
         private void menu_Load(object sender, EventArgs e)

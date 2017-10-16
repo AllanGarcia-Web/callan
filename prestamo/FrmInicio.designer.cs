@@ -160,6 +160,7 @@
             this.btnVer.TabIndex = 9;
             this.btnVer.Text = "Ver";
             this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             this.btnVer.MouseLeave += new System.EventHandler(this.btnVer_MouseLeave);
             this.btnVer.MouseHover += new System.EventHandler(this.btnVer_MouseHover);
             // 

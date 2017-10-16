@@ -15,8 +15,21 @@ namespace Perloan_Desktop
         public FrmSplash()
         {
             InitializeComponent();
+        }
+
+        private void FrmSplash_Load(object sender, EventArgs e)
+        {
+            //this.Visible = false;
+            //timer1();
+            FrmInicio inicio = new FrmInicio();
+            inicio.instance.Show();
+            
+            //new FrmInicio().ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
             this.Hide();
-            new FrmInicio().ShowDialog();
         }
     }
 }
