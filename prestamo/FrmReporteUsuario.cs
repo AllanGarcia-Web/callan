@@ -11,6 +11,7 @@ using System.IO;
 using iTextSharp.text.pdf; //generar el pdf
 using iTextSharp.text; //datos para el pdf
 using libperloan; //libreria de middleware perloan
+using libAccesoBD;
 using Microsoft.Office.Interop.Excel; //guardar en formato xlxs
 
 namespace Perloan_Desktop
@@ -28,6 +29,7 @@ namespace Perloan_Desktop
         {
             dGvUsuarios.Rows.Clear();
             Usuarios ClassUsuarios = new Usuarios();
+            Conectora Con =new Conectora();
             if (ClassUsuarios.Leer() == true) //carga datos al datagredview desde middleware
             {
                 while (Usuarios.Lector.Read()) //datos de la bd
@@ -72,7 +74,7 @@ namespace Perloan_Desktop
                         Tabla.AddCell(dGvUsuarios[1, i].Value.ToString()); //Usuario
                         Tabla.AddCell(dGvUsuarios[3, i].Value.ToString()); //Nombre
                         Tabla.AddCell(dGvUsuarios[6, i].Value.ToString()); //Email
-                                                                           //Tabla.AddCell(GvUsuarios[4, i].Value.ToString());
+                        //Tabla.AddCell(GvUsuarios[4, i].Value.ToString()); //No. Prenda
                         Tabla.AddCell(dGvUsuarios[7, i].Value.ToString()); //Activo
                     }
                     pdf.Add(Tabla);
@@ -80,11 +82,11 @@ namespace Perloan_Desktop
                 }
                 catch (DocumentException PDFerror)
                 {
-                    MessageBox.Show("Error al generar el archivo PDF");
+                    MessageBox.Show("Error al generar el archivo PDF"+PDFerror.Message);
                 }
                 catch (IOException IOerror)
                 {
-                    MessageBox.Show("Error al acceder a la ruta de guardado");
+                    MessageBox.Show("Error al acceder a la ruta de guardado"+IOerror.Message);
                 }
                 MessageBox.Show("Archivo " + File.FileName + " guardado correctamente.");
                 System.Diagnostics.Process.Start(File.FileName); //abre reporte
@@ -138,6 +140,7 @@ namespace Perloan_Desktop
         private void ReporteUsuario_Load(object sender, EventArgs e)
         {
             Inicio();
+            this.reportViewer1.RefreshReport();
         }
 
         private void btn_excel_Click(object sender, EventArgs e)

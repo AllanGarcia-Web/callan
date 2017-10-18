@@ -42,6 +42,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.dGvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,18 +166,28 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // ReporteUsuario
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(11, 102);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1162, 245);
+            this.reportViewer1.TabIndex = 39;
+            // 
+            // FrmReporteUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 455);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.dGvUsuarios);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.btn_excel);
             this.Controls.Add(this.btn_Pdf);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ReporteUsuario";
+            this.Name = "FrmReporteUsuario";
             this.Text = "Reporte de Usuarios";
             this.Load += new System.EventHandler(this.ReporteUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGvUsuarios)).EndInit();
@@ -200,5 +211,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

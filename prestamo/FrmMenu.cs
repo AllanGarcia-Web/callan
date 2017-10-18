@@ -52,12 +52,13 @@ namespace Perloan_Desktop
             InitializeComponent();
             lbEquipo.Text = "Nombre del equipo: " + Dns.GetHostName().ToString() + "       IP Local: " + GetComputer_LanIP().ToString(); //nombre del equipo e ip local
             lbFecha.Text = "Fecha: " + DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
-            Usuario();
+            
             this.valor = valor;
             this.nivel = nivel;
             this.nombre = nombre;
             this.apellidom = apellidom;
             this.apellidop = apellidop;
+            Usuario();
         }
         /// <summary>
         /// Verifica tipo de usuario

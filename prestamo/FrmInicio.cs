@@ -72,7 +72,7 @@ namespace Perloan_Desktop
                     else
                     {
                         this.Hide();
-                        FrmMenuUsuario menusuario = new FrmMenuUsuario(Usuarios.valor,Usuarios.nivel,Usuarios.nombre,Usuarios.ApellidoP,Usuarios.ApellidoM);
+                        FrmMenuUsuario menusuario = new FrmMenuUsuario(Usuarios.valor, Usuarios.nivel, Usuarios.nombre, Usuarios.ApellidoP, Usuarios.ApellidoM);
                         menusuario.instance.Show();
                     }
                     //new FrmMenu(Usuarios.valor, Usuarios.nivel, Usuarios.nombre, Usuarios.ApellidoP, Usuarios.ApellidoM).ShowDialog();
