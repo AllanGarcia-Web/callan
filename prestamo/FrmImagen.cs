@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using libAccesoBD;
 using LibArchivo;
 
 namespace Perloan_Desktop
@@ -44,7 +43,7 @@ namespace Perloan_Desktop
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            MySQL mysql = new MySQL();
+            //MySQL mysql = new MySQL();
             Imagen Img = new Imagen();
             byte[] ImageData = File.ReadAllBytes(path);
             //System.IO.MemoryStream ms = new System.IO.MemoryStream(ImageData);
@@ -55,7 +54,7 @@ namespace Perloan_Desktop
             }
             else
             {
-                MessageBox.Show(MySQL.Error);
+                //MessageBox.Show(MySQL.Error);
             }
         }
 
@@ -71,23 +70,23 @@ namespace Perloan_Desktop
 
         private void btnLeer_Click(object sender, EventArgs e)
         {
-            MySQL mysql = new MySQL();
-            if (mysql.Leer("*", "imagen WHERE name='" + tBnombreBD.Text + "'"))
-            {
-                while (MySQL.Lector.Read())
-                {
-                    sbyte ImageData = MySQL.Lector.GetSByte(0);
-                    using (var byteStream = new MemoryStream(ImageData))
-                    {
-                        pBimagenguardada.Image = new Bitmap(byteStream);
-                    }
-                    //pBimagenguardada.Image = System.Drawing.Image.FromStream(BD.Lector.GetStream(0));
-                }
-            }
-            else
-            {
-                MessageBox.Show(MySQL.Error);
-            }
+            //MySQL mysql = new MySQL();
+            //if (mysql.Leer("*", "imagen WHERE name='" + tBnombreBD.Text + "'"))
+            //{
+            //    while (MySQL.Lector.Read())
+            //    {
+            //        //sbyte ImageData = MySQL.Lector.GetSByte(0);
+            //        using (var byteStream = new MemoryStream(ImageData))
+            //        {
+            //            pBimagenguardada.Image = new Bitmap(byteStream);
+            //        }
+            //        //pBimagenguardada.Image = System.Drawing.Image.FromStream(BD.Lector.GetStream(0));
+            //    }
+            //}
+            //else
+            //{
+               // MessageBox.Show(MySQL.Error);
+            //}
         }
     }
 }

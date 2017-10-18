@@ -11,7 +11,6 @@ using System.IO;
 using iTextSharp.text.pdf; //generar el pdf
 using iTextSharp.text; //datos para el pdf
 using libperloan; //libreria de middleware perloan
-using libAccesoBD;
 using Microsoft.Office.Interop.Excel; //guardar en formato xlxs
 
 namespace Perloan_Desktop
@@ -29,7 +28,6 @@ namespace Perloan_Desktop
         {
             dGvUsuarios.Rows.Clear();
             Usuarios ClassUsuarios = new Usuarios();
-            Conectora Con =new Conectora();
             if (ClassUsuarios.Leer() == true) //carga datos al datagredview desde middleware
             {
                 while (Usuarios.Lector.Read()) //datos de la bd
