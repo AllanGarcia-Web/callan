@@ -118,7 +118,7 @@ namespace Perloan_Desktop
 
         private void deudoresToolStripMenuItem_Click(object sender, EventArgs e) //abre admin de deudores
         {
-            new FrmAdminDeudores().ShowDialog();
+            new FrmAdminDeudores(this.valor).ShowDialog();
         }
 
         private void acercaDelSisremaToolStripMenuItem_Click(object sender, EventArgs e) //acerca de
@@ -150,7 +150,7 @@ namespace Perloan_Desktop
 
         private void btn_Deudores_Click(object sender, EventArgs e)
         {
-            new FrmAdminDeudores().ShowDialog();
+            new FrmAdminDeudores(this.valor).ShowDialog();
         }
 
         private void btn_Prestamos_Click(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace Perloan_Desktop
 
         private void abrirDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmAdminDeudores().ShowDialog();
+            new FrmAdminDeudores(this.valor).ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

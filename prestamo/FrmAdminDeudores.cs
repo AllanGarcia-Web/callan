@@ -15,9 +15,11 @@ namespace Perloan_Desktop
 {
     public partial class FrmAdminDeudores : Form
     {
-        public FrmAdminDeudores()
+        public FrmAdminDeudores(int nivel)
         {
             InitializeComponent();
+            this.nivel = nivel;
+            Nivel();
         }
         #region Validaciones
         private bool nombre = false;
@@ -38,6 +40,19 @@ namespace Perloan_Desktop
         private bool nombreaval = false;
         #endregion
         libperloan.Deudores ClassDeudores = new Deudores();
+        private int nivel;
+        /// <summary>
+        /// Verifica el tipo de usuario
+        /// </summary>
+        private void Nivel()
+        {
+            if (nivel== 1)
+            {
+                btEliminar.Visible = false;
+                btEliminar.Enabled = false;
+                lblEliminar.Visible = true;
+            }
+        }
 
         private void btSalir_Click(object sender, EventArgs e)
         {

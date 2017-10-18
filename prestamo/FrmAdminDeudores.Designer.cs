@@ -83,6 +83,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tBdeudor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblEliminar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGvDeudores)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -460,14 +461,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblEliminar);
             this.groupBox2.Controls.Add(this.btCrear);
             this.groupBox2.Controls.Add(this.btActualizar);
             this.groupBox2.Controls.Add(this.btSalir);
             this.groupBox2.Controls.Add(this.btLimpiar);
             this.groupBox2.Controls.Add(this.btEliminar);
-            this.groupBox2.Location = new System.Drawing.Point(992, 399);
+            this.groupBox2.Location = new System.Drawing.Point(850, 399);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(259, 173);
+            this.groupBox2.Size = new System.Drawing.Size(401, 173);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -502,7 +504,7 @@
             // 
             this.btSalir.Image = ((System.Drawing.Image)(resources.GetObject("btSalir.Image")));
             this.btSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSalir.Location = new System.Drawing.Point(150, 119);
+            this.btSalir.Location = new System.Drawing.Point(281, 33);
             this.btSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btSalir.Name = "btSalir";
             this.btSalir.Size = new System.Drawing.Size(100, 45);
@@ -653,7 +655,17 @@
             this.label6.TabIndex = 92;
             this.label6.Text = "No. Deudor";
             // 
-            // AdminDeudores
+            // lblEliminar
+            // 
+            this.lblEliminar.AutoSize = true;
+            this.lblEliminar.Location = new System.Drawing.Point(5, 111);
+            this.lblEliminar.Name = "lblEliminar";
+            this.lblEliminar.Size = new System.Drawing.Size(230, 26);
+            this.lblEliminar.TabIndex = 101;
+            this.lblEliminar.Text = "Nota: Los deudores solo pueden ser eliminados\r\npor el administrador";
+            this.lblEliminar.Visible = false;
+            // 
+            // FrmAdminDeudores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -665,12 +677,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "AdminDeudores";
+            this.Name = "FrmAdminDeudores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administración de Deudores";
             this.Load += new System.EventHandler(this.AdminDeudores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGvDeudores)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -733,5 +746,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.ComboBox cBestados;
+        private System.Windows.Forms.Label lblEliminar;
     }
 }
