@@ -43,6 +43,8 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btnDirectorio = new System.Windows.Forms.Button();
+            this.tBdirectorio = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,18 +170,37 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(11, 102);
+            this.reportViewer1.Location = new System.Drawing.Point(11, 35);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1162, 245);
+            this.reportViewer1.Size = new System.Drawing.Size(1162, 362);
             this.reportViewer1.TabIndex = 39;
+            // 
+            // btnDirectorio
+            // 
+            this.btnDirectorio.Location = new System.Drawing.Point(468, 411);
+            this.btnDirectorio.Name = "btnDirectorio";
+            this.btnDirectorio.Size = new System.Drawing.Size(75, 23);
+            this.btnDirectorio.TabIndex = 40;
+            this.btnDirectorio.Text = "Crear";
+            this.btnDirectorio.UseVisualStyleBackColor = true;
+            this.btnDirectorio.Click += new System.EventHandler(this.btnDirectorio_Click);
+            // 
+            // tBdirectorio
+            // 
+            this.tBdirectorio.Location = new System.Drawing.Point(352, 413);
+            this.tBdirectorio.Name = "tBdirectorio";
+            this.tBdirectorio.Size = new System.Drawing.Size(100, 20);
+            this.tBdirectorio.TabIndex = 41;
             // 
             // FrmReporteUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 455);
+            this.Controls.Add(this.tBdirectorio);
+            this.Controls.Add(this.btnDirectorio);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.dGvUsuarios);
             this.Controls.Add(this.label1);
@@ -212,5 +233,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.Button btnDirectorio;
+        private System.Windows.Forms.TextBox tBdirectorio;
     }
 }

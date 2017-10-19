@@ -214,7 +214,7 @@ namespace Perloan_Desktop
 
         private void imagenABDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmImagen().ShowDialog();
+            //new FrmImagen().ShowDialog();
         }
     }
 }

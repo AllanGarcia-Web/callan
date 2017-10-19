@@ -71,6 +71,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bt_salir = new System.Windows.Forms.Button();
+            this.mandarEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -153,7 +154,8 @@
             // 
             this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configuraciónDeBasesDeDatosToolStripMenuItem,
-            this.imagenABDToolStripMenuItem});
+            this.imagenABDToolStripMenuItem,
+            this.mandarEmailToolStripMenuItem});
             this.configuraciónToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.configuraciónToolStripMenuItem.Image = global::Perloan_Desktop.Properties.Resources.PencilTool_206;
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
@@ -465,6 +467,13 @@
             this.bt_salir.UseVisualStyleBackColor = true;
             this.bt_salir.Click += new System.EventHandler(this.bt_salir_Click);
             // 
+            // mandarEmailToolStripMenuItem
+            // 
+            this.mandarEmailToolStripMenuItem.Name = "mandarEmailToolStripMenuItem";
+            this.mandarEmailToolStripMenuItem.Size = new System.Drawing.Size(287, 22);
+            this.mandarEmailToolStripMenuItem.Text = "Mandar Email";
+            this.mandarEmailToolStripMenuItem.Click += new System.EventHandler(this.mandarEmailToolStripMenuItem_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -545,5 +554,6 @@
         private System.Windows.Forms.ToolStripMenuItem mSServerSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postgreSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imagenABDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mandarEmailToolStripMenuItem;
     }
 }

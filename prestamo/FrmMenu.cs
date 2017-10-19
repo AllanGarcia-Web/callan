@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Net.Mail;
 using System.Net;
 using System.IO;
 using libperloan;
@@ -217,6 +218,31 @@ namespace Perloan_Desktop
         private void imagenABDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmImagen().ShowDialog();
+        }
+
+        private void mandarEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("monta990@gmail.com");
+                mail.To.Add("monta990@gmail.com");
+                mail.To.Add("elias986@yahoo.com");
+                mail.Subject = "Usuario Actual en PERLOAN";
+                mail.Body = "El usuario actual es: "+nombre+" "+apellidop+" "+apellidom;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("admin@sontechs.com", "moscaslibres");
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(mail);
+                MessageBox.Show("Email enviado","Enviado",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

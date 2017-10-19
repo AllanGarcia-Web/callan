@@ -62,7 +62,8 @@
     <Reference Include="LibArchivo">
       <HintPath>..\..\..\4cuatri\LibArchivo\bin\Debug\LibArchivo.dll</HintPath>
     </Reference>
-    <Reference Include="libperloan">
+    <Reference Include="libperloan, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libperloan\libperloan\bin\Debug\libperloan.dll</HintPath>
     </Reference>
     <Reference Include="libValidaciones">
@@ -182,7 +183,7 @@
     <Compile Include="FrmImagen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmImagen.Designer.cs">
+    <Compile Include="FrmImagen.designer.cs">
       <DependentUpon>FrmImagen.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenuUsuario.cs">
@@ -209,6 +210,7 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imagen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmReportePrestamos.cs">

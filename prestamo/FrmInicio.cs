@@ -8,16 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using LibArchivo;
 using libperloan;
 
 namespace Perloan_Desktop
-{ 
+{
     public partial class FrmInicio : Form
     {
-        
+        private string user;
+        private string pass;
+        private string status;
+        private static string archivorecordar = "Recordar.ini";
         public FrmInicio()
         {
             InitializeComponent();
+            ReadRecordar();
             tBusuario.Focus();
         }
         #region Singleton
@@ -41,6 +46,32 @@ namespace Perloan_Desktop
             }
         }
         #endregion
+        private void ReadRecordar()
+        {
+            ArchivosBD archivos = new ArchivosBD();
+            archivos.LeerRecordar(archivorecordar);
+            tBusuario.Text = archivos.user;
+            tBpass.Text = archivos.pass;
+            cBoxRecordar.Checked = Convert.ToBoolean(archivos.status);
+        }
+        private void Recordar()
+        {
+            ArchivosBD archivos = new ArchivosBD();
+            if (cBoxRecordar.Checked == true)
+            {
+                user = tBusuario.Text;
+                pass = tBpass.Text;
+                status = cBoxRecordar.Checked.ToString();
+                archivos.Recordar(archivorecordar, user, pass, status);
+            }
+            else
+            {
+                user = tBusuario.Text;
+                pass = tBpass.Text;
+                status = cBoxRecordar.Checked.ToString();
+                archivos.Recordar(archivorecordar, user, pass, status);
+            }
+        }
         /// <summary>
         /// Acceder al sistema
         /// </summary>
@@ -63,6 +94,7 @@ namespace Perloan_Desktop
                 Usuarios ClassUsuarios = new Usuarios(); //clase usuarios
                 if (ClassUsuarios.Login(tBusuario.Text, tBpass.Text)) //verifica estado de acceso para el error
                 {
+                    Recordar();
                     if (Usuarios.valor == 0)
                     {
                         this.Hide();

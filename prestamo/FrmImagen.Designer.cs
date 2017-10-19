@@ -1,16 +1,16 @@
-ï»¿namespace Perloan_Desktop
+namespace Perloan_Desktop
 {
     partial class FrmImagen
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable del diseñador requerida.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Limpiar los recursos que se estén utilizando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,160 +20,173 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido del método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            this.pBimagenaguardar = new System.Windows.Forms.PictureBox();
-            this.pBimagenguardada = new System.Windows.Forms.PictureBox();
-            this.tBnombre = new System.Windows.Forms.TextBox();
-            this.tBnombreBD = new System.Windows.Forms.TextBox();
-            this.gBGuardar = new System.Windows.Forms.GroupBox();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.gBLeer = new System.Windows.Forms.GroupBox();
-            this.btnLeer = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.pBimagen = new System.Windows.Forms.PictureBox();
+            this.BtnAgregarFoto = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbListaFotos = new System.Windows.Forms.ComboBox();
+            this.pBserver = new System.Windows.Forms.PictureBox();
+            this.tBbuscar = new System.Windows.Forms.TextBox();
+            this.tbBuscarimg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnCargar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pBimagenaguardar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBimagenguardada)).BeginInit();
-            this.gBGuardar.SuspendLayout();
-            this.gBLeer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBimagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBserver)).BeginInit();
             this.SuspendLayout();
             // 
-            // pBimagenaguardar
+            // label1
             // 
-            this.pBimagenaguardar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pBimagenaguardar.Location = new System.Drawing.Point(6, 17);
-            this.pBimagenaguardar.Name = "pBimagenaguardar";
-            this.pBimagenaguardar.Size = new System.Drawing.Size(113, 103);
-            this.pBimagenaguardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBimagenaguardar.TabIndex = 0;
-            this.pBimagenaguardar.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre:";
             // 
-            // pBimagenguardada
+            // txtDescripcion
             // 
-            this.pBimagenguardada.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pBimagenguardada.Location = new System.Drawing.Point(289, 10);
-            this.pBimagenguardada.Name = "pBimagenguardada";
-            this.pBimagenguardada.Size = new System.Drawing.Size(113, 98);
-            this.pBimagenguardada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBimagenguardada.TabIndex = 1;
-            this.pBimagenguardada.TabStop = false;
+            this.txtDescripcion.Location = new System.Drawing.Point(86, 13);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(237, 20);
+            this.txtDescripcion.TabIndex = 1;
             // 
-            // tBnombre
+            // pBimagen
             // 
-            this.tBnombre.Location = new System.Drawing.Point(125, 32);
-            this.tBnombre.Name = "tBnombre";
-            this.tBnombre.Size = new System.Drawing.Size(188, 20);
-            this.tBnombre.TabIndex = 2;
+            this.pBimagen.Location = new System.Drawing.Point(329, 12);
+            this.pBimagen.Name = "pBimagen";
+            this.pBimagen.Size = new System.Drawing.Size(127, 108);
+            this.pBimagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBimagen.TabIndex = 2;
+            this.pBimagen.TabStop = false;
             // 
-            // tBnombreBD
+            // BtnAgregarFoto
             // 
-            this.tBnombreBD.Location = new System.Drawing.Point(95, 32);
-            this.tBnombreBD.Name = "tBnombreBD";
-            this.tBnombreBD.Size = new System.Drawing.Size(188, 20);
-            this.tBnombreBD.TabIndex = 3;
+            this.BtnAgregarFoto.Location = new System.Drawing.Point(215, 86);
+            this.BtnAgregarFoto.Name = "BtnAgregarFoto";
+            this.BtnAgregarFoto.Size = new System.Drawing.Size(108, 23);
+            this.BtnAgregarFoto.TabIndex = 3;
+            this.BtnAgregarFoto.Text = "Agregar a BD";
+            this.BtnAgregarFoto.UseVisualStyleBackColor = true;
+            this.BtnAgregarFoto.Click += new System.EventHandler(this.button1_Click);
             // 
-            // gBGuardar
+            // button2
             // 
-            this.gBGuardar.Controls.Add(this.btnCargar);
-            this.gBGuardar.Controls.Add(this.btnSeleccionar);
-            this.gBGuardar.Controls.Add(this.pBimagenaguardar);
-            this.gBGuardar.Controls.Add(this.tBnombre);
-            this.gBGuardar.Location = new System.Drawing.Point(12, 2);
-            this.gBGuardar.Name = "gBGuardar";
-            this.gBGuardar.Size = new System.Drawing.Size(414, 126);
-            this.gBGuardar.TabIndex = 4;
-            this.gBGuardar.TabStop = false;
-            this.gBGuardar.Text = "Guardar";
+            this.button2.Location = new System.Drawing.Point(86, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(62, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnSeleccionar
+            // openFileDialog1
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(333, 32);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 3;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = true;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // gBLeer
+            // label2
             // 
-            this.gBLeer.Controls.Add(this.btnLeer);
-            this.gBLeer.Controls.Add(this.button1);
-            this.gBLeer.Controls.Add(this.tBnombreBD);
-            this.gBLeer.Controls.Add(this.pBimagenguardada);
-            this.gBLeer.Location = new System.Drawing.Point(18, 135);
-            this.gBLeer.Name = "gBLeer";
-            this.gBLeer.Size = new System.Drawing.Size(409, 114);
-            this.gBLeer.TabIndex = 5;
-            this.gBLeer.TabStop = false;
-            this.gBLeer.Text = "Leer";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(145, 180);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Nombre:";
             // 
-            // btnLeer
+            // cbListaFotos
             // 
-            this.btnLeer.Location = new System.Drawing.Point(7, 84);
-            this.btnLeer.Name = "btnLeer";
-            this.btnLeer.Size = new System.Drawing.Size(75, 23);
-            this.btnLeer.TabIndex = 5;
-            this.btnLeer.Text = "Leer";
-            this.btnLeer.UseVisualStyleBackColor = true;
-            this.btnLeer.Click += new System.EventHandler(this.btnLeer_Click);
+            this.cbListaFotos.FormattingEnabled = true;
+            this.cbListaFotos.Location = new System.Drawing.Point(607, 13);
+            this.cbListaFotos.Name = "cbListaFotos";
+            this.cbListaFotos.Size = new System.Drawing.Size(237, 21);
+            this.cbListaFotos.TabIndex = 6;
+            this.cbListaFotos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // pBserver
+            // 
+            this.pBserver.Location = new System.Drawing.Point(12, 186);
+            this.pBserver.Name = "pBserver";
+            this.pBserver.Size = new System.Drawing.Size(127, 108);
+            this.pBserver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBserver.TabIndex = 8;
+            this.pBserver.TabStop = false;
+            // 
+            // tBbuscar
+            // 
+            this.tBbuscar.Location = new System.Drawing.Point(145, 196);
+            this.tBbuscar.Name = "tBbuscar";
+            this.tBbuscar.Size = new System.Drawing.Size(237, 20);
+            this.tBbuscar.TabIndex = 9;
+            // 
+            // tbBuscarimg
+            // 
+            this.tbBuscarimg.Location = new System.Drawing.Point(320, 222);
+            this.tbBuscarimg.Name = "tbBuscarimg";
+            this.tbBuscarimg.Size = new System.Drawing.Size(62, 23);
+            this.tbBuscarimg.TabIndex = 10;
+            this.tbBuscarimg.Text = "Buscar";
+            this.tbBuscarimg.UseVisualStyleBackColor = true;
+            this.tbBuscarimg.Click += new System.EventHandler(this.tbBuscarimg_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 29);
+            this.button1.Location = new System.Drawing.Point(274, 251);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Seleccionar";
+            this.button1.Size = new System.Drawing.Size(108, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Buscar en BD";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.Location = new System.Drawing.Point(333, 96);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(75, 23);
-            this.btnCargar.TabIndex = 4;
-            this.btnCargar.Text = "Cargar";
-            this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FrmImagen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 261);
-            this.Controls.Add(this.gBLeer);
-            this.Controls.Add(this.gBGuardar);
+            this.ClientSize = new System.Drawing.Size(463, 323);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbBuscarimg);
+            this.Controls.Add(this.tBbuscar);
+            this.Controls.Add(this.pBserver);
+            this.Controls.Add(this.cbListaFotos);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnAgregarFoto);
+            this.Controls.Add(this.pBimagen);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.label1);
             this.Name = "FrmImagen";
-            this.Text = "FrmImagen";
-            ((System.ComponentModel.ISupportInitialize)(this.pBimagenaguardar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBimagenguardada)).EndInit();
-            this.gBGuardar.ResumeLayout(false);
-            this.gBGuardar.PerformLayout();
-            this.gBLeer.ResumeLayout(false);
-            this.gBLeer.PerformLayout();
+            this.Text = "Imagenes";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pBimagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBserver)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pBimagenaguardar;
-        private System.Windows.Forms.PictureBox pBimagenguardada;
-        private System.Windows.Forms.TextBox tBnombre;
-        private System.Windows.Forms.TextBox tBnombreBD;
-        private System.Windows.Forms.GroupBox gBGuardar;
-        private System.Windows.Forms.Button btnSeleccionar;
-        private System.Windows.Forms.GroupBox gBLeer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.PictureBox pBimagen;
+        private System.Windows.Forms.Button BtnAgregarFoto;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbListaFotos;
+        private System.Windows.Forms.PictureBox pBserver;
+        private System.Windows.Forms.TextBox tBbuscar;
+        private System.Windows.Forms.Button tbBuscarimg;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnLeer;
-        private System.Windows.Forms.Button btnCargar;
     }
 }
+

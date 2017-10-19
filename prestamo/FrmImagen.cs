@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,86 +7,80 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using LibArchivo;
 
 namespace Perloan_Desktop
 {
     public partial class FrmImagen : Form
     {
-        private OpenFileDialog openFile = new OpenFileDialog();
-        /// <summary>
-        /// Formulario de manejo de imagen
-        /// </summary>
+        Imagen img = new Imagen();
+        public static ComboBox cbListaFotosBD = new ComboBox();
+        public static PictureBox paspic = new PictureBox();
+        private OpenFileDialog Open = new OpenFileDialog();
         public FrmImagen()
         {
             InitializeComponent();
         }
-        string path;
-        private void btnSeleccionar_Click(object sender, EventArgs e)
+        private void LeerLista()
         {
-            try
+            for (int i = 0; i < cbListaFotosBD.Items.Count; i++)
             {
-                openFile.Title = "Selecciona archivo a cargar";
-                if (openFile.ShowDialog() == DialogResult.OK)
-                {
-                    pBimagenaguardar.Load(openFile.FileName); //cargar picturebox
-                }
-                tBnombre.Text = openFile.SafeFileName;
-                path = openFile.FileName;
+                cbListaFotosBD.SelectedIndex = i;
+                cbListaFotos.Items.Add(cbListaFotosBD.Text);
             }
-            catch (IOException Error)
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Open.Title = "Selecciona un archivo a cargar";
+            if (Open.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("No se pudo seleccionar la imagen "+Error);
+                pBimagen.Load(Open.FileName);
+                txtDescripcion.Text = Open.SafeFileName;
             }
         }
 
-        private void btnCargar_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            //MySQL mysql = new MySQL();
-            Imagen Img = new Imagen();
-            byte[] ImageData = File.ReadAllBytes(path);
-            //System.IO.MemoryStream ms = new System.IO.MemoryStream(ImageData);
-            //if (mysql.Insertar("imagen", "name, image", "'"+tBnombre.Text+"',"+ ImageData +""))
-            if (Img.Guardar(tBnombre.Text,openFile.SafeFileName,ImageData))
-            {
-                MessageBox.Show("Cargado");
-            }
-            else
-            {
-                //MessageBox.Show(MySQL.Error);
-            }
+            img.abrirConexion();
+            img.cargarImagenes();
+            LeerLista();
+            //if (cbListaFotos.Items.Count > 0)
+            //{
+            //    cbListaFotos.SelectedIndex = 0;
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (openFile.ShowDialog() == DialogResult.OK)
+            paspic = pBimagen;
+            MessageBox.Show(img.insertarImagen(txtDescripcion.Text));
+            cbListaFotosBD.Items.Clear();
+            cbListaFotos.Items.Clear();
+            img.cargarImagenes();
+            LeerLista();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            paspic = pBimagen;
+            img.verImagen(cbListaFotos.SelectedItem.ToString());
+        }
+
+        private void tbBuscarimg_Click(object sender, EventArgs e)
+        {
+            Open.Title = "Selecciona un archivo a cargar";
+            if (Open.ShowDialog() == DialogResult.OK)
             {
-                openFile.Title = "Selecciona Imagen a buscar";
-                //pBimagenguardada.Load(openFile.FileName);
-                tBnombreBD.Text = openFile.SafeFileName;
+                //pBimagen.Load(Open.FileName);
+                tBbuscar.Text = Open.SafeFileName;
             }
         }
 
-        private void btnLeer_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            //MySQL mysql = new MySQL();
-            //if (mysql.Leer("*", "imagen WHERE name='" + tBnombreBD.Text + "'"))
-            //{
-            //    while (MySQL.Lector.Read())
-            //    {
-            //        //sbyte ImageData = MySQL.Lector.GetSByte(0);
-            //        using (var byteStream = new MemoryStream(ImageData))
-            //        {
-            //            pBimagenguardada.Image = new Bitmap(byteStream);
-            //        }
-            //        //pBimagenguardada.Image = System.Drawing.Image.FromStream(BD.Lector.GetStream(0));
-            //    }
-            //}
-            //else
-            //{
-               // MessageBox.Show(MySQL.Error);
-            //}
+
+            paspic = pBserver;
+            img.verImagen(tBbuscar.Text);
+            MessageBox.Show(img.verImagen(tBbuscar.Text));
         }
     }
 }

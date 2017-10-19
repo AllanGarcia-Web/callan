@@ -11,6 +11,7 @@ using System.IO;
 using iTextSharp.text.pdf; //generar el pdf
 using iTextSharp.text; //datos para el pdf
 using libperloan; //libreria de middleware perloan
+using LibArchivo;
 using Microsoft.Office.Interop.Excel; //guardar en formato xlxs
 
 namespace Perloan_Desktop
@@ -149,6 +150,20 @@ namespace Perloan_Desktop
         private void btn_Pdf_Click(object sender, EventArgs e)
         {
             PDFusuarios();
+        }
+
+        private void btnDirectorio_Click(object sender, EventArgs e)
+        {
+            Directorio Dir = new Directorio();
+            if (Dir.Crear(tBdirectorio.Text))
+            {
+                MessageBox.Show("Directorio creado");
+                System.Diagnostics.Process.Start(Directory.GetCurrentDirectory()+@"\"+tBdirectorio.Text);
+            }
+            else
+            {
+                MessageBox.Show("Directorio NO creado");
+            }
         }
     }
 }

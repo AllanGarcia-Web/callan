@@ -17,22 +17,78 @@ namespace Perloan_Desktop
     {
         public string estado="Si"; //siempre activo ya que casilla de activo esta marcada por default
         Usuarios ClassUsuarios = new Usuarios();
+        
         /// <summary>
         /// Carga inicial del formulario
         /// </summary>
-        private void Inicio()
+        public void Inicio()
         {
             dGvUsuarios.Rows.Clear();
             if (ClassUsuarios.Leer() == true) //carga datos al datagredview desde middleware
             {
-                while (Usuarios.Lector.Read()) //datos de la bd
+                if (Usuarios.Lector.HasRows)
                 {
-                    dGvUsuarios.Rows.Add(Usuarios.Lector.GetString(0), Usuarios.Lector.GetString(1), Usuarios.Lector.GetString(2), Usuarios.Lector.GetString(3), Usuarios.Lector.GetString(4), Usuarios.Lector.GetString(5), Usuarios.Lector.GetString(6), Usuarios.Lector.GetString(7)); // cargar datos
+                    while (Usuarios.Lector.Read()) //datos de la bd
+                    {
+                        dGvUsuarios.Rows.Add(Usuarios.Lector.GetString(0), Usuarios.Lector.GetString(1), Usuarios.Lector.GetString(2), Usuarios.Lector.GetString(3), Usuarios.Lector.GetString(4), Usuarios.Lector.GetString(5), Usuarios.Lector.GetString(6), Usuarios.Lector.GetString(7)); // cargar datos
+                    }
+                }
+                //if (Usuarios.Lector2.HasRows)
+                //{
+                //    while (Usuarios.Lector2.Read()) //datos de la bd
+                //    {
+                //        dGvUsuarios.Rows.Add(Usuarios.Lector2.GetString(0), Usuarios.Lector2.GetString(1), Usuarios.Lector2.GetString(2), Usuarios.Lector2.GetString(3), Usuarios.Lector2.GetString(4), Usuarios.Lector2.GetString(5), Usuarios.Lector2.GetString(6), Usuarios.Lector2.GetString(7)); // cargar datos
+                //    }
+                //}
+                if (Usuarios.Lector3.HasRows)
+                {
+                    while (Usuarios.Lector3.Read()) //datos de la bd
+                    {
+                        dGvUsuarios.Rows.Add(Usuarios.Lector3.GetString(0), Usuarios.Lector3.GetString(1), Usuarios.Lector3.GetString(2), Usuarios.Lector3.GetString(3), Usuarios.Lector3.GetString(4), Usuarios.Lector3.GetString(5), Usuarios.Lector3.GetString(6), Usuarios.Lector3.GetString(7)); // cargar datos
+                    }
                 }
             }
             else
             {
                 DialogResult dialog = MessageBox.Show("Error al leer datos. " + Usuarios.Error, "Error al leer datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //EliminarRepetidos();
+        }
+        /// <summary>
+        /// Elimina datos repetidos en datagridview
+        /// </summary>
+        public void EliminarRepetidos()
+        {
+            int m = 0;  // Apunta a la fila actual
+            int n = dGvUsuarios.Rows.Count - 1;  // cantidad de filas en el DataGridView
+            int k = 0;
+            string estaFila, unaFila;
+
+            while (m <= n)
+            {
+                k = 1;
+                estaFila = String.Empty;
+
+                // Relleno la cadena con los datos de toda la fila
+                for (int i = 0; i < dGvUsuarios.Columns.Count - 1; i++)
+                    estaFila = String.Concat(estaFila, dGvUsuarios.Rows[m].Cells[i].Value.ToString());
+
+                while (k <= dGvUsuarios.Rows.Count - 1)
+                {
+                    unaFila = String.Empty;  // Fila a comparar
+
+                    for (int i = 0; i < dGvUsuarios.Columns.Count - 1; i++)
+                        unaFila = String.Concat(unaFila, dGvUsuarios.Rows[k].Cells[i].Value.ToString());
+
+                    if (String.Compare(estaFila, unaFila) == 0 && k != m)
+                    {
+                        dGvUsuarios.Rows.RemoveAt(k); // Si son iguales remuevo unaFila solamente
+                        n--;                            // Tamaño actual del DataGridView, al remover disminuye en uno
+                        k--;
+                    }
+                    k++;
+                }
+                m++;
             }
         }
         /// <summary>
@@ -64,7 +120,7 @@ namespace Perloan_Desktop
                 {
                     if (ClassUsuarios.Insertar(cbNivel.Text, tBusuario.Text, tBpass.Text, tBnombre.Text, tBappaterno.Text, tBapmaterno.Text, tBemail.Text, estado) == true)
                     {
-                        DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamnte!!. ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dialog = MessageBox.Show("Usuario Agregado Correctamente ", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tBusuario.Focus();
                     }
                     else

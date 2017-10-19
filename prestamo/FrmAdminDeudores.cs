@@ -20,6 +20,8 @@ namespace Perloan_Desktop
             InitializeComponent();
             this.nivel = nivel;
             Nivel();
+            cBestados.Text = "Sonora";
+            tbCiudad.Text = "Hermosillo";
         }
         #region Validaciones
         private bool nombre = false;
